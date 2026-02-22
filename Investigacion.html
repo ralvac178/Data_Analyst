@@ -1,0 +1,1904 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Investigación del comportamiento usuarios &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Investigacion';</script>
+    <link rel="canonical" href="/Data_Analyst/Investigacion.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data Wrangling (¡Llena ese carrito!)" href="Data_Wrangling%20-%202.html" />
+    <link rel="prev" title="Predicciones de cancelaciones de membresias de Gimnasio" href="Predicciones.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Predicciones.html">Predicciones de cancelaciones de membresias de Gimnasio</a></li>
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Investigación del comportamiento usuarios</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Data_Wrangling%20-%202.html">Data Wrangling (¡Llena ese carrito!)</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Data_Wrangling.html">Manipulación de Datos (Déjame escuchar música)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Analisis_de_Ventas_de_Videojuegos.html">Análisis de Ventas de Videojuegos</a></li>
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FInvestigacion.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Investigacion.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Investigación del comportamiento usuarios</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Investigación del comportamiento usuarios</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paso-1-abrir-el-archivo-de-datos-y-leer-la-informacion-general">Paso 1. Abrir el archivo de datos y leer la información general</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paso-2-preparar-los-datos-para-el-analisis">Paso 2. Preparar los datos para el análisis</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paso-3-estudiar-y-comprobar-los-datos">Paso 3. Estudiar y comprobar los datos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cuantos-eventos-hay-en-los-registros">¿Cuántos eventos hay en los registros?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cuantos-usuarios-hay-en-los-registros">¿Cuántos usuarios hay en los registros?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cual-es-el-promedio-de-eventos-por-usuario">¿Cuál es el promedio de eventos por usuario?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-periodo-de-tiempo-cubren-los-datos-encuentra-la-fecha-maxima-y-minima">¿Qué periodo de tiempo cubren los datos? Encuentra la fecha máxima y mínima.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#puedes-tener-seguridad-de-que-tienes-datos-igualmente-completos-para-todo-el-periodo-los-eventos-mas-antiguos-podrian-terminar-en-los-registros-de-algunos-usuarios-por-razones-tecnicas-y-esto-podria-sesgar-el-panorama-general-encuentra-el-momento-en-el-que-los-datos-comienzan-a-estar-completos-e-ignora-la-seccion-anterior-que-periodo-representan-realmente-los-datos">¿Puedes tener seguridad de que tienes datos igualmente completos para todo el periodo? Los eventos más antiguos podrían terminar en los registros de algunos usuarios por razones técnicas y esto podría sesgar el panorama general. Encuentra el momento en el que los datos comienzan a estar completos e ignora la sección anterior. ¿Qué periodo representan realmente los datos?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-periodo-representan-realmente-los-datos">¿Qué periodo representan realmente los datos?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perdiste-muchos-eventos-y-usuarios-al-excluir-los-datos-mas-antiguos">¿Perdiste muchos eventos y usuarios al excluir los datos más antiguos?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asegurate-de-tener-usuarios-de-los-tres-grupos-experimentales">Asegúrate de tener usuarios de los tres grupos experimentales.</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paso-4-estudiar-el-embudo-de-eventos">Paso 4. Estudiar el embudo de eventos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observa-que-eventos-hay-en-los-registros-y-su-frecuencia-de-suceso-ordenalos-por-frecuencia">Observa qué eventos hay en los registros y su frecuencia de suceso. Ordénalos por frecuencia.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encuentra-la-cantidad-de-usuarios-que-realizaron-cada-una-de-estas-acciones-ordena-los-eventos-por-el-numero-de-usuarios-calcula-la-proporcion-de-usuarios-que-realizaron-la-accion-al-menos-una-vez">Encuentra la cantidad de usuarios que realizaron cada una de estas acciones. Ordena los eventos por el número de usuarios. Calcula la proporción de usuarios que realizaron la acción al menos una vez.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#en-que-orden-crees-que-ocurrieron-las-acciones-todas-son-parte-de-una-sola-secuencia-no-es-necesario-tenerlas-en-cuenta-al-calcular-el-embudo">¿En qué orden crees que ocurrieron las acciones? ¿Todas son parte de una sola secuencia? No es necesario tenerlas en cuenta al calcular el embudo.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utiliza-el-embudo-de-eventos-para-encontrar-la-proporcion-de-usuarios-que-pasan-de-una-etapa-a-la-siguiente-por-ejemplo-para-la-secuencia-de-eventos-a-b-c-calcula-la-proporcion-de-usuarios-en-la-etapa-b-a-la-cantidad-de-usuarios-en-la-etapa-a-y-la-proporcion-de-usuarios-en-la-etapa-c-a-la-cantidad-en-la-etapa-b">Utiliza el embudo de eventos para encontrar la proporción de usuarios que pasan de una etapa a la siguiente. Por ejemplo, para la secuencia de eventos A → B → C, calcula la proporción de usuarios en la etapa B a la cantidad de usuarios en la etapa A y la proporción de usuarios en la etapa C a la cantidad en la etapa B.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#en-que-etapa-pierdes-mas-usuarios">¿En qué etapa pierdes más usuarios?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-porcentaje-de-usuarios-hace-todo-el-viaje-desde-su-primer-evento-hasta-el-pago">¿Qué porcentaje de usuarios hace todo el viaje desde su primer evento hasta el pago?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paso-5-estudiar-los-resultados-del-experimento">Paso 5. Estudiar los resultados del experimento</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cuantos-usuarios-hay-en-cada-grupo">¿Cuántos usuarios hay en cada grupo?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenemos-dos-grupos-de-control-en-el-test-a-a-donde-comprobamos-nuestros-mecanismos-y-calculos-observa-si-hay-una-diferencia-estadisticamente-significativa-entre-las-muestras-246-y-247">Tenemos dos grupos de control en el test A/A, donde comprobamos nuestros mecanismos y cálculos. Observa si hay una diferencia estadísticamente significativa entre las muestras 246 y 247.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecciona-el-evento-mas-popular-en-cada-uno-de-los-grupos-de-control-encuentra-la-cantidad-de-usuarios-que-realizaron-esta-accion-encuentra-su-proporcion-comprueba-si-la-diferencia-entre-los-grupos-es-estadisticamente-significativa-repite-el-procedimiento-para-todos-los-demas-eventos-ahorraras-tiempo-si-creas-una-funcion-especial-para-esta-prueba-puedes-confirmar-que-los-grupos-se-dividieron-correctamente">Selecciona el evento más popular. En cada uno de los grupos de control, encuentra la cantidad de usuarios que realizaron esta acción. Encuentra su proporción. Comprueba si la diferencia entre los grupos es estadísticamente significativa. Repite el procedimiento para todos los demás eventos (ahorrarás tiempo si creas una función especial para esta prueba). ¿Puedes confirmar que los grupos se dividieron correctamente?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#haz-lo-mismo-para-el-grupo-con-fuentes-alteradas-compara-los-resultados-con-los-de-cada-uno-de-los-grupos-de-control-para-cada-evento-de-forma-aislada-compara-los-resultados-con-los-resultados-combinados-de-los-grupos-de-control-que-conclusiones-puedes-sacar-del-experimento">Haz lo mismo para el grupo con fuentes alteradas. Compara los resultados con los de cada uno de los grupos de control para cada evento de forma aislada. Compara los resultados con los resultados combinados de los grupos de control. ¿Qué conclusiones puedes sacar del experimento?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-nivel-de-significancia-has-establecido-para-probar-las-hipotesis-estadisticas-mencionadas-anteriormente-calcula-cuantas-pruebas-de-hipotesis-estadisticas-has-realizado-con-un-nivel-de-significancia-estadistica-de-0-1-uno-de-cada-10-resultados-podria-ser-falso-cual-deberia-ser-el-nivel-de-significancia-si-deseas-cambiarlo-vuelve-a-ejecutar-los-pasos-anteriores-y-comprueba-tus-conclusiones">¿Qué nivel de significancia has establecido para probar las hipótesis estadísticas mencionadas anteriormente? Calcula cuántas pruebas de hipótesis estadísticas has realizado. Con un nivel de significancia estadística de 0.1, uno de cada 10 resultados podría ser falso. ¿Cuál debería ser el nivel de significancia? Si deseas cambiarlo, vuelve a ejecutar los pasos anteriores y comprueba tus conclusiones.</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="investigacion-del-comportamiento-usuarios">
+<h1>Investigación del comportamiento usuarios<a class="headerlink" href="#investigacion-del-comportamiento-usuarios" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="paso-1-abrir-el-archivo-de-datos-y-leer-la-informacion-general">
+<h1>Paso 1. Abrir el archivo de datos y leer la información general<a class="headerlink" href="#paso-1-abrir-el-archivo-de-datos-y-leer-la-informacion-general" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/datasets/logs_exp_us.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">logs</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>EventName</th>
+      <th>DeviceIDHash</th>
+      <th>EventTimestamp</th>
+      <th>ExpId</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>MainScreenAppear</td>
+      <td>4575588528974610257</td>
+      <td>1564029816</td>
+      <td>246</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>MainScreenAppear</td>
+      <td>7416695313311560658</td>
+      <td>1564053102</td>
+      <td>246</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>PaymentScreenSuccessful</td>
+      <td>3518123091307005509</td>
+      <td>1564054127</td>
+      <td>248</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>CartScreenAppear</td>
+      <td>3518123091307005509</td>
+      <td>1564054127</td>
+      <td>248</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>PaymentScreenSuccessful</td>
+      <td>6217807653094995999</td>
+      <td>1564055322</td>
+      <td>248</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logs</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 244126 entries, 0 to 244125
+Data columns (total 4 columns):
+ #   Column          Non-Null Count   Dtype 
+---  ------          --------------   ----- 
+ 0   EventName       244126 non-null  object
+ 1   DeviceIDHash    244126 non-null  int64 
+ 2   EventTimestamp  244126 non-null  int64 
+ 3   ExpId           244126 non-null  int64 
+dtypes: int64(3), object(1)
+memory usage: 7.5+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<p>La tabla de informacion nos muestra que no hay datos nulos, pero algunos de los tipos que pueden ser categoricos, no lo son.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="paso-2-preparar-los-datos-para-el-analisis">
+<h1>Paso 2. Preparar los datos para el análisis<a class="headerlink" href="#paso-2-preparar-los-datos-para-el-analisis" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logs</span><span class="p">[</span><span class="s1">&#39;EventName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">logs</span><span class="p">[</span><span class="s1">&#39;EventName&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="n">logs</span><span class="p">[</span><span class="s1">&#39;ExpId&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">logs</span><span class="p">[</span><span class="s1">&#39;ExpId&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="n">logs</span><span class="p">[</span><span class="s1">&#39;EventDateTime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">logs</span><span class="p">[</span><span class="s1">&#39;EventTimestamp&#39;</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+<span class="n">logs</span><span class="p">[</span><span class="s1">&#39;EventDate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">logs</span><span class="p">[</span><span class="s1">&#39;EventDateTime&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logs</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 244126 entries, 0 to 244125
+Data columns (total 6 columns):
+ #   Column          Non-Null Count   Dtype         
+---  ------          --------------   -----         
+ 0   EventName       244126 non-null  category      
+ 1   DeviceIDHash    244126 non-null  int64         
+ 2   EventTimestamp  244126 non-null  int64         
+ 3   ExpId           244126 non-null  category      
+ 4   EventDateTime   244126 non-null  datetime64[ns]
+ 5   EventDate       244126 non-null  object        
+dtypes: category(2), datetime64[ns](1), int64(2), object(1)
+memory usage: 7.9+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logs</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>EventName</th>
+      <th>DeviceIDHash</th>
+      <th>EventTimestamp</th>
+      <th>ExpId</th>
+      <th>EventDateTime</th>
+      <th>EventDate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>MainScreenAppear</td>
+      <td>4575588528974610257</td>
+      <td>1564029816</td>
+      <td>246</td>
+      <td>2019-07-25 04:43:36</td>
+      <td>2019-07-25</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>MainScreenAppear</td>
+      <td>7416695313311560658</td>
+      <td>1564053102</td>
+      <td>246</td>
+      <td>2019-07-25 11:11:42</td>
+      <td>2019-07-25</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>PaymentScreenSuccessful</td>
+      <td>3518123091307005509</td>
+      <td>1564054127</td>
+      <td>248</td>
+      <td>2019-07-25 11:28:47</td>
+      <td>2019-07-25</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>CartScreenAppear</td>
+      <td>3518123091307005509</td>
+      <td>1564054127</td>
+      <td>248</td>
+      <td>2019-07-25 11:28:47</td>
+      <td>2019-07-25</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>PaymentScreenSuccessful</td>
+      <td>6217807653094995999</td>
+      <td>1564055322</td>
+      <td>248</td>
+      <td>2019-07-25 11:48:42</td>
+      <td>2019-07-25</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="paso-3-estudiar-y-comprobar-los-datos">
+<h1>Paso 3. Estudiar y comprobar los datos<a class="headerlink" href="#paso-3-estudiar-y-comprobar-los-datos" title="Permalink to this heading">#</a></h1>
+<section id="cuantos-eventos-hay-en-los-registros">
+<h2>¿Cuántos eventos hay en los registros?<a class="headerlink" href="#cuantos-eventos-hay-en-los-registros" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_events</span> <span class="o">=</span> <span class="n">logs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;El numero de eventos es&#39;</span><span class="p">,</span> <span class="n">total_events</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>El numero de eventos es 244126
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cuantos-usuarios-hay-en-los-registros">
+<h2>¿Cuántos usuarios hay en los registros?<a class="headerlink" href="#cuantos-usuarios-hay-en-los-registros" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_users</span> <span class="o">=</span> <span class="n">logs</span><span class="p">[</span><span class="s1">&#39;DeviceIDHash&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;El numero de usuarios es&#39;</span><span class="p">,</span> <span class="n">total_users</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>El numero de usuarios es 7551
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cual-es-el-promedio-de-eventos-por-usuario">
+<h2>¿Cuál es el promedio de eventos por usuario?<a class="headerlink" href="#cual-es-el-promedio-de-eventos-por-usuario" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">events_per_user</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">logs</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;DeviceIDHash&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="n">avg_events_per_user</span> <span class="o">=</span> <span class="n">events_per_user</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">avg_events_per_user</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;El promedio de eventos por usuario es&#39;</span><span class="p">,</span> <span class="n">avg_events_per_user</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>El promedio de eventos por usuario es 32.33028737915508
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="que-periodo-de-tiempo-cubren-los-datos-encuentra-la-fecha-maxima-y-minima">
+<h2>¿Qué periodo de tiempo cubren los datos? Encuentra la fecha máxima y mínima.<a class="headerlink" href="#que-periodo-de-tiempo-cubren-los-datos-encuentra-la-fecha-maxima-y-minima" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logs</span><span class="p">[</span><span class="s1">&#39;EventDateTime&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">logs</span><span class="p">[</span><span class="s1">&#39;EventDateTime&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(Timestamp(&#39;2019-07-25 04:43:36&#39;), Timestamp(&#39;2019-08-07 21:15:17&#39;))
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="puedes-tener-seguridad-de-que-tienes-datos-igualmente-completos-para-todo-el-periodo-los-eventos-mas-antiguos-podrian-terminar-en-los-registros-de-algunos-usuarios-por-razones-tecnicas-y-esto-podria-sesgar-el-panorama-general-encuentra-el-momento-en-el-que-los-datos-comienzan-a-estar-completos-e-ignora-la-seccion-anterior-que-periodo-representan-realmente-los-datos">
+<h2>¿Puedes tener seguridad de que tienes datos igualmente completos para todo el periodo? Los eventos más antiguos podrían terminar en los registros de algunos usuarios por razones técnicas y esto podría sesgar el panorama general. Encuentra el momento en el que los datos comienzan a estar completos e ignora la sección anterior. ¿Qué periodo representan realmente los datos?<a class="headerlink" href="#puedes-tener-seguridad-de-que-tienes-datos-igualmente-completos-para-todo-el-periodo-los-eventos-mas-antiguos-podrian-terminar-en-los-registros-de-algunos-usuarios-por-razones-tecnicas-y-esto-podria-sesgar-el-panorama-general-encuentra-el-momento-en-el-que-los-datos-comienzan-a-estar-completos-e-ignora-la-seccion-anterior-que-periodo-representan-realmente-los-datos" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">events_by_date</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">logs</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;EventDate&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">size</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;events&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">events_by_date</span><span class="p">[</span><span class="s1">&#39;EventDate&#39;</span><span class="p">],</span> <span class="n">events_by_date</span><span class="p">[</span><span class="s1">&#39;events&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Eventos por día&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cantidad de eventos&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5f2e6dbf623a1210abeb0e23c43b29a800d06ef111479b819029ede636a1c954.png" src="_images/5f2e6dbf623a1210abeb0e23c43b29a800d06ef111479b819029ede636a1c954.png" />
+</div>
+</div>
+<p>El análisis del número de eventos por día muestra que antes del 1 de agosto de 2019 los datos son escasos e irregulares, lo que sugiere un registro incompleto de eventos. A partir de esa fecha, el volumen diario se estabiliza y se observa una actividad consistente. Por este motivo, se excluyen los datos anteriores para evitar sesgos en el análisis posterior.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cutoff_date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s1">&#39;2019-08-01&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+
+<span class="n">logs_clean</span> <span class="o">=</span> <span class="n">logs</span><span class="p">[</span><span class="n">logs</span><span class="p">[</span><span class="s1">&#39;EventDate&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">cutoff_date</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Eventos originales:&#39;</span><span class="p">,</span> <span class="n">logs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Eventos después de limpieza:&#39;</span><span class="p">,</span> <span class="n">logs_clean</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eventos originales: 244126
+Eventos después de limpieza: 241298
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Usuarios originales:&#39;</span><span class="p">,</span> <span class="n">logs</span><span class="p">[</span><span class="s1">&#39;DeviceIDHash&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Usuarios después de limpieza:&#39;</span><span class="p">,</span> <span class="n">logs_clean</span><span class="p">[</span><span class="s1">&#39;DeviceIDHash&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Usuarios originales: 7551
+Usuarios después de limpieza: 7534
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logs_clean</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;EventDate&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;EventDate&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/cde667ff442e65f9f6af60d74c48ee4f2b8b2a1f20575b9e0bd2bdd602f9aa82.png" src="_images/cde667ff442e65f9f6af60d74c48ee4f2b8b2a1f20575b9e0bd2bdd602f9aa82.png" />
+</div>
+</div>
+</section>
+<section id="que-periodo-representan-realmente-los-datos">
+<h2>¿Qué periodo representan realmente los datos?<a class="headerlink" href="#que-periodo-representan-realmente-los-datos" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logs_clean</span><span class="p">[</span><span class="s1">&#39;EventDateTime&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">logs_clean</span><span class="p">[</span><span class="s1">&#39;EventDateTime&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(Timestamp(&#39;2019-08-01 00:07:28&#39;), Timestamp(&#39;2019-08-07 21:15:17&#39;))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tras eliminar los registros iniciales con baja densidad de eventos, el periodo efectivo de análisis comprende desde el 1 de agosto de 2019 hasta el 7 de agosto de 2019, intervalo en el cual los datos presentan un volumen estable y consistente.</p>
+</section>
+<section id="perdiste-muchos-eventos-y-usuarios-al-excluir-los-datos-mas-antiguos">
+<h2>¿Perdiste muchos eventos y usuarios al excluir los datos más antiguos?<a class="headerlink" href="#perdiste-muchos-eventos-y-usuarios-al-excluir-los-datos-mas-antiguos" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diff</span> <span class="o">=</span> <span class="n">logs</span><span class="p">[</span><span class="s1">&#39;DeviceIDHash&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">-</span> <span class="n">logs_clean</span><span class="p">[</span><span class="s1">&#39;DeviceIDHash&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cleaned_percent</span> <span class="o">=</span> <span class="n">diff</span> <span class="o">/</span> <span class="n">logs</span><span class="p">[</span><span class="s1">&#39;DeviceIDHash&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">diff</span><span class="p">,</span> <span class="n">cleaned_percent</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(17, 0.0022513574361011784)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se eliminaron 17 usuarios, lo que representa aproximadamente el 0.23% del total. Esta pérdida es marginal y no afecta la representatividad de la muestra ni las conclusiones del análisis.</p>
+</section>
+<section id="asegurate-de-tener-usuarios-de-los-tres-grupos-experimentales">
+<h2>Asegúrate de tener usuarios de los tres grupos experimentales.<a class="headerlink" href="#asegurate-de-tener-usuarios-de-los-tres-grupos-experimentales" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logs_clean</span><span class="p">[</span><span class="s1">&#39;ExpId&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>248    84726
+246    79425
+247    77147
+Name: ExpId, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="paso-4-estudiar-el-embudo-de-eventos">
+<h1>Paso 4. Estudiar el embudo de eventos<a class="headerlink" href="#paso-4-estudiar-el-embudo-de-eventos" title="Permalink to this heading">#</a></h1>
+<section id="observa-que-eventos-hay-en-los-registros-y-su-frecuencia-de-suceso-ordenalos-por-frecuencia">
+<h2>Observa qué eventos hay en los registros y su frecuencia de suceso. Ordénalos por frecuencia.<a class="headerlink" href="#observa-que-eventos-hay-en-los-registros-y-su-frecuencia-de-suceso-ordenalos-por-frecuencia" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">event_counts</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">logs_clean</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;EventName&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">size</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">event_counts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EventName
+MainScreenAppear           117431
+OffersScreenAppear          46350
+CartScreenAppear            42365
+PaymentScreenSuccessful     34113
+Tutorial                     1039
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="encuentra-la-cantidad-de-usuarios-que-realizaron-cada-una-de-estas-acciones-ordena-los-eventos-por-el-numero-de-usuarios-calcula-la-proporcion-de-usuarios-que-realizaron-la-accion-al-menos-una-vez">
+<h2>Encuentra la cantidad de usuarios que realizaron cada una de estas acciones. Ordena los eventos por el número de usuarios. Calcula la proporción de usuarios que realizaron la acción al menos una vez.<a class="headerlink" href="#encuentra-la-cantidad-de-usuarios-que-realizaron-cada-una-de-estas-acciones-ordena-los-eventos-por-el-numero-de-usuarios-calcula-la-proporcion-de-usuarios-que-realizaron-la-accion-al-menos-una-vez" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Total de usuarios únicos</span>
+<span class="n">total_users</span> <span class="o">=</span> <span class="n">logs_clean</span><span class="p">[</span><span class="s1">&#39;DeviceIDHash&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+
+<span class="c1"># Usuarios únicos por evento</span>
+<span class="n">users_per_event</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">logs_clean</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;EventName&#39;</span><span class="p">)[</span><span class="s1">&#39;DeviceIDHash&#39;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Proporción de usuarios</span>
+<span class="n">event_user_share</span> <span class="o">=</span> <span class="p">(</span><span class="n">users_per_event</span> <span class="o">/</span> <span class="n">total_users</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># Resultado final</span>
+<span class="n">event_funnel</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;users&#39;</span><span class="p">:</span> <span class="n">users_per_event</span><span class="p">,</span>
+    <span class="s1">&#39;share&#39;</span><span class="p">:</span> <span class="n">event_user_share</span>
+<span class="p">})</span>
+
+<span class="n">event_funnel</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>users</th>
+      <th>share</th>
+    </tr>
+    <tr>
+      <th>EventName</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>MainScreenAppear</th>
+      <td>7419</td>
+      <td>98.47</td>
+    </tr>
+    <tr>
+      <th>OffersScreenAppear</th>
+      <td>4593</td>
+      <td>60.96</td>
+    </tr>
+    <tr>
+      <th>CartScreenAppear</th>
+      <td>3734</td>
+      <td>49.56</td>
+    </tr>
+    <tr>
+      <th>PaymentScreenSuccessful</th>
+      <td>3539</td>
+      <td>46.97</td>
+    </tr>
+    <tr>
+      <th>Tutorial</th>
+      <td>840</td>
+      <td>11.15</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Los porcentajes representan la proporción de usuarios únicos que realizaron cada evento al menos una vez.
+No constituyen aún un embudo, ya que el denominador es el total de usuarios y no los usuarios que iniciaron una secuencia específica.
+Por ello, el evento inicial no alcanza el 100%.</p>
+</section>
+<section id="en-que-orden-crees-que-ocurrieron-las-acciones-todas-son-parte-de-una-sola-secuencia-no-es-necesario-tenerlas-en-cuenta-al-calcular-el-embudo">
+<h2>¿En qué orden crees que ocurrieron las acciones? ¿Todas son parte de una sola secuencia? No es necesario tenerlas en cuenta al calcular el embudo.<a class="headerlink" href="#en-que-orden-crees-que-ocurrieron-las-acciones-todas-son-parte-de-una-sola-secuencia-no-es-necesario-tenerlas-en-cuenta-al-calcular-el-embudo" title="Permalink to this heading">#</a></h2>
+<p>Las acciones parecen seguir un orden lógico que va desde la pantalla principal hasta el pago exitoso: MainScreenAppear → OffersScreenAppear → CartScreenAppear → PaymentScreenSuccessful.
+Sin embargo, no todos los eventos forman parte de una única secuencia. En particular, el evento Tutorial es opcional y no está directamente relacionado con el proceso de compra.
+Además, el comportamiento real de los usuarios puede incluir saltos, repeticiones o accesos directos, por lo que el embudo debe analizarse considerando solo los eventos clave del flujo de compra.</p>
+</section>
+<section id="utiliza-el-embudo-de-eventos-para-encontrar-la-proporcion-de-usuarios-que-pasan-de-una-etapa-a-la-siguiente-por-ejemplo-para-la-secuencia-de-eventos-a-b-c-calcula-la-proporcion-de-usuarios-en-la-etapa-b-a-la-cantidad-de-usuarios-en-la-etapa-a-y-la-proporcion-de-usuarios-en-la-etapa-c-a-la-cantidad-en-la-etapa-b">
+<h2>Utiliza el embudo de eventos para encontrar la proporción de usuarios que pasan de una etapa a la siguiente. Por ejemplo, para la secuencia de eventos A → B → C, calcula la proporción de usuarios en la etapa B a la cantidad de usuarios en la etapa A y la proporción de usuarios en la etapa C a la cantidad en la etapa B.<a class="headerlink" href="#utiliza-el-embudo-de-eventos-para-encontrar-la-proporcion-de-usuarios-que-pasan-de-una-etapa-a-la-siguiente-por-ejemplo-para-la-secuencia-de-eventos-a-b-c-calcula-la-proporcion-de-usuarios-en-la-etapa-b-a-la-cantidad-de-usuarios-en-la-etapa-a-y-la-proporcion-de-usuarios-en-la-etapa-c-a-la-cantidad-en-la-etapa-b" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">funnel_events</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;MainScreenAppear&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;OffersScreenAppear&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CartScreenAppear&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PaymentScreenSuccessful&#39;</span>
+<span class="p">]</span>
+
+<span class="n">funnel_users</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">logs_clean</span><span class="p">[</span><span class="n">logs_clean</span><span class="p">[</span><span class="s1">&#39;EventName&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">funnel_events</span><span class="p">)]</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;EventName&#39;</span><span class="p">)[</span><span class="s1">&#39;DeviceIDHash&#39;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">funnel_events</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">funnel_users</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EventName
+MainScreenAppear           7419
+OffersScreenAppear         4593
+CartScreenAppear           3734
+PaymentScreenSuccessful    3539
+Name: DeviceIDHash, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">funnel_conversion</span> <span class="o">=</span> <span class="p">(</span><span class="n">funnel_users</span> <span class="o">/</span> <span class="n">funnel_users</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+<span class="n">funnel_conversion</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EventName
+MainScreenAppear             NaN
+OffersScreenAppear         61.91
+CartScreenAppear           81.30
+PaymentScreenSuccessful    94.78
+Name: DeviceIDHash, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">funnel_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;users&#39;</span><span class="p">:</span> <span class="n">funnel_users</span><span class="p">,</span>
+    <span class="s1">&#39;conversion_from_previous&#39;</span><span class="p">:</span> <span class="n">funnel_conversion</span>
+<span class="p">})</span>
+
+<span class="n">funnel_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>users</th>
+      <th>conversion_from_previous</th>
+    </tr>
+    <tr>
+      <th>EventName</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>MainScreenAppear</th>
+      <td>7419</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>OffersScreenAppear</th>
+      <td>4593</td>
+      <td>61.91</td>
+    </tr>
+    <tr>
+      <th>CartScreenAppear</th>
+      <td>3734</td>
+      <td>81.30</td>
+    </tr>
+    <tr>
+      <th>PaymentScreenSuccessful</th>
+      <td>3539</td>
+      <td>94.78</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="en-que-etapa-pierdes-mas-usuarios">
+<h2>¿En qué etapa pierdes más usuarios?<a class="headerlink" href="#en-que-etapa-pierdes-mas-usuarios" title="Permalink to this heading">#</a></h2>
+<p>La mayor pérdida de usuarios ocurre en la etapa inicial del embudo, entre la aparición de la pantalla principal y la pantalla de ofertas.
+Sin embargo, una vez que los usuarios avanzan hacia etapas posteriores, la probabilidad de completar la compra es muy alta.</p>
+</section>
+<section id="que-porcentaje-de-usuarios-hace-todo-el-viaje-desde-su-primer-evento-hasta-el-pago">
+<h2>¿Qué porcentaje de usuarios hace todo el viaje desde su primer evento hasta el pago?<a class="headerlink" href="#que-porcentaje-de-usuarios-hace-todo-el-viaje-desde-su-primer-evento-hasta-el-pago" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usuarios que inician el embudo</span>
+<span class="n">users_start</span> <span class="o">=</span> <span class="n">funnel_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;MainScreenAppear&#39;</span><span class="p">,</span> <span class="s1">&#39;users&#39;</span><span class="p">]</span>
+
+<span class="c1"># Usuarios que completan el pago</span>
+<span class="n">users_paid</span> <span class="o">=</span> <span class="n">funnel_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;PaymentScreenSuccessful&#39;</span><span class="p">,</span> <span class="s1">&#39;users&#39;</span><span class="p">]</span>
+
+<span class="c1"># Porcentaje de usuarios que completan todo el embudo</span>
+<span class="n">full_funnel_conversion</span> <span class="o">=</span> <span class="n">users_paid</span> <span class="o">/</span> <span class="n">users_start</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;El </span><span class="si">{</span><span class="n">full_funnel_conversion</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">% de los usuarios completa todo el recorrido &quot;</span>
+    <span class="s2">&quot;desde el primer evento hasta el pago.&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>El 47.70% de los usuarios completa todo el recorrido desde el primer evento hasta el pago.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="paso-5-estudiar-los-resultados-del-experimento">
+<h1>Paso 5. Estudiar los resultados del experimento<a class="headerlink" href="#paso-5-estudiar-los-resultados-del-experimento" title="Permalink to this heading">#</a></h1>
+<section id="cuantos-usuarios-hay-en-cada-grupo">
+<h2>¿Cuántos usuarios hay en cada grupo?<a class="headerlink" href="#cuantos-usuarios-hay-en-cada-grupo" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">users_per_group</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">logs_clean</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;ExpId&#39;</span><span class="p">)[</span><span class="s1">&#39;DeviceIDHash&#39;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">group</span><span class="p">,</span> <span class="n">users</span> <span class="ow">in</span> <span class="n">users_per_group</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Grupo </span><span class="si">{</span><span class="n">group</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">users</span><span class="si">}</span><span class="s2"> usuarios únicos&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Grupo 246: 2484 usuarios únicos
+Grupo 247: 2513 usuarios únicos
+Grupo 248: 2537 usuarios únicos
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tenemos-dos-grupos-de-control-en-el-test-a-a-donde-comprobamos-nuestros-mecanismos-y-calculos-observa-si-hay-una-diferencia-estadisticamente-significativa-entre-las-muestras-246-y-247">
+<h2>Tenemos dos grupos de control en el test A/A, donde comprobamos nuestros mecanismos y cálculos. Observa si hay una diferencia estadísticamente significativa entre las muestras 246 y 247.<a class="headerlink" href="#tenemos-dos-grupos-de-control-en-el-test-a-a-donde-comprobamos-nuestros-mecanismos-y-calculos-observa-si-hay-una-diferencia-estadisticamente-significativa-entre-las-muestras-246-y-247" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="selecciona-el-evento-mas-popular-en-cada-uno-de-los-grupos-de-control-encuentra-la-cantidad-de-usuarios-que-realizaron-esta-accion-encuentra-su-proporcion-comprueba-si-la-diferencia-entre-los-grupos-es-estadisticamente-significativa-repite-el-procedimiento-para-todos-los-demas-eventos-ahorraras-tiempo-si-creas-una-funcion-especial-para-esta-prueba-puedes-confirmar-que-los-grupos-se-dividieron-correctamente">
+<h2>Selecciona el evento más popular. En cada uno de los grupos de control, encuentra la cantidad de usuarios que realizaron esta acción. Encuentra su proporción. Comprueba si la diferencia entre los grupos es estadísticamente significativa. Repite el procedimiento para todos los demás eventos (ahorrarás tiempo si creas una función especial para esta prueba). ¿Puedes confirmar que los grupos se dividieron correctamente?<a class="headerlink" href="#selecciona-el-evento-mas-popular-en-cada-uno-de-los-grupos-de-control-encuentra-la-cantidad-de-usuarios-que-realizaron-esta-accion-encuentra-su-proporcion-comprueba-si-la-diferencia-entre-los-grupos-es-estadisticamente-significativa-repite-el-procedimiento-para-todos-los-demas-eventos-ahorraras-tiempo-si-creas-una-funcion-especial-para-esta-prueba-puedes-confirmar-que-los-grupos-se-dividieron-correctamente" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">z_test_proportions</span><span class="p">(</span><span class="n">success_a</span><span class="p">,</span> <span class="n">size_a</span><span class="p">,</span> <span class="n">success_b</span><span class="p">,</span> <span class="n">size_b</span><span class="p">):</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="n">success_a</span> <span class="o">/</span> <span class="n">size_a</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">success_b</span> <span class="o">/</span> <span class="n">size_b</span>
+
+    <span class="n">p_pool</span> <span class="o">=</span> <span class="p">(</span><span class="n">success_a</span> <span class="o">+</span> <span class="n">success_b</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">size_a</span> <span class="o">+</span> <span class="n">size_b</span><span class="p">)</span>
+    <span class="n">se</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">p_pool</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p_pool</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">size_a</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">size_b</span><span class="p">))</span>
+
+    <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">p1</span> <span class="o">-</span> <span class="n">p2</span><span class="p">)</span> <span class="o">/</span> <span class="n">se</span>
+    <span class="n">p_value</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">z</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">p_value</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">events</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">logs_clean</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;EventName&#39;</span><span class="p">)[</span><span class="s1">&#39;DeviceIDHash&#39;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">index</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results_aa</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
+    <span class="n">users_246</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">logs_clean</span><span class="p">[</span>
+            <span class="p">(</span><span class="n">logs_clean</span><span class="p">[</span><span class="s1">&#39;ExpId&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">246</span><span class="p">)</span> <span class="o">&amp;</span>
+            <span class="p">(</span><span class="n">logs_clean</span><span class="p">[</span><span class="s1">&#39;EventName&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">event</span><span class="p">)</span>
+        <span class="p">][</span><span class="s1">&#39;DeviceIDHash&#39;</span><span class="p">]</span>
+        <span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+    <span class="p">)</span>
+
+    <span class="n">users_247</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">logs_clean</span><span class="p">[</span>
+            <span class="p">(</span><span class="n">logs_clean</span><span class="p">[</span><span class="s1">&#39;ExpId&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">247</span><span class="p">)</span> <span class="o">&amp;</span>
+            <span class="p">(</span><span class="n">logs_clean</span><span class="p">[</span><span class="s1">&#39;EventName&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">event</span><span class="p">)</span>
+        <span class="p">][</span><span class="s1">&#39;DeviceIDHash&#39;</span><span class="p">]</span>
+        <span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+    <span class="p">)</span>
+
+    <span class="n">p_value</span> <span class="o">=</span> <span class="n">z_test_proportions</span><span class="p">(</span>
+    <span class="n">users_246</span><span class="p">,</span> <span class="n">users_per_group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">246</span><span class="p">],</span>
+    <span class="n">users_247</span><span class="p">,</span> <span class="n">users_per_group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">247</span><span class="p">]</span>
+<span class="p">)</span>
+
+    <span class="n">results_aa</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+        <span class="s1">&#39;EventName&#39;</span><span class="p">:</span> <span class="n">event</span><span class="p">,</span>
+        <span class="s1">&#39;Users_246&#39;</span><span class="p">:</span> <span class="n">users_246</span><span class="p">,</span>
+        <span class="s1">&#39;Users_247&#39;</span><span class="p">:</span> <span class="n">users_247</span><span class="p">,</span>
+        <span class="s1">&#39;p_value&#39;</span><span class="p">:</span> <span class="n">p_value</span>
+    <span class="p">})</span>
+
+<span class="n">aa_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results_aa</span><span class="p">)</span>
+<span class="n">aa_results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>EventName</th>
+      <th>Users_246</th>
+      <th>Users_247</th>
+      <th>p_value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>MainScreenAppear</td>
+      <td>2450</td>
+      <td>2476</td>
+      <td>0.757060</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>OffersScreenAppear</td>
+      <td>1542</td>
+      <td>1520</td>
+      <td>0.248095</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CartScreenAppear</td>
+      <td>1266</td>
+      <td>1238</td>
+      <td>0.228834</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>PaymentScreenSuccessful</td>
+      <td>1200</td>
+      <td>1158</td>
+      <td>0.114567</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Tutorial</td>
+      <td>278</td>
+      <td>283</td>
+      <td>0.937700</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">n_tests</span> <span class="o">=</span> <span class="n">aa_results</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">alpha_adj</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">/</span> <span class="n">n_tests</span>
+
+<span class="n">aa_results</span><span class="p">[</span><span class="s1">&#39;significant&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">aa_results</span><span class="p">[</span><span class="s1">&#39;p_value&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">alpha_adj</span>
+<span class="n">aa_results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>EventName</th>
+      <th>Users_246</th>
+      <th>Users_247</th>
+      <th>p_value</th>
+      <th>significant</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>MainScreenAppear</td>
+      <td>2450</td>
+      <td>2476</td>
+      <td>0.757060</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>OffersScreenAppear</td>
+      <td>1542</td>
+      <td>1520</td>
+      <td>0.248095</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CartScreenAppear</td>
+      <td>1266</td>
+      <td>1238</td>
+      <td>0.228834</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>PaymentScreenSuccessful</td>
+      <td>1200</td>
+      <td>1158</td>
+      <td>0.114567</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Tutorial</td>
+      <td>278</td>
+      <td>283</td>
+      <td>0.937700</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aa_results</span><span class="p">[</span><span class="s1">&#39;significant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False    5
+Name: significant, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>No se encontraron diferencias estadísticamente significativas entre los grupos de control 246 y 247 para ninguno de los eventos analizados.
+Esto indica que la división de usuarios se realizó correctamente y que el sistema de recopilación de datos y el enfoque estadístico son confiables.</p>
+</section>
+<section id="haz-lo-mismo-para-el-grupo-con-fuentes-alteradas-compara-los-resultados-con-los-de-cada-uno-de-los-grupos-de-control-para-cada-evento-de-forma-aislada-compara-los-resultados-con-los-resultados-combinados-de-los-grupos-de-control-que-conclusiones-puedes-sacar-del-experimento">
+<h2>Haz lo mismo para el grupo con fuentes alteradas. Compara los resultados con los de cada uno de los grupos de control para cada evento de forma aislada. Compara los resultados con los resultados combinados de los grupos de control. ¿Qué conclusiones puedes sacar del experimento?<a class="headerlink" href="#haz-lo-mismo-para-el-grupo-con-fuentes-alteradas-compara-los-resultados-con-los-de-cada-uno-de-los-grupos-de-control-para-cada-evento-de-forma-aislada-compara-los-resultados-con-los-resultados-combinados-de-los-grupos-de-control-que-conclusiones-puedes-sacar-del-experimento" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">users_per_event_group</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">logs_clean</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;ExpId&#39;</span><span class="p">,</span> <span class="s1">&#39;EventName&#39;</span><span class="p">])[</span><span class="s1">&#39;DeviceIDHash&#39;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">users_per_event_group</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ExpId</th>
+      <th>EventName</th>
+      <th>users</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>246</td>
+      <td>CartScreenAppear</td>
+      <td>1266</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>246</td>
+      <td>MainScreenAppear</td>
+      <td>2450</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>246</td>
+      <td>OffersScreenAppear</td>
+      <td>1542</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>246</td>
+      <td>PaymentScreenSuccessful</td>
+      <td>1200</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>246</td>
+      <td>Tutorial</td>
+      <td>278</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">z_test_proportions</span><span class="p">(</span><span class="n">success1</span><span class="p">,</span> <span class="n">size1</span><span class="p">,</span> <span class="n">success2</span><span class="p">,</span> <span class="n">size2</span><span class="p">):</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="n">success1</span> <span class="o">/</span> <span class="n">size1</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">success2</span> <span class="o">/</span> <span class="n">size2</span>
+    <span class="n">p_combined</span> <span class="o">=</span> <span class="p">(</span><span class="n">success1</span> <span class="o">+</span> <span class="n">success2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">size1</span> <span class="o">+</span> <span class="n">size2</span><span class="p">)</span>
+
+    <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">p1</span> <span class="o">-</span> <span class="n">p2</span><span class="p">)</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+        <span class="n">p_combined</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p_combined</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">size1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">size2</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">p_value</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">z</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">p_value</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">n_tests</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">events</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="n">alpha_corrected</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">/</span> <span class="n">n_tests</span>
+
+<span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
+    <span class="n">users_248</span> <span class="o">=</span> <span class="n">users_per_event_group</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+        <span class="s2">&quot;ExpId == 248 and EventName == @event&quot;</span>
+    <span class="p">)[</span><span class="s1">&#39;users&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">control</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">246</span><span class="p">,</span> <span class="mi">247</span><span class="p">]:</span>
+        <span class="n">users_control</span> <span class="o">=</span> <span class="n">users_per_event_group</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+            <span class="s2">&quot;ExpId == @control and EventName == @event&quot;</span>
+        <span class="p">)[</span><span class="s1">&#39;users&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">p_value</span> <span class="o">=</span> <span class="n">z_test_proportions</span><span class="p">(</span>
+            <span class="n">users_248</span><span class="p">,</span> <span class="n">users_per_group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">248</span><span class="p">],</span>
+            <span class="n">users_control</span><span class="p">,</span> <span class="n">users_per_group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">control</span><span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s1">&#39;event&#39;</span><span class="p">:</span> <span class="n">event</span><span class="p">,</span>
+            <span class="s1">&#39;comparison&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;248 vs </span><span class="si">{</span><span class="n">control</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;p_value&#39;</span><span class="p">:</span> <span class="n">p_value</span><span class="p">,</span>
+            <span class="s1">&#39;significant&#39;</span><span class="p">:</span> <span class="n">p_value</span> <span class="o">&lt;</span> <span class="n">alpha_corrected</span>
+        <span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
+    <span class="n">users_248</span> <span class="o">=</span> <span class="n">users_per_event_group</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+        <span class="s2">&quot;ExpId == 248 and EventName == @event&quot;</span>
+    <span class="p">)[</span><span class="s1">&#39;users&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">users_control_combined</span> <span class="o">=</span> <span class="n">users_per_event_group</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+        <span class="s2">&quot;ExpId in [246,247] and EventName == @event&quot;</span>
+    <span class="p">)[</span><span class="s1">&#39;users&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+    <span class="n">size_control_combined</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">users_per_group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">246</span><span class="p">]</span> <span class="o">+</span> <span class="n">users_per_group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">247</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="n">p_value</span> <span class="o">=</span> <span class="n">z_test_proportions</span><span class="p">(</span>
+        <span class="n">users_248</span><span class="p">,</span> <span class="n">users_per_group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">248</span><span class="p">],</span>
+        <span class="n">users_control_combined</span><span class="p">,</span> <span class="n">size_control_combined</span>
+    <span class="p">)</span>
+
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+        <span class="s1">&#39;event&#39;</span><span class="p">:</span> <span class="n">event</span><span class="p">,</span>
+        <span class="s1">&#39;comparison&#39;</span><span class="p">:</span> <span class="s1">&#39;248 vs control_combined&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;p_value&#39;</span><span class="p">:</span> <span class="n">p_value</span><span class="p">,</span>
+        <span class="s1">&#39;significant&#39;</span><span class="p">:</span> <span class="n">p_value</span> <span class="o">&lt;</span> <span class="n">alpha_corrected</span>
+    <span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">results_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="n">results_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>event</th>
+      <th>comparison</th>
+      <th>p_value</th>
+      <th>significant</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>MainScreenAppear</td>
+      <td>248 vs 246</td>
+      <td>0.294972</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>MainScreenAppear</td>
+      <td>248 vs 247</td>
+      <td>0.458705</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>OffersScreenAppear</td>
+      <td>248 vs 246</td>
+      <td>0.208362</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>OffersScreenAppear</td>
+      <td>248 vs 247</td>
+      <td>0.919782</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>CartScreenAppear</td>
+      <td>248 vs 246</td>
+      <td>0.078429</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>CartScreenAppear</td>
+      <td>248 vs 247</td>
+      <td>0.578620</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>PaymentScreenSuccessful</td>
+      <td>248 vs 246</td>
+      <td>0.212255</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>PaymentScreenSuccessful</td>
+      <td>248 vs 247</td>
+      <td>0.737342</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Tutorial</td>
+      <td>248 vs 246</td>
+      <td>0.826429</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Tutorial</td>
+      <td>248 vs 247</td>
+      <td>0.765324</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>MainScreenAppear</td>
+      <td>248 vs control_combined</td>
+      <td>0.294245</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>OffersScreenAppear</td>
+      <td>248 vs control_combined</td>
+      <td>0.434255</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>CartScreenAppear</td>
+      <td>248 vs control_combined</td>
+      <td>0.181759</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>PaymentScreenSuccessful</td>
+      <td>248 vs control_combined</td>
+      <td>0.600429</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Tutorial</td>
+      <td>248 vs control_combined</td>
+      <td>0.764862</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="que-nivel-de-significancia-has-establecido-para-probar-las-hipotesis-estadisticas-mencionadas-anteriormente-calcula-cuantas-pruebas-de-hipotesis-estadisticas-has-realizado-con-un-nivel-de-significancia-estadistica-de-0-1-uno-de-cada-10-resultados-podria-ser-falso-cual-deberia-ser-el-nivel-de-significancia-si-deseas-cambiarlo-vuelve-a-ejecutar-los-pasos-anteriores-y-comprueba-tus-conclusiones">
+<h2>¿Qué nivel de significancia has establecido para probar las hipótesis estadísticas mencionadas anteriormente? Calcula cuántas pruebas de hipótesis estadísticas has realizado. Con un nivel de significancia estadística de 0.1, uno de cada 10 resultados podría ser falso. ¿Cuál debería ser el nivel de significancia? Si deseas cambiarlo, vuelve a ejecutar los pasos anteriores y comprueba tus conclusiones.<a class="headerlink" href="#que-nivel-de-significancia-has-establecido-para-probar-las-hipotesis-estadisticas-mencionadas-anteriormente-calcula-cuantas-pruebas-de-hipotesis-estadisticas-has-realizado-con-un-nivel-de-significancia-estadistica-de-0-1-uno-de-cada-10-resultados-podria-ser-falso-cual-deberia-ser-el-nivel-de-significancia-si-deseas-cambiarlo-vuelve-a-ejecutar-los-pasos-anteriores-y-comprueba-tus-conclusiones" title="Permalink to this heading">#</a></h2>
+<p>Para el test A/A entre los grupos de control (246 y 247) se utilizó un nivel de significancia de 0.05, ya que el objetivo era validar la correcta división de los usuarios y el funcionamiento del sistema experimental. No se encontraron diferencias estadísticamente significativas, lo que confirma la validez del experimento.</p>
+<p>Para el análisis A/B, se estableció un nivel de significancia inicial de 0.1. Dado que se realizaron múltiples pruebas de hipótesis, se aplicó una corrección de Bonferroni para ajustar el nivel de significancia. Tras aplicar dicha corrección, no se identificaron diferencias estadísticamente significativas entre el grupo experimental y los grupos de control, ni de forma individual ni combinada. Por lo que se concluye que el cambio de fuentes no tuvo un impacto significativo en el comportamiento de los usuarios.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Predicciones.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Predicciones de cancelaciones de membresias de Gimnasio</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Data_Wrangling%20-%202.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Wrangling (¡Llena ese carrito!)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Investigación del comportamiento usuarios</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paso-1-abrir-el-archivo-de-datos-y-leer-la-informacion-general">Paso 1. Abrir el archivo de datos y leer la información general</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paso-2-preparar-los-datos-para-el-analisis">Paso 2. Preparar los datos para el análisis</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paso-3-estudiar-y-comprobar-los-datos">Paso 3. Estudiar y comprobar los datos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cuantos-eventos-hay-en-los-registros">¿Cuántos eventos hay en los registros?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cuantos-usuarios-hay-en-los-registros">¿Cuántos usuarios hay en los registros?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cual-es-el-promedio-de-eventos-por-usuario">¿Cuál es el promedio de eventos por usuario?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-periodo-de-tiempo-cubren-los-datos-encuentra-la-fecha-maxima-y-minima">¿Qué periodo de tiempo cubren los datos? Encuentra la fecha máxima y mínima.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#puedes-tener-seguridad-de-que-tienes-datos-igualmente-completos-para-todo-el-periodo-los-eventos-mas-antiguos-podrian-terminar-en-los-registros-de-algunos-usuarios-por-razones-tecnicas-y-esto-podria-sesgar-el-panorama-general-encuentra-el-momento-en-el-que-los-datos-comienzan-a-estar-completos-e-ignora-la-seccion-anterior-que-periodo-representan-realmente-los-datos">¿Puedes tener seguridad de que tienes datos igualmente completos para todo el periodo? Los eventos más antiguos podrían terminar en los registros de algunos usuarios por razones técnicas y esto podría sesgar el panorama general. Encuentra el momento en el que los datos comienzan a estar completos e ignora la sección anterior. ¿Qué periodo representan realmente los datos?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-periodo-representan-realmente-los-datos">¿Qué periodo representan realmente los datos?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perdiste-muchos-eventos-y-usuarios-al-excluir-los-datos-mas-antiguos">¿Perdiste muchos eventos y usuarios al excluir los datos más antiguos?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asegurate-de-tener-usuarios-de-los-tres-grupos-experimentales">Asegúrate de tener usuarios de los tres grupos experimentales.</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paso-4-estudiar-el-embudo-de-eventos">Paso 4. Estudiar el embudo de eventos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observa-que-eventos-hay-en-los-registros-y-su-frecuencia-de-suceso-ordenalos-por-frecuencia">Observa qué eventos hay en los registros y su frecuencia de suceso. Ordénalos por frecuencia.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encuentra-la-cantidad-de-usuarios-que-realizaron-cada-una-de-estas-acciones-ordena-los-eventos-por-el-numero-de-usuarios-calcula-la-proporcion-de-usuarios-que-realizaron-la-accion-al-menos-una-vez">Encuentra la cantidad de usuarios que realizaron cada una de estas acciones. Ordena los eventos por el número de usuarios. Calcula la proporción de usuarios que realizaron la acción al menos una vez.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#en-que-orden-crees-que-ocurrieron-las-acciones-todas-son-parte-de-una-sola-secuencia-no-es-necesario-tenerlas-en-cuenta-al-calcular-el-embudo">¿En qué orden crees que ocurrieron las acciones? ¿Todas son parte de una sola secuencia? No es necesario tenerlas en cuenta al calcular el embudo.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utiliza-el-embudo-de-eventos-para-encontrar-la-proporcion-de-usuarios-que-pasan-de-una-etapa-a-la-siguiente-por-ejemplo-para-la-secuencia-de-eventos-a-b-c-calcula-la-proporcion-de-usuarios-en-la-etapa-b-a-la-cantidad-de-usuarios-en-la-etapa-a-y-la-proporcion-de-usuarios-en-la-etapa-c-a-la-cantidad-en-la-etapa-b">Utiliza el embudo de eventos para encontrar la proporción de usuarios que pasan de una etapa a la siguiente. Por ejemplo, para la secuencia de eventos A → B → C, calcula la proporción de usuarios en la etapa B a la cantidad de usuarios en la etapa A y la proporción de usuarios en la etapa C a la cantidad en la etapa B.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#en-que-etapa-pierdes-mas-usuarios">¿En qué etapa pierdes más usuarios?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-porcentaje-de-usuarios-hace-todo-el-viaje-desde-su-primer-evento-hasta-el-pago">¿Qué porcentaje de usuarios hace todo el viaje desde su primer evento hasta el pago?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paso-5-estudiar-los-resultados-del-experimento">Paso 5. Estudiar los resultados del experimento</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cuantos-usuarios-hay-en-cada-grupo">¿Cuántos usuarios hay en cada grupo?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenemos-dos-grupos-de-control-en-el-test-a-a-donde-comprobamos-nuestros-mecanismos-y-calculos-observa-si-hay-una-diferencia-estadisticamente-significativa-entre-las-muestras-246-y-247">Tenemos dos grupos de control en el test A/A, donde comprobamos nuestros mecanismos y cálculos. Observa si hay una diferencia estadísticamente significativa entre las muestras 246 y 247.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecciona-el-evento-mas-popular-en-cada-uno-de-los-grupos-de-control-encuentra-la-cantidad-de-usuarios-que-realizaron-esta-accion-encuentra-su-proporcion-comprueba-si-la-diferencia-entre-los-grupos-es-estadisticamente-significativa-repite-el-procedimiento-para-todos-los-demas-eventos-ahorraras-tiempo-si-creas-una-funcion-especial-para-esta-prueba-puedes-confirmar-que-los-grupos-se-dividieron-correctamente">Selecciona el evento más popular. En cada uno de los grupos de control, encuentra la cantidad de usuarios que realizaron esta acción. Encuentra su proporción. Comprueba si la diferencia entre los grupos es estadísticamente significativa. Repite el procedimiento para todos los demás eventos (ahorrarás tiempo si creas una función especial para esta prueba). ¿Puedes confirmar que los grupos se dividieron correctamente?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#haz-lo-mismo-para-el-grupo-con-fuentes-alteradas-compara-los-resultados-con-los-de-cada-uno-de-los-grupos-de-control-para-cada-evento-de-forma-aislada-compara-los-resultados-con-los-resultados-combinados-de-los-grupos-de-control-que-conclusiones-puedes-sacar-del-experimento">Haz lo mismo para el grupo con fuentes alteradas. Compara los resultados con los de cada uno de los grupos de control para cada evento de forma aislada. Compara los resultados con los resultados combinados de los grupos de control. ¿Qué conclusiones puedes sacar del experimento?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-nivel-de-significancia-has-establecido-para-probar-las-hipotesis-estadisticas-mencionadas-anteriormente-calcula-cuantas-pruebas-de-hipotesis-estadisticas-has-realizado-con-un-nivel-de-significancia-estadistica-de-0-1-uno-de-cada-10-resultados-podria-ser-falso-cual-deberia-ser-el-nivel-de-significancia-si-deseas-cambiarlo-vuelve-a-ejecutar-los-pasos-anteriores-y-comprueba-tus-conclusiones">¿Qué nivel de significancia has establecido para probar las hipótesis estadísticas mencionadas anteriormente? Calcula cuántas pruebas de hipótesis estadísticas has realizado. Con un nivel de significancia estadística de 0.1, uno de cada 10 resultados podría ser falso. ¿Cuál debería ser el nivel de significancia? Si deseas cambiarlo, vuelve a ejecutar los pasos anteriores y comprueba tus conclusiones.</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

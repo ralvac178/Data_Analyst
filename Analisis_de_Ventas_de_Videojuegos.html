@@ -1,0 +1,1985 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Análisis de Ventas de Videojuegos &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Analisis_de_Ventas_de_Videojuegos';</script>
+    <link rel="canonical" href="/Data_Analyst/Analisis_de_Ventas_de_Videojuegos.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Manipulación de Datos (Déjame escuchar música)" href="Data_Wrangling.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Predicciones.html">Predicciones de cancelaciones de membresias de Gimnasio</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Investigacion.html">Investigación del comportamiento usuarios</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Data_Wrangling%20-%202.html">Data Wrangling (¡Llena ese carrito!)</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Data_Wrangling.html">Manipulación de Datos (Déjame escuchar música)</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Análisis de Ventas de Videojuegos</a></li>
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FAnalisis_de_Ventas_de_Videojuegos.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Analisis_de_Ventas_de_Videojuegos.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Análisis de Ventas de Videojuegos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Análisis de Ventas de Videojuegos</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#open-the-file">1. Open the file</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-data">2. Preparing Data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reemplaza-los-nombres-de-las-columnas-ponlos-en-minusculas">Reemplaza los nombres de las columnas (ponlos en minúsculas).</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convierte-los-datos-en-los-tipos-necesarios">Convierte los datos en los tipos necesarios.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explica-por-que-rellenaste-los-valores-ausentes-como-lo-hiciste-o-por-que-decidiste-dejarlos-en-blanco">Explica por qué rellenaste los valores ausentes como lo hiciste o por qué decidiste dejarlos en blanco.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#las-columnas-en-las-que-cambie-el-tipo-de-dato-son">Las columnas en las que cambié el tipo de dato son:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plataforma-como-categoria-lo-cambie-para-mejorar-el-rendimiento-de-ciertas-operaciones-y-para-optimizarlas">plataforma como categoría. Lo cambié para mejorar el rendimiento de ciertas operaciones y para optimizarlas.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ano-de-lanzamiento-lo-cambie-para-mostrar-los-datos-de-forma-mas-clara-ya-que-el-ano-siempre-es-un-dato-entero">año_de_lanzamiento. Lo cambié para mostrar los datos de forma más clara, ya que el año siempre es un dato entero.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#genero-y-calificacion-tambien-cambie-su-tipo-de-dato-a-categoria-por-la-misma-razon-que-en-las-otras-columnas">género y calificación. También cambié su tipo de dato a categoría por la misma razón que en las otras columnas.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critic-score-mantendra-su-tipo-de-dato-porque-tiene-un-valor-por-determinar-que-es-una-cadena">critic_score mantendrá su tipo de dato porque tiene un valor por determinar que es una cadena.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-crees-que-los-valores-estan-ausentes-brinda-explicaciones-posibles">¿Por qué crees que los valores están ausentes? Brinda explicaciones posibles.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creo-que-los-valores-son-nulos-porque-quizas-el-usuario-o-la-persona-que-digito-o-agrego-los-datos-se-equivoco">Creo que los valores son nulos porque quizás el usuario o la persona que digitó o agregó los datos se equivocó.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otra-razon-es-que-algunos-valores-aun-no-se-completaron-por-el-momento-deberian-completarse">Otra razón es que algunos valores aún no se completaron; por el momento, deberían completarse.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presta-atencion-a-la-abreviatura-tbd-significa-to-be-determined-a-determinar-especifica-como-piensas-manejar-estos-casos">Presta atención a la abreviatura TBD: significa “to be determined” (a determinar). Especifica cómo piensas manejar estos casos.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calcula-las-ventas-totales-la-suma-de-las-ventas-en-todas-las-regiones-para-cada-juego-y-coloca-estos-valores-en-una-columna-separada">Calcula las ventas totales (la suma de las ventas en todas las regiones) para cada juego y coloca estos valores en una columna separada.</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analiza-los-datos">3. Analiza los datos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mira-cuantos-juegos-fueron-lanzados-en-diferentes-anos-son-significativos-los-datos-de-cada-periodo">Mira cuántos juegos fueron lanzados en diferentes años. ¿Son significativos los datos de cada período?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-many-cases-yes-there-are-significative-data-since-1993">In many cases yes. There are significative data since 1993.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observa-como-varian-las-ventas-de-una-plataforma-a-otra-elige-las-plataformas-con-las-mayores-ventas-totales-y-construye-una-distribucion-basada-en-los-datos-de-cada-ano-busca-las-plataformas-que-solian-ser-populares-pero-que-ahora-no-tienen-ventas-cuanto-tardan-generalmente-las-nuevas-plataformas-en-aparecer-y-las-antiguas-en-desaparecer">Observa cómo varían las ventas de una plataforma a otra. Elige las plataformas con las mayores ventas totales y construye una distribución basada en los datos de cada año. Busca las plataformas que solían ser populares pero que ahora no tienen ventas. ¿Cuánto tardan generalmente las nuevas plataformas en aparecer y las antiguas en desaparecer?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#total-sales-per-platform">1. Total sales per platform</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedemnos-a-convertir-la-lista-en-un-dataframe-y-a-filtrar-para-ver-las-ventas-mayores-a-100-millones">2. Procedemnos a convertir la lista en un dataframe y a filtrar para ver las ventas mayores a 100 millones.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#despues-de-analizar-el-grafico-vemos-que-lo-mas-adecuado-es-filtrar-solo-las-6-mas-vendidas">3. Despues de analizar el grafico, vemos que lo mas adecuado es filtrar solo las 6 mas vendidas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#veremos-el-tiemmpo-de-vida-que-tiene-una-consola">4. Veremos el tiemmpo de vida que tiene una consola.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#veremos-cuanto-tarda-una-nueva-consola-en-aparecer">Veremos cuanto tarda una nueva consola en aparecer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determina-para-que-periodo-debes-tomar-datos-para-hacerlo-mira-tus-respuestas-a-las-preguntas-anteriores-los-datos-deberian-permitirte-construir-un-modelo-para-2017">Determina para qué período debes tomar datos. Para hacerlo mira tus respuestas a las preguntas anteriores. Los datos deberían permitirte construir un modelo para 2017.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#del-ultimo-grafico-que-veo-el-periodo-que-deberia-utilizar-para-construir-un-modelo-es-1994-a-2016-esto-se-debe-a-que-a-partir-de-este-ano-parece-que-comienza-una-nueva-era-de-consolas">Del último gráfico que veo el periodo que debería utilizar para construir un modelo es 1994 a 2016. Esto se debe a que a partir de este año parece que comienza una nueva era de consolas.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-plataformas-son-lideres-en-ventas-cuales-crecen-y-cuales-se-reducen-elige-varias-plataformas-potencialmente-rentables">¿Qué plataformas son líderes en ventas? ¿Cuáles crecen y cuáles se reducen? Elige varias plataformas potencialmente rentables.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#las-plataformas-que-lideran-las-ventas-son-ps2-x360-ps3-wii-ds-y-ps">Las plataformas que lideran las ventas son PS2, X360, PS3, Wii, DS y PS.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crea-un-diagrama-de-caja-para-las-ventas-globales-de-todos-los-juegos-desglosados-por-plataforma-son-significativas-las-diferencias-en-las-ventas-que-sucede-con-las-ventas-promedio-en-varias-plataformas-describe-tus-hallazgos">Crea un diagrama de caja para las ventas globales de todos los juegos, desglosados por plataforma. ¿Son significativas las diferencias en las ventas? ¿Qué sucede con las ventas promedio en varias plataformas? Describe tus hallazgos.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-hay-diferencias-abismales-en-la-distribucion-tipica-de-ventas-entre-plataformas-aunque-puede-haber-diferencias-pequenas-a-simple-vista-las-distribuciones-son-muy-parecidas-todas-las-cajas-50-central-de-los-datos-estan-ubicadas-en-un-rango-similar">No hay diferencias abismales en la distribución típica de ventas entre plataformas, aunque puede haber diferencias pequeñas. A simple vista, las distribuciones son muy parecidas: todas las cajas (50% central de los datos) están ubicadas en un rango similar.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#las-diferencias-mas-notorias-estan-en-los-outliers-que-elevan-el-promedio-en-algunas-consolas-ej-wii-ps2">Las diferencias más notorias están en los outliers, que elevan el promedio en algunas consolas (ej. Wii, PS2).</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-cuanto-al-promedio-no-refleja-bien-la-tendencia-central-porque-esta-sesgado-por-pocos-juegos-con-ventas-enormes-la-mediana-es-mas-representativa">En cuanto al promedio no refleja bien la tendencia central, porque está sesgado por pocos juegos con ventas enormes; la mediana es más representativa.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mira-como-las-resenas-de-usuarios-y-profesionales-afectan-las-ventas-de-una-plataforma-popular-tu-eleccion-crea-un-grafico-de-dispersion-y-calcula-la-correlacion-entre-las-resenas-y-las-ventas-saca-conclusiones">Mira cómo las reseñas de usuarios y profesionales afectan las ventas de una plataforma popular (tu elección). Crea un gráfico de dispersión y calcula la correlación entre las reseñas y las ventas. Saca conclusiones.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualmente-si-hay-relacion-sobre-todo-en-la-cola-alta-de-ventas-los-superventas-suelen-tener-buenas-resenas">Visualmente sí hay relación, sobre todo en la “cola alta” de ventas (los superventas suelen tener buenas reseñas).</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pero-estadisticamente-la-correlacion-es-debil-porque-la-mayoria-de-juegos-no-siguen-esa-regla-tan-claramente">Pero estadísticamente la correlación es débil, porque la mayoría de juegos no siguen esa regla tan claramente.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teniendo-en-cuenta-tus-conclusiones-compara-las-ventas-de-los-mismos-juegos-en-otras-plataformas">Teniendo en cuenta tus conclusiones compara las ventas de los mismos juegos en otras plataformas.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-partir-de-aca-puedo-tomar-cualquier-titulo-que-se-encuentre-en-cualquier-plataforma-para-poder-llevar-acabo-el-analisis-en-este-caso-tomare-el-juego-2010-fifa-world-cup-south-africa-y-el-de-007">A partir de acá, puedo tomar cualquier título que se encuentre en cualquier plataforma para poder llevar acabo el análisis. En este caso tomaré el juego 2010 FIFA World Cup South Africa y el de 007.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ahora-es-posible-aplicar-la-correlacion-entre-el-rating-y-las-ventas">Ahora es posible aplicar la correlación entre el rating y las ventas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#al-ver-los-resultados-se-puede-ver-que-en-ambos-juegos-la-correlacion-entre-las-criticas-y-las-ventas-es-distinta-por-un-lado-el-juego-deportivo-tuvo-buena-correlacion-pero-el-otro-juego-no-posiblemente-este-relacionado-a-la-consola-o-el-genero-de-los-juegos-pero-es-necesario-hacer-mas-analisis">Al ver los resultados se puede ver que en ambos juegos la correlación entre las críticas y las ventas es distinta. Por un lado el juego deportivo tuvo buena correlación, pero el otro juego no. Posiblemente esté relacionado a la consola o el género de los juegos, pero es necesario hacer más análisis.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#echa-un-vistazo-a-la-distribucion-general-de-los-juegos-por-genero-que-se-puede-decir-de-los-generos-mas-rentables-puedes-generalizar-acerca-de-los-generos-con-ventas-altas-y-bajas">Echa un vistazo a la distribución general de los juegos por género. ¿Qué se puede decir de los géneros más rentables? ¿Puedes generalizar acerca de los géneros con ventas altas y bajas?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#de-acuerdo-a-las-graficas-podemos-notar-que-action-es-por-lejos-el-genero-con-mas-juegos-lanzados-mas-de-3-000-titulos">De acuerdo a las gráficas podemos notar que Action es, por lejos, el género con más juegos lanzados (más de 3,000 títulos).</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asi-mismo-generos-como-puzzle-strategy-y-adventure-tienen-muy-pocos-juegos-publicados-en-comparacion">Así mismo, géneros como Puzzle, Strategy y Adventure tienen muy pocos juegos publicados en comparación.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#action-tambien-lidera-en-ventas-globales-lo-cual-coincide-con-su-gran-cantidad-de-titulos">Action también lidera en ventas globales, lo cual coincide con su gran cantidad de títulos.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sports-y-shooter-destacan-no-tienen-tantos-juegos-como-action-pero-si-concentran-ventas-muy-altas-lo-que-indica-que-son-generos-con-mucha-demanda-y-titulos-muy-exitosos">Sports y Shooter destacan: no tienen tantos juegos como Action, pero sí concentran ventas muy altas, lo que indica que son géneros con mucha demanda y títulos muy exitosos.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#crea-un-perfil-de-usuario-para-cada-region">Crea un perfil de usuario para cada región</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-cinco-plataformas-principales-describe-las-variaciones-en-sus-cuotas-de-mercado-de-una-region-a-otra">Las cinco plataformas principales. Describe las variaciones en sus cuotas de mercado de una región a otra.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-base-a-lo-mostrado-en-las-tablas-es-facil-distinguir-que-la-mayor-cantidad-de-ventas-se-ha-producido-en-na-y-esto-tiene-mucho-sentido-debido-a-que-en-dicho-pais-existe-un-mayor-nivel-de-consumismo-y-mayor-pib-que-en-europa-por-otro-lado-en-na-tambien-se-nota-una-mayor-compra-de-videojuegos-para-la-consola-x360-lo-cual-tambien-tiene-sentido-debido-a-que-esta-marca-pertenece-a-la-empresa-microsoft-por-el-lado-de-europa-se-ven-mayores-ventas-que-en-japon-y-a-la-par-aca-tambien-se-puede-apreciar-una-mayor-demanda-de-los-juegos-de-la-consola-de-somy-finalmente-en-jp-se-ve-que-la-mayoria-de-juegos-son-para-consolas-niponas">En base a lo mostrado en las tablas, es facil distinguir que la mayor cantidad de ventas se ha producido en NA, y esto tiene mucho sentido debido a que en dicho pais existe un mayor nivel de consumismo y mayor pib que en Europa. Por otro lado en NA tambien se nota una mayor compra de videojuegos para la consola X360 lo cual tambien tiene sentido debido a que esta marca pertenece a la empresa Microsoft. Por el lado de Europa se ven mayores ventas que en  Japon y a la par aca tambien se puede apreciar una mayor demanda de los juegos de la consola de Somy. Finalmente en JP se ve que la mayoria de juegos son para consolas Niponas.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#los-cinco-generos-principales-explica-la-diferencia">Los cinco géneros principales. Explica la diferencia.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-cuanto-a-los-analisis-resulta-interesante-ver-que-los-gustos-de-los-generos-en-na-y-eu-son-bastante-parecidos-salvo-un-cambio-en-el-cuarto-lugar-de-platform-en-na-por-racing-en-eu-luego-son-muy-similares-por-otra-parte-en-jp-se-ve-cierta-diferencia-con-respecto-a-los-demas-lugares-en-jp-el-genero-mas-vendido-es-de-tipo-role-playing-mientras-que-accion-tambien-se-cuentra-listado-como-en-eu-y-na-de-manera-concreta-parece-que-a-nivel-global-action-y-sports-son-los-preferidos-y-hay-una-tendencia-marcada-en-jp-por-los-de-rol">En cuanto a los analisis, resulta interesante ver que los gustos de los generos en NA y EU son bastante parecidos, salvo un cambio en el cuarto lugar de Platform en NA por Racing en EU luego son muy similares. Por otra parte, en JP se ve cierta diferencia con respecto a los demas lugares. En JP el genero mas vendido es de tipo Role-Playing mientras que accion tambien se cuentra listado como en EU y NA. De manera concreta parece que a nivel global Action y Sports son los preferidos y hay una tendencia marcada en JP por los de Rol.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#si-las-clasificaciones-de-esrb-afectan-a-las-ventas-en-regiones-individuales">Si las clasificaciones de ESRB afectan a las ventas en regiones individuales.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aca-podemos-observar-que-la-clasificacion-mas-comprada-es-la-e-y-la-rp-resulta-intrigante-que-haya-muchas-compras-de-juegos-con-clasificacion-pendiente-pero-asumo-que-es-por-las-preventas-de-muchos-juegos-asi-mismo-se-ve-que-los-juegos-con-clasificaciones-distintas-a-e-y-rp-suelen-ser-muy-similares-en-todas-las-regiones">Aca podemos observar que la clasificacion mas comprada es la E y la RP. Resulta intrigante que haya muchas compras de juegos con clasificacion pendiente, pero asumo que es por las preventas de muchos juegos. Asi mismo se ve que los juegos con clasificaciones distintas a E y RP suelen ser muy similares en todas las regiones.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-las-siguientes-hipotesis">5. Prueba las siguientes hipótesis:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-calificaciones-promedio-de-los-usuarios-para-las-plataformas-xbox-one-y-pc-son-las-mismas">Las calificaciones promedio de los usuarios para las plataformas Xbox One y PC son las mismas.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-calificaciones-promedio-de-los-usuarios-para-los-generos-de-accion-y-deportes-son-diferentes">Las calificaciones promedio de los usuarios para los géneros de Acción y Deportes son diferentes.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explica-como-formulaste-las-hipotesis-nula-y-alternativa">Explica: Cómo formulaste las hipótesis nula y alternativa.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#para-realizar-las-formulaciones-me-base-en-las-premisas-dadas-en-el-enunciado-ene-el-caso-de-la-primera-se-dice-que-las-calificaciones-para-dos-plataformas-son-las-mismas-tomando-esta-como-la-nula-y-la-alternativa-seria-que-si-hay-diferencias-para-la-segunda-hipotesis-se-nos-dice-que-las-calificaciones-de-dos-generos-en-especifico-son-distintas-para-tomar-la-alternativa-simplemente-negue-la-primera-es-decir-verificar-si-no-son-diferentes">Para realizar las formulaciones me base en las premisas dadas en el enunciado. Ene el caso de la primera se dice que las calificaciones para dos plataformas son las mismas. Tomando esta como la nula, y la alternativa seria que si hay diferencias. Para la segunda hipotesis, se nos dice que las calificaciones de dos generos en especifico son distintas. Para tomar la alternativa simplemente negue la primera, es decir verificar si no son diferentes.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explica-que-criterio-utilizaste-para-probar-las-hipotesis-y-por-que">Explica: Qué criterio utilizaste para probar las hipótesis y por qué.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilice-una-prueba-t-de-student-para-muestras-independientes-scipy-stats-ttest-ind-porque">Utilicé una prueba t de Student para muestras independientes (scipy.stats.ttest_ind) porque:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#se-trata-de-comparar-dos-grupos-distintos-ejemplo-xbox-one-vs-pc-o-accion-vs-deportes">Se trata de comparar dos grupos distintos (ejemplo: Xbox One vs PC, o Acción vs Deportes).</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-variable-de-interes-user-score-es-numerica-y-continua-adecuada-para-este-test">La variable de interés (user_score) es numérica y continua, adecuada para este test.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-prueba-t-evalua-si-las-diferencias-observadas-entre-medias-son-estadisticamente-significativas-o-si-pueden-deberse-al-azar">La prueba t evalúa si las diferencias observadas entre medias son estadísticamente significativas o si pueden deberse al azar.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#escribe-una-conclusion-general">6. Escribe una conclusión general</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="analisis-de-ventas-de-videojuegos">
+<h1>Análisis de Ventas de Videojuegos<a class="headerlink" href="#analisis-de-ventas-de-videojuegos" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="open-the-file">
+<h1>1. Open the file<a class="headerlink" href="#open-the-file" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reading the game DataSet</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/datasets/games.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take df info</span>
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 16715 entries, 0 to 16714
+Data columns (total 11 columns):
+ #   Column           Non-Null Count  Dtype  
+---  ------           --------------  -----  
+ 0   Name             16713 non-null  object 
+ 1   Platform         16715 non-null  object 
+ 2   Year_of_Release  16446 non-null  float64
+ 3   Genre            16713 non-null  object 
+ 4   NA_sales         16715 non-null  float64
+ 5   EU_sales         16715 non-null  float64
+ 6   JP_sales         16715 non-null  float64
+ 7   Other_sales      16715 non-null  float64
+ 8   Critic_Score     8137 non-null   float64
+ 9   User_Score       10014 non-null  object 
+ 10  Rating           9949 non-null   object 
+dtypes: float64(6), object(5)
+memory usage: 1.4+ MB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="preparing-data">
+<h1>2. Preparing Data<a class="headerlink" href="#preparing-data" title="Permalink to this heading">#</a></h1>
+<section id="reemplaza-los-nombres-de-las-columnas-ponlos-en-minusculas">
+<h2>Reemplaza los nombres de las columnas (ponlos en minúsculas).<a class="headerlink" href="#reemplaza-los-nombres-de-las-columnas-ponlos-en-minusculas" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Columns names in lower case</span>
+<span class="n">lower_columns</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">lower_columns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">lower_columns</span>
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 16715 entries, 0 to 16714
+Data columns (total 11 columns):
+ #   Column           Non-Null Count  Dtype  
+---  ------           --------------  -----  
+ 0   name             16713 non-null  object 
+ 1   platform         16715 non-null  object 
+ 2   year_of_release  16446 non-null  float64
+ 3   genre            16713 non-null  object 
+ 4   na_sales         16715 non-null  float64
+ 5   eu_sales         16715 non-null  float64
+ 6   jp_sales         16715 non-null  float64
+ 7   other_sales      16715 non-null  float64
+ 8   critic_score     8137 non-null   float64
+ 9   user_score       10014 non-null  object 
+ 10  rating           9949 non-null   object 
+dtypes: float64(6), object(5)
+memory usage: 1.4+ MB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="convierte-los-datos-en-los-tipos-necesarios">
+<h2>Convierte los datos en los tipos necesarios.<a class="headerlink" href="#convierte-los-datos-en-los-tipos-necesarios" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Changin data type of any column data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Analyzing some values with head</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>platform</th>
+      <th>year_of_release</th>
+      <th>genre</th>
+      <th>na_sales</th>
+      <th>eu_sales</th>
+      <th>jp_sales</th>
+      <th>other_sales</th>
+      <th>critic_score</th>
+      <th>user_score</th>
+      <th>rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Wii Sports</td>
+      <td>Wii</td>
+      <td>2006.0</td>
+      <td>Sports</td>
+      <td>41.36</td>
+      <td>28.96</td>
+      <td>3.77</td>
+      <td>8.45</td>
+      <td>76.0</td>
+      <td>8</td>
+      <td>E</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Super Mario Bros.</td>
+      <td>NES</td>
+      <td>1985.0</td>
+      <td>Platform</td>
+      <td>29.08</td>
+      <td>3.58</td>
+      <td>6.81</td>
+      <td>0.77</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Mario Kart Wii</td>
+      <td>Wii</td>
+      <td>2008.0</td>
+      <td>Racing</td>
+      <td>15.68</td>
+      <td>12.76</td>
+      <td>3.79</td>
+      <td>3.29</td>
+      <td>82.0</td>
+      <td>8.3</td>
+      <td>E</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Wii Sports Resort</td>
+      <td>Wii</td>
+      <td>2009.0</td>
+      <td>Sports</td>
+      <td>15.61</td>
+      <td>10.93</td>
+      <td>3.28</td>
+      <td>2.95</td>
+      <td>80.0</td>
+      <td>8</td>
+      <td>E</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Pokemon Red/Pokemon Blue</td>
+      <td>GB</td>
+      <td>1996.0</td>
+      <td>Role-Playing</td>
+      <td>11.27</td>
+      <td>8.89</td>
+      <td>10.22</td>
+      <td>1.00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;year_of_release&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;year_of_release&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;Int64&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;genre&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;genre&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;critic_score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;critic_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;Int64&#39;</span><span class="p">)</span>
+<span class="c1">#df[&#39;user_score&#39;] = df[&#39;user_score&#39;].astype(&#39;float64&#39;)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 16715 entries, 0 to 16714
+Data columns (total 11 columns):
+ #   Column           Non-Null Count  Dtype   
+---  ------           --------------  -----   
+ 0   name             16713 non-null  object  
+ 1   platform         16715 non-null  category
+ 2   year_of_release  16446 non-null  Int64   
+ 3   genre            16713 non-null  category
+ 4   na_sales         16715 non-null  float64 
+ 5   eu_sales         16715 non-null  float64 
+ 6   jp_sales         16715 non-null  float64 
+ 7   other_sales      16715 non-null  float64 
+ 8   critic_score     8137 non-null   Int64   
+ 9   user_score       10014 non-null  object  
+ 10  rating           9949 non-null   category
+dtypes: Int64(2), category(3), float64(4), object(2)
+memory usage: 1.1+ MB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="explica-por-que-rellenaste-los-valores-ausentes-como-lo-hiciste-o-por-que-decidiste-dejarlos-en-blanco">
+<h2>Explica por qué rellenaste los valores ausentes como lo hiciste o por qué decidiste dejarlos en blanco.<a class="headerlink" href="#explica-por-que-rellenaste-los-valores-ausentes-como-lo-hiciste-o-por-que-decidiste-dejarlos-en-blanco" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;Others&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Calcular medianas por plataforma</span>
+<span class="n">median_years</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;platform&quot;</span><span class="p">)[</span><span class="s2">&quot;year_of_release&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+
+<span class="c1"># Recorrer cada plataforma y rellenar nulos</span>
+<span class="k">for</span> <span class="n">platform</span><span class="p">,</span> <span class="n">median</span> <span class="ow">in</span> <span class="n">median_years</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;platform&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">platform</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;year_of_release&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">())</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="s2">&quot;year_of_release&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">median</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;genre&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;genre&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">add_categories</span><span class="p">([</span><span class="s1">&#39;Others&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;genre&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;Others&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># df[&#39;critic_score&#39;].median() = 71</span>
+<span class="c1"># df[&#39;critic_score&#39;].mean() = 69</span>
+<span class="c1"># df[&#39;critic_score&#39;].describe()</span>
+<span class="c1"># df[&#39;critic_score&#39;].fillna(df[&#39;critic_score&#39;].mean().astype(int), inplace=True)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;RP&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="las-columnas-en-las-que-cambie-el-tipo-de-dato-son">
+<h3>Las columnas en las que cambié el tipo de dato son:<a class="headerlink" href="#las-columnas-en-las-que-cambie-el-tipo-de-dato-son" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="plataforma-como-categoria-lo-cambie-para-mejorar-el-rendimiento-de-ciertas-operaciones-y-para-optimizarlas">
+<h3>plataforma como categoría. Lo cambié para mejorar el rendimiento de ciertas operaciones y para optimizarlas.<a class="headerlink" href="#plataforma-como-categoria-lo-cambie-para-mejorar-el-rendimiento-de-ciertas-operaciones-y-para-optimizarlas" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="ano-de-lanzamiento-lo-cambie-para-mostrar-los-datos-de-forma-mas-clara-ya-que-el-ano-siempre-es-un-dato-entero">
+<h3>año_de_lanzamiento. Lo cambié para mostrar los datos de forma más clara, ya que el año siempre es un dato entero.<a class="headerlink" href="#ano-de-lanzamiento-lo-cambie-para-mostrar-los-datos-de-forma-mas-clara-ya-que-el-ano-siempre-es-un-dato-entero" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="genero-y-calificacion-tambien-cambie-su-tipo-de-dato-a-categoria-por-la-misma-razon-que-en-las-otras-columnas">
+<h3>género y calificación. También cambié su tipo de dato a categoría por la misma razón que en las otras columnas.<a class="headerlink" href="#genero-y-calificacion-tambien-cambie-su-tipo-de-dato-a-categoria-por-la-misma-razon-que-en-las-otras-columnas" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="critic-score-mantendra-su-tipo-de-dato-porque-tiene-un-valor-por-determinar-que-es-una-cadena">
+<h3>critic_score mantendrá su tipo de dato porque tiene un valor por determinar que es una cadena.<a class="headerlink" href="#critic-score-mantendra-su-tipo-de-dato-porque-tiene-un-valor-por-determinar-que-es-una-cadena" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="por-que-crees-que-los-valores-estan-ausentes-brinda-explicaciones-posibles">
+<h2>¿Por qué crees que los valores están ausentes? Brinda explicaciones posibles.<a class="headerlink" href="#por-que-crees-que-los-valores-estan-ausentes-brinda-explicaciones-posibles" title="Permalink to this heading">#</a></h2>
+<section id="creo-que-los-valores-son-nulos-porque-quizas-el-usuario-o-la-persona-que-digito-o-agrego-los-datos-se-equivoco">
+<h3>Creo que los valores son nulos porque quizás el usuario o la persona que digitó o agregó los datos se equivocó.<a class="headerlink" href="#creo-que-los-valores-son-nulos-porque-quizas-el-usuario-o-la-persona-que-digito-o-agrego-los-datos-se-equivoco" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="otra-razon-es-que-algunos-valores-aun-no-se-completaron-por-el-momento-deberian-completarse">
+<h3>Otra razón es que algunos valores aún no se completaron; por el momento, deberían completarse.<a class="headerlink" href="#otra-razon-es-que-algunos-valores-aun-no-se-completaron-por-el-momento-deberian-completarse" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="presta-atencion-a-la-abreviatura-tbd-significa-to-be-determined-a-determinar-especifica-como-piensas-manejar-estos-casos">
+<h2>Presta atención a la abreviatura TBD: significa “to be determined” (a determinar). Especifica cómo piensas manejar estos casos.<a class="headerlink" href="#presta-atencion-a-la-abreviatura-tbd-significa-to-be-determined-a-determinar-especifica-como-piensas-manejar-estos-casos" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># I will complete it with the median or the mean.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;user_score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;user_score&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="c1"># df[&#39;user_score&#39;].fillna(df[&#39;user_score&#39;].median(), inplace=True)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 16715 entries, 0 to 16714
+Data columns (total 11 columns):
+ #   Column           Non-Null Count  Dtype   
+---  ------           --------------  -----   
+ 0   name             16715 non-null  object  
+ 1   platform         16715 non-null  category
+ 2   year_of_release  16715 non-null  Int64   
+ 3   genre            16715 non-null  category
+ 4   na_sales         16715 non-null  float64 
+ 5   eu_sales         16715 non-null  float64 
+ 6   jp_sales         16715 non-null  float64 
+ 7   other_sales      16715 non-null  float64 
+ 8   critic_score     8137 non-null   Int64   
+ 9   user_score       7590 non-null   float64 
+ 10  rating           16715 non-null  category
+dtypes: Int64(2), category(3), float64(5), object(1)
+memory usage: 1.1+ MB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="calcula-las-ventas-totales-la-suma-de-las-ventas-en-todas-las-regiones-para-cada-juego-y-coloca-estos-valores-en-una-columna-separada">
+<h2>Calcula las ventas totales (la suma de las ventas en todas las regiones) para cada juego y coloca estos valores en una columna separada.<a class="headerlink" href="#calcula-las-ventas-totales-la-suma-de-las-ventas-en-todas-las-regiones-para-cada-juego-y-coloca-estos-valores-en-una-columna-separada" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_sales</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;na_sales&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;eu_sales&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;jp_sales&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;other_sales&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;total_sales&#39;</span><span class="p">,</span> <span class="n">total_sales</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 16715 entries, 0 to 16714
+Data columns (total 12 columns):
+ #   Column           Non-Null Count  Dtype   
+---  ------           --------------  -----   
+ 0   name             16715 non-null  object  
+ 1   platform         16715 non-null  category
+ 2   year_of_release  16715 non-null  Int64   
+ 3   genre            16715 non-null  category
+ 4   na_sales         16715 non-null  float64 
+ 5   eu_sales         16715 non-null  float64 
+ 6   jp_sales         16715 non-null  float64 
+ 7   other_sales      16715 non-null  float64 
+ 8   total_sales      16715 non-null  float64 
+ 9   critic_score     8137 non-null   Int64   
+ 10  user_score       7590 non-null   float64 
+ 11  rating           16715 non-null  category
+dtypes: Int64(2), category(3), float64(6), object(1)
+memory usage: 1.2+ MB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="analiza-los-datos">
+<h1>3. Analiza los datos<a class="headerlink" href="#analiza-los-datos" title="Permalink to this heading">#</a></h1>
+<section id="mira-cuantos-juegos-fueron-lanzados-en-diferentes-anos-son-significativos-los-datos-de-cada-periodo">
+<h2>Mira cuántos juegos fueron lanzados en diferentes años. ¿Son significativos los datos de cada período?<a class="headerlink" href="#mira-cuantos-juegos-fueron-lanzados-en-diferentes-anos-son-significativos-los-datos-de-cada-periodo" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">games_per_year</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year_of_release&#39;</span><span class="p">)[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="in-many-cases-yes-there-are-significative-data-since-1993">
+<h3>In many cases yes. There are significative data since 1993.<a class="headerlink" href="#in-many-cases-yes-there-are-significative-data-since-1993" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">games_per_year</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">games_per_year</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Games&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Games Released per Year&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/be9159ce534387c25ab084bb5fa0d6a0cbebe5c2c099bb8cff26d8333a096daa.png" src="_images/be9159ce534387c25ab084bb5fa0d6a0cbebe5c2c099bb8cff26d8333a096daa.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="observa-como-varian-las-ventas-de-una-plataforma-a-otra-elige-las-plataformas-con-las-mayores-ventas-totales-y-construye-una-distribucion-basada-en-los-datos-de-cada-ano-busca-las-plataformas-que-solian-ser-populares-pero-que-ahora-no-tienen-ventas-cuanto-tardan-generalmente-las-nuevas-plataformas-en-aparecer-y-las-antiguas-en-desaparecer">
+<h2>Observa cómo varían las ventas de una plataforma a otra. Elige las plataformas con las mayores ventas totales y construye una distribución basada en los datos de cada año. Busca las plataformas que solían ser populares pero que ahora no tienen ventas. ¿Cuánto tardan generalmente las nuevas plataformas en aparecer y las antiguas en desaparecer?<a class="headerlink" href="#observa-como-varian-las-ventas-de-una-plataforma-a-otra-elige-las-plataformas-con-las-mayores-ventas-totales-y-construye-una-distribucion-basada-en-los-datos-de-cada-ano-busca-las-plataformas-que-solian-ser-populares-pero-que-ahora-no-tienen-ventas-cuanto-tardan-generalmente-las-nuevas-plataformas-en-aparecer-y-las-antiguas-en-desaparecer" title="Permalink to this heading">#</a></h2>
+<section id="total-sales-per-platform">
+<h3>1. Total sales per platform<a class="headerlink" href="#total-sales-per-platform" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">platform_sales</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;platform&#39;</span><span class="p">)[</span><span class="s1">&#39;total_sales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;total_sales&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">platform_sales</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   platform  total_sales
+16      PS2      1255.77
+28     X360       971.42
+17      PS3       939.65
+26      Wii       907.51
+4        DS       806.12
+15       PS       730.86
+6       GBA       317.85
+18      PS4       314.14
+19      PSP       294.05
+13       PC       259.52
+2       3DS       259.00
+29       XB       257.74
+5        GB       255.46
+11      NES       251.05
+10      N64       218.68
+23     SNES       200.04
+7        GC       198.93
+30     XOne       159.32
+0      2600        96.98
+27     WiiU        82.19
+20      PSV        54.07
+21      SAT        33.59
+8       GEN        30.77
+3        DC        15.95
+22      SCD         1.86
+12       NG         1.44
+25       WS         1.42
+24     TG16         0.16
+1       3DO         0.10
+9        GG         0.04
+14     PCFX         0.03
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="procedemnos-a-convertir-la-lista-en-un-dataframe-y-a-filtrar-para-ver-las-ventas-mayores-a-100-millones">
+<h3>2. Procedemnos a convertir la lista en un dataframe y a filtrar para ver las ventas mayores a 100 millones.<a class="headerlink" href="#procedemnos-a-convertir-la-lista-en-un-dataframe-y-a-filtrar-para-ver-las-ventas-mayores-a-100-millones" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">most_platform_sales</span> <span class="o">=</span> <span class="n">platform_sales</span><span class="p">[</span><span class="n">platform_sales</span><span class="p">[</span><span class="s1">&#39;total_sales&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">100</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">most_platform_sales</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   platform  total_sales
+16      PS2      1255.77
+28     X360       971.42
+17      PS3       939.65
+26      Wii       907.51
+4        DS       806.12
+15       PS       730.86
+6       GBA       317.85
+18      PS4       314.14
+19      PSP       294.05
+13       PC       259.52
+2       3DS       259.00
+29       XB       257.74
+5        GB       255.46
+11      NES       251.05
+10      N64       218.68
+23     SNES       200.04
+7        GC       198.93
+30     XOne       159.32
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">most_platform_sales</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">],</span> <span class="n">most_platform_sales</span><span class="p">[</span><span class="s1">&#39;total_sales&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Platforms&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sales&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;total Sales per platform&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2f9736ba740a5fccd8fc329d88312a4108d536875a44c0162bc82d6b957f5e16.png" src="_images/2f9736ba740a5fccd8fc329d88312a4108d536875a44c0162bc82d6b957f5e16.png" />
+</div>
+</div>
+</section>
+<section id="despues-de-analizar-el-grafico-vemos-que-lo-mas-adecuado-es-filtrar-solo-las-6-mas-vendidas">
+<h3>3. Despues de analizar el grafico, vemos que lo mas adecuado es filtrar solo las 6 mas vendidas<a class="headerlink" href="#despues-de-analizar-el-grafico-vemos-que-lo-mas-adecuado-es-filtrar-solo-las-6-mas-vendidas" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">platform_year_sales</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;platform&#39;</span><span class="p">,</span> <span class="s1">&#39;year_of_release&#39;</span><span class="p">])[</span><span class="s1">&#39;total_sales&#39;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_platforms</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;platform&#39;</span><span class="p">)[</span><span class="s1">&#39;total_sales&#39;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">index</span>
+<span class="p">)</span>
+
+<span class="n">df_top</span> <span class="o">=</span> <span class="n">platform_year_sales</span><span class="p">[</span><span class="n">platform_year_sales</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">top_platforms</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">platform</span> <span class="ow">in</span> <span class="n">top_platforms</span><span class="p">:</span>
+    <span class="n">subset</span> <span class="o">=</span> <span class="n">df_top</span><span class="p">[(</span><span class="n">df_top</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">platform</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df_top</span><span class="p">[</span><span class="s1">&#39;total_sales&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;year_of_release&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">subset</span><span class="p">[</span><span class="s1">&#39;year_of_release&#39;</span><span class="p">],</span> <span class="n">subset</span><span class="p">[</span><span class="s1">&#39;total_sales&#39;</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">platform</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Year of Release&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Total Sales (millions)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Yearly Sales Distribution of Top Platforms&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b505ef89ddae5a407be65045ea956fdaec630544a08dc1883eff919211cb6423.png" src="_images/b505ef89ddae5a407be65045ea956fdaec630544a08dc1883eff919211cb6423.png" />
+</div>
+</div>
+</section>
+<section id="veremos-el-tiemmpo-de-vida-que-tiene-una-consola">
+<h3>4. Veremos el tiemmpo de vida que tiene una consola.<a class="headerlink" href="#veremos-el-tiemmpo-de-vida-que-tiene-una-consola" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">platform_life</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df_top</span><span class="p">[</span><span class="n">df_top</span><span class="p">[</span><span class="s1">&#39;total_sales&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;platform&#39;</span><span class="p">)[</span><span class="s1">&#39;year_of_release&#39;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">platform_life</span> <span class="o">=</span> <span class="n">platform_life</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">platform_life</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   platform     min     max
+4        DS  1985.0  2013.0
+15       PS  1994.0  2003.0
+16      PS2  2000.0  2011.0
+17      PS3  2006.0  2016.0
+26      Wii  2006.0  2016.0
+28     X360  2005.0  2016.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="veremos-cuanto-tarda-una-nueva-consola-en-aparecer">
+<h3>Veremos cuanto tarda una nueva consola en aparecer<a class="headerlink" href="#veremos-cuanto-tarda-una-nueva-consola-en-aparecer" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">platform_life</span><span class="p">[</span><span class="s1">&#39;lifespan&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">platform_life</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">platform_life</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">platform_life</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   platform     min     max  lifespan
+4        DS  1985.0  2013.0      28.0
+15       PS  1994.0  2003.0       9.0
+16      PS2  2000.0  2011.0      11.0
+17      PS3  2006.0  2016.0      10.0
+26      Wii  2006.0  2016.0      10.0
+28     X360  2005.0  2016.0      11.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;El promediod de vida es &#39;</span><span class="p">,</span><span class="n">platform_life</span><span class="p">[</span><span class="s1">&#39;lifespan&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>El promediod de vida es  13.166666666666666
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="determina-para-que-periodo-debes-tomar-datos-para-hacerlo-mira-tus-respuestas-a-las-preguntas-anteriores-los-datos-deberian-permitirte-construir-un-modelo-para-2017">
+<h2>Determina para qué período debes tomar datos. Para hacerlo mira tus respuestas a las preguntas anteriores. Los datos deberían permitirte construir un modelo para 2017.<a class="headerlink" href="#determina-para-que-periodo-debes-tomar-datos-para-hacerlo-mira-tus-respuestas-a-las-preguntas-anteriores-los-datos-deberian-permitirte-construir-un-modelo-para-2017" title="Permalink to this heading">#</a></h2>
+<section id="del-ultimo-grafico-que-veo-el-periodo-que-deberia-utilizar-para-construir-un-modelo-es-1994-a-2016-esto-se-debe-a-que-a-partir-de-este-ano-parece-que-comienza-una-nueva-era-de-consolas">
+<h3>Del último gráfico que veo el periodo que debería utilizar para construir un modelo es 1994 a 2016. Esto se debe a que a partir de este año parece que comienza una nueva era de consolas.<a class="headerlink" href="#del-ultimo-grafico-que-veo-el-periodo-que-deberia-utilizar-para-construir-un-modelo-es-1994-a-2016-esto-se-debe-a-que-a-partir-de-este-ano-parece-que-comienza-una-nueva-era-de-consolas" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="que-plataformas-son-lideres-en-ventas-cuales-crecen-y-cuales-se-reducen-elige-varias-plataformas-potencialmente-rentables">
+<h2>¿Qué plataformas son líderes en ventas? ¿Cuáles crecen y cuáles se reducen? Elige varias plataformas potencialmente rentables.<a class="headerlink" href="#que-plataformas-son-lideres-en-ventas-cuales-crecen-y-cuales-se-reducen-elige-varias-plataformas-potencialmente-rentables" title="Permalink to this heading">#</a></h2>
+<section id="las-plataformas-que-lideran-las-ventas-son-ps2-x360-ps3-wii-ds-y-ps">
+<h3>Las plataformas que lideran las ventas son PS2, X360, PS3, Wii, DS y PS.<a class="headerlink" href="#las-plataformas-que-lideran-las-ventas-son-ps2-x360-ps3-wii-ds-y-ps" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="crea-un-diagrama-de-caja-para-las-ventas-globales-de-todos-los-juegos-desglosados-por-plataforma-son-significativas-las-diferencias-en-las-ventas-que-sucede-con-las-ventas-promedio-en-varias-plataformas-describe-tus-hallazgos">
+<h2>Crea un diagrama de caja para las ventas globales de todos los juegos, desglosados por plataforma. ¿Son significativas las diferencias en las ventas? ¿Qué sucede con las ventas promedio en varias plataformas? Describe tus hallazgos.<a class="headerlink" href="#crea-un-diagrama-de-caja-para-las-ventas-globales-de-todos-los-juegos-desglosados-por-plataforma-son-significativas-las-diferencias-en-las-ventas-que-sucede-con-las-ventas-promedio-en-varias-plataformas-describe-tus-hallazgos" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="n">df_top6</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">top_platforms</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Asegurar que platform sea string normal (no categorical)</span>
+<span class="n">df_top6</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_top6</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_top6</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;platform&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;total_sales&#39;</span><span class="p">,</span>
+            <span class="n">order</span><span class="o">=</span><span class="n">top_platforms</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_top6</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;platform&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_sales&quot;</span><span class="p">,</span>
+              <span class="n">estimator</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">markers</span><span class="o">=</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribución de ventas globales por plataforma (Top 6)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Ventas globales (millones, escala log)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Plataforma&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e20bb5c3684db3fe5650fe87cdcce8f4517f8fa0f8f477532c0587aa0975e308.png" src="_images/e20bb5c3684db3fe5650fe87cdcce8f4517f8fa0f8f477532c0587aa0975e308.png" />
+</div>
+</div>
+<section id="no-hay-diferencias-abismales-en-la-distribucion-tipica-de-ventas-entre-plataformas-aunque-puede-haber-diferencias-pequenas-a-simple-vista-las-distribuciones-son-muy-parecidas-todas-las-cajas-50-central-de-los-datos-estan-ubicadas-en-un-rango-similar">
+<h3>No hay diferencias abismales en la distribución típica de ventas entre plataformas, aunque puede haber diferencias pequeñas. A simple vista, las distribuciones son muy parecidas: todas las cajas (50% central de los datos) están ubicadas en un rango similar.<a class="headerlink" href="#no-hay-diferencias-abismales-en-la-distribucion-tipica-de-ventas-entre-plataformas-aunque-puede-haber-diferencias-pequenas-a-simple-vista-las-distribuciones-son-muy-parecidas-todas-las-cajas-50-central-de-los-datos-estan-ubicadas-en-un-rango-similar" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="las-diferencias-mas-notorias-estan-en-los-outliers-que-elevan-el-promedio-en-algunas-consolas-ej-wii-ps2">
+<h3>Las diferencias más notorias están en los outliers, que elevan el promedio en algunas consolas (ej. Wii, PS2).<a class="headerlink" href="#las-diferencias-mas-notorias-estan-en-los-outliers-que-elevan-el-promedio-en-algunas-consolas-ej-wii-ps2" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="en-cuanto-al-promedio-no-refleja-bien-la-tendencia-central-porque-esta-sesgado-por-pocos-juegos-con-ventas-enormes-la-mediana-es-mas-representativa">
+<h3>En cuanto al promedio no refleja bien la tendencia central, porque está sesgado por pocos juegos con ventas enormes; la mediana es más representativa.<a class="headerlink" href="#en-cuanto-al-promedio-no-refleja-bien-la-tendencia-central-porque-esta-sesgado-por-pocos-juegos-con-ventas-enormes-la-mediana-es-mas-representativa" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="mira-como-las-resenas-de-usuarios-y-profesionales-afectan-las-ventas-de-una-plataforma-popular-tu-eleccion-crea-un-grafico-de-dispersion-y-calcula-la-correlacion-entre-las-resenas-y-las-ventas-saca-conclusiones">
+<h2>Mira cómo las reseñas de usuarios y profesionales afectan las ventas de una plataforma popular (tu elección). Crea un gráfico de dispersión y calcula la correlación entre las reseñas y las ventas. Saca conclusiones.<a class="headerlink" href="#mira-como-las-resenas-de-usuarios-y-profesionales-afectan-las-ventas-de-una-plataforma-popular-tu-eleccion-crea-un-grafico-de-dispersion-y-calcula-la-correlacion-entre-las-resenas-y-las-ventas-saca-conclusiones" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ps2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;PS2&#39;</span><span class="p">]</span>
+<span class="n">df_ps2</span> <span class="o">=</span> <span class="n">df_ps2</span><span class="p">[[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;user_score&#39;</span><span class="p">,</span> <span class="s1">&#39;critic_score&#39;</span><span class="p">,</span> <span class="s1">&#39;total_sales&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_ps2</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;user_score&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;total_sales&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Relación entre reseñas de usuarios y ventas (PS2)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Puntaje usuarios&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Ventas globales (millones)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b33d682b893d86b1c161b746008a914e69313fe38cda74c2f54d93542f48e638.png" src="_images/b33d682b893d86b1c161b746008a914e69313fe38cda74c2f54d93542f48e638.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_ps2</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;critic_score&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;total_sales&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Relación entre reseñas de críticos y ventas (PS2)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Puntaje usuarios&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Ventas globales (millones)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6c36f73fdd56c0cf1288f570f55fa08b1b8c2dd40c37b0e10bf9fce42b7eacca.png" src="_images/6c36f73fdd56c0cf1288f570f55fa08b1b8c2dd40c37b0e10bf9fce42b7eacca.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">correlaciones</span> <span class="o">=</span> <span class="n">df_ps2</span><span class="p">[[</span><span class="s1">&#39;user_score&#39;</span><span class="p">,</span> <span class="s1">&#39;critic_score&#39;</span><span class="p">,</span> <span class="s1">&#39;total_sales&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">correlaciones</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              user_score  critic_score  total_sales
+user_score      1.000000      0.563254     0.172866
+critic_score    0.563254      1.000000     0.395435
+total_sales     0.172866      0.395435     1.000000
+</pre></div>
+</div>
+</div>
+</div>
+<section id="visualmente-si-hay-relacion-sobre-todo-en-la-cola-alta-de-ventas-los-superventas-suelen-tener-buenas-resenas">
+<h3>Visualmente sí hay relación, sobre todo en la “cola alta” de ventas (los superventas suelen tener buenas reseñas).<a class="headerlink" href="#visualmente-si-hay-relacion-sobre-todo-en-la-cola-alta-de-ventas-los-superventas-suelen-tener-buenas-resenas" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="pero-estadisticamente-la-correlacion-es-debil-porque-la-mayoria-de-juegos-no-siguen-esa-regla-tan-claramente">
+<h3>Pero estadísticamente la correlación es débil, porque la mayoría de juegos no siguen esa regla tan claramente.<a class="headerlink" href="#pero-estadisticamente-la-correlacion-es-debil-porque-la-mayoria-de-juegos-no-siguen-esa-regla-tan-claramente" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="teniendo-en-cuenta-tus-conclusiones-compara-las-ventas-de-los-mismos-juegos-en-otras-plataformas">
+<h2>Teniendo en cuenta tus conclusiones compara las ventas de los mismos juegos en otras plataformas.<a class="headerlink" href="#teniendo-en-cuenta-tus-conclusiones-compara-las-ventas-de-los-mismos-juegos-en-otras-plataformas" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agrupamos por nombre del juego y contamos cuántas plataformas tiene</span>
+<span class="n">multi</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="c1"># Filtramos los que tienen más de 1 plataforma</span>
+<span class="n">multi</span> <span class="o">=</span> <span class="n">multi</span><span class="p">[</span><span class="n">multi</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">multi</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                 name  platform
+2                                Frozen: Olaf&#39;s Quest         2
+17                             007: Quantum of Solace         6
+18                       007: The World is not Enough         2
+33                                  11eyes: CrossOver         2
+39                   18 Wheeler: American Pro Trucker         2
+42                                   187: Ride or Die         2
+52  2 in 1 Combo Pack: Sonic Heroes / Super Monkey...         2
+54                                2002 FIFA World Cup         3
+55                   2010 FIFA World Cup South Africa         4
+56                         2014 FIFA World Cup Brazil         2
+</pre></div>
+</div>
+</div>
+</div>
+<section id="a-partir-de-aca-puedo-tomar-cualquier-titulo-que-se-encuentre-en-cualquier-plataforma-para-poder-llevar-acabo-el-analisis-en-este-caso-tomare-el-juego-2010-fifa-world-cup-south-africa-y-el-de-007">
+<h3>A partir de acá, puedo tomar cualquier título que se encuentre en cualquier plataforma para poder llevar acabo el análisis. En este caso tomaré el juego 2010 FIFA World Cup South Africa y el de 007.<a class="headerlink" href="#a-partir-de-aca-puedo-tomar-cualquier-titulo-que-se-encuentre-en-cualquier-plataforma-para-poder-llevar-acabo-el-analisis-en-este-caso-tomare-el-juego-2010-fifa-world-cup-south-africa-y-el-de-007" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">game1</span> <span class="o">=</span> <span class="s2">&quot;2010 FIFA World Cup South Africa&quot;</span>
+<span class="n">df_game1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">game1</span><span class="p">][[</span><span class="s1">&#39;platform&#39;</span><span class="p">,</span><span class="s1">&#39;user_score&#39;</span><span class="p">,</span><span class="s1">&#39;critic_score&#39;</span><span class="p">,</span><span class="s1">&#39;total_sales&#39;</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_game1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     platform  user_score  critic_score  total_sales
+1634      PS3         7.8            82         1.23
+2429     X360         8.1            83         0.85
+4211      PSP         7.4            69         0.46
+4579      Wii         6.7            70         0.43
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ahora-es-posible-aplicar-la-correlacion-entre-el-rating-y-las-ventas">
+<h3>Ahora es posible aplicar la correlación entre el rating y las ventas<a class="headerlink" href="#ahora-es-posible-aplicar-la-correlacion-entre-el-rating-y-las-ventas" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_game1</span><span class="p">[[</span><span class="s1">&#39;user_score&#39;</span><span class="p">,</span><span class="s1">&#39;critic_score&#39;</span><span class="p">,</span><span class="s1">&#39;total_sales&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>user_score</th>
+      <th>critic_score</th>
+      <th>total_sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>user_score</th>
+      <td>1.000000</td>
+      <td>0.840963</td>
+      <td>0.713779</td>
+    </tr>
+    <tr>
+      <th>critic_score</th>
+      <td>0.840963</td>
+      <td>1.000000</td>
+      <td>0.884142</td>
+    </tr>
+    <tr>
+      <th>total_sales</th>
+      <td>0.713779</td>
+      <td>0.884142</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">game2</span> <span class="o">=</span> <span class="s2">&quot;007: Quantum of Solace&quot;</span>
+<span class="n">df_game2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">game2</span><span class="p">][[</span><span class="s1">&#39;platform&#39;</span><span class="p">,</span><span class="s1">&#39;user_score&#39;</span><span class="p">,</span><span class="s1">&#39;critic_score&#39;</span><span class="p">,</span><span class="s1">&#39;total_sales&#39;</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_game2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      platform  user_score  critic_score  total_sales
+1285      X360         7.1            65         1.48
+1785       PS3         6.6            65         1.15
+3120       Wii         7.5            54         0.65
+4475       PS2         NaN          &lt;NA&gt;         0.43
+9507        DS         NaN            65         0.13
+14658       PC         6.3            70         0.02
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_game2</span><span class="p">[[</span><span class="s1">&#39;user_score&#39;</span><span class="p">,</span><span class="s1">&#39;critic_score&#39;</span><span class="p">,</span><span class="s1">&#39;total_sales&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>user_score</th>
+      <th>critic_score</th>
+      <th>total_sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>user_score</th>
+      <td>1.000000</td>
+      <td>-0.904846</td>
+      <td>0.405804</td>
+    </tr>
+    <tr>
+      <th>critic_score</th>
+      <td>-0.904846</td>
+      <td>1.000000</td>
+      <td>-0.196899</td>
+    </tr>
+    <tr>
+      <th>total_sales</th>
+      <td>0.405804</td>
+      <td>-0.196899</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="al-ver-los-resultados-se-puede-ver-que-en-ambos-juegos-la-correlacion-entre-las-criticas-y-las-ventas-es-distinta-por-un-lado-el-juego-deportivo-tuvo-buena-correlacion-pero-el-otro-juego-no-posiblemente-este-relacionado-a-la-consola-o-el-genero-de-los-juegos-pero-es-necesario-hacer-mas-analisis">
+<h3>Al ver los resultados se puede ver que en ambos juegos la correlación entre las críticas y las ventas es distinta. Por un lado el juego deportivo tuvo buena correlación, pero el otro juego no. Posiblemente esté relacionado a la consola o el género de los juegos, pero es necesario hacer más análisis.<a class="headerlink" href="#al-ver-los-resultados-se-puede-ver-que-en-ambos-juegos-la-correlacion-entre-las-criticas-y-las-ventas-es-distinta-por-un-lado-el-juego-deportivo-tuvo-buena-correlacion-pero-el-otro-juego-no-posiblemente-este-relacionado-a-la-consola-o-el-genero-de-los-juegos-pero-es-necesario-hacer-mas-analisis" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="echa-un-vistazo-a-la-distribucion-general-de-los-juegos-por-genero-que-se-puede-decir-de-los-generos-mas-rentables-puedes-generalizar-acerca-de-los-generos-con-ventas-altas-y-bajas">
+<h2>Echa un vistazo a la distribución general de los juegos por género. ¿Qué se puede decir de los géneros más rentables? ¿Puedes generalizar acerca de los géneros con ventas altas y bajas?<a class="headerlink" href="#echa-un-vistazo-a-la-distribucion-general-de-los-juegos-por-genero-que-se-puede-decir-de-los-generos-mas-rentables-puedes-generalizar-acerca-de-los-generos-con-ventas-altas-y-bajas" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;genre&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Número de juegos por género&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Género&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Cantidad de juegos&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d0842a917965e58e6cc9cdd4fa931e89264d72974e45723f4d77a64963461f76.png" src="_images/d0842a917965e58e6cc9cdd4fa931e89264d72974e45723f4d77a64963461f76.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;genre&#39;</span><span class="p">)[</span><span class="s1">&#39;total_sales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Ventas totales por género&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Género&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Ventas globales (millones)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/76c23bc862601568d7ef6c7fa5cce036cdef1e99bc84d188abd6e6c237748d35.png" src="_images/76c23bc862601568d7ef6c7fa5cce036cdef1e99bc84d188abd6e6c237748d35.png" />
+</div>
+</div>
+<section id="de-acuerdo-a-las-graficas-podemos-notar-que-action-es-por-lejos-el-genero-con-mas-juegos-lanzados-mas-de-3-000-titulos">
+<h3>De acuerdo a las gráficas podemos notar que Action es, por lejos, el género con más juegos lanzados (más de 3,000 títulos).<a class="headerlink" href="#de-acuerdo-a-las-graficas-podemos-notar-que-action-es-por-lejos-el-genero-con-mas-juegos-lanzados-mas-de-3-000-titulos" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="asi-mismo-generos-como-puzzle-strategy-y-adventure-tienen-muy-pocos-juegos-publicados-en-comparacion">
+<h3>Así mismo, géneros como Puzzle, Strategy y Adventure tienen muy pocos juegos publicados en comparación.<a class="headerlink" href="#asi-mismo-generos-como-puzzle-strategy-y-adventure-tienen-muy-pocos-juegos-publicados-en-comparacion" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="action-tambien-lidera-en-ventas-globales-lo-cual-coincide-con-su-gran-cantidad-de-titulos">
+<h3>Action también lidera en ventas globales, lo cual coincide con su gran cantidad de títulos.<a class="headerlink" href="#action-tambien-lidera-en-ventas-globales-lo-cual-coincide-con-su-gran-cantidad-de-titulos" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="sports-y-shooter-destacan-no-tienen-tantos-juegos-como-action-pero-si-concentran-ventas-muy-altas-lo-que-indica-que-son-generos-con-mucha-demanda-y-titulos-muy-exitosos">
+<h3>Sports y Shooter destacan: no tienen tantos juegos como Action, pero sí concentran ventas muy altas, lo que indica que son géneros con mucha demanda y títulos muy exitosos.<a class="headerlink" href="#sports-y-shooter-destacan-no-tienen-tantos-juegos-como-action-pero-si-concentran-ventas-muy-altas-lo-que-indica-que-son-generos-con-mucha-demanda-y-titulos-muy-exitosos" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="crea-un-perfil-de-usuario-para-cada-region">
+<h1>Crea un perfil de usuario para cada región<a class="headerlink" href="#crea-un-perfil-de-usuario-para-cada-region" title="Permalink to this heading">#</a></h1>
+<section id="las-cinco-plataformas-principales-describe-las-variaciones-en-sus-cuotas-de-mercado-de-una-region-a-otra">
+<h2>Las cinco plataformas principales. Describe las variaciones en sus cuotas de mercado de una región a otra.<a class="headerlink" href="#las-cinco-plataformas-principales-describe-las-variaciones-en-sus-cuotas-de-mercado-de-una-region-a-otra" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Top 5 plataformas en Norteamérica</span>
+<span class="n">top_na</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;platform&#39;</span><span class="p">)[</span><span class="s1">&#39;na_sales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top_na</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>platform
+X360    602.47
+PS2     583.84
+Wii     496.90
+PS3     393.49
+DS      382.40
+Name: na_sales, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Europa</span>
+<span class="n">top_eu</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;platform&#39;</span><span class="p">)[</span><span class="s1">&#39;eu_sales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top_eu</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>platform
+PS2     339.29
+PS3     330.29
+X360    270.76
+Wii     262.21
+PS      213.61
+Name: eu_sales, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Japón</span>
+<span class="n">top_jp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;platform&#39;</span><span class="p">)[</span><span class="s1">&#39;jp_sales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top_jp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>platform
+DS      175.57
+PS      139.82
+PS2     139.20
+SNES    116.55
+3DS     100.67
+Name: jp_sales, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<section id="en-base-a-lo-mostrado-en-las-tablas-es-facil-distinguir-que-la-mayor-cantidad-de-ventas-se-ha-producido-en-na-y-esto-tiene-mucho-sentido-debido-a-que-en-dicho-pais-existe-un-mayor-nivel-de-consumismo-y-mayor-pib-que-en-europa-por-otro-lado-en-na-tambien-se-nota-una-mayor-compra-de-videojuegos-para-la-consola-x360-lo-cual-tambien-tiene-sentido-debido-a-que-esta-marca-pertenece-a-la-empresa-microsoft-por-el-lado-de-europa-se-ven-mayores-ventas-que-en-japon-y-a-la-par-aca-tambien-se-puede-apreciar-una-mayor-demanda-de-los-juegos-de-la-consola-de-somy-finalmente-en-jp-se-ve-que-la-mayoria-de-juegos-son-para-consolas-niponas">
+<h3>En base a lo mostrado en las tablas, es facil distinguir que la mayor cantidad de ventas se ha producido en NA, y esto tiene mucho sentido debido a que en dicho pais existe un mayor nivel de consumismo y mayor pib que en Europa. Por otro lado en NA tambien se nota una mayor compra de videojuegos para la consola X360 lo cual tambien tiene sentido debido a que esta marca pertenece a la empresa Microsoft. Por el lado de Europa se ven mayores ventas que en  Japon y a la par aca tambien se puede apreciar una mayor demanda de los juegos de la consola de Somy. Finalmente en JP se ve que la mayoria de juegos son para consolas Niponas.<a class="headerlink" href="#en-base-a-lo-mostrado-en-las-tablas-es-facil-distinguir-que-la-mayor-cantidad-de-ventas-se-ha-producido-en-na-y-esto-tiene-mucho-sentido-debido-a-que-en-dicho-pais-existe-un-mayor-nivel-de-consumismo-y-mayor-pib-que-en-europa-por-otro-lado-en-na-tambien-se-nota-una-mayor-compra-de-videojuegos-para-la-consola-x360-lo-cual-tambien-tiene-sentido-debido-a-que-esta-marca-pertenece-a-la-empresa-microsoft-por-el-lado-de-europa-se-ven-mayores-ventas-que-en-japon-y-a-la-par-aca-tambien-se-puede-apreciar-una-mayor-demanda-de-los-juegos-de-la-consola-de-somy-finalmente-en-jp-se-ve-que-la-mayoria-de-juegos-son-para-consolas-niponas" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="los-cinco-generos-principales-explica-la-diferencia">
+<h3>Los cinco géneros principales. Explica la diferencia.<a class="headerlink" href="#los-cinco-generos-principales-explica-la-diferencia" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Top 5 generos en Norteamérica</span>
+<span class="n">top_genre_na</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;genre&#39;</span><span class="p">)[</span><span class="s1">&#39;na_sales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top_genre_na</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>genre
+Action      879.01
+Sports      684.43
+Shooter     592.24
+Platform    445.50
+Misc        407.27
+Name: na_sales, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_genre_eu</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;genre&#39;</span><span class="p">)[</span><span class="s1">&#39;eu_sales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top_genre_eu</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>genre
+Action     519.13
+Sports     376.79
+Shooter    317.34
+Racing     236.51
+Misc       212.74
+Name: eu_sales, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_genre_jp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;genre&#39;</span><span class="p">)[</span><span class="s1">&#39;jp_sales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top_genre_jp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>genre
+Role-Playing    355.41
+Action          161.43
+Sports          135.54
+Platform        130.83
+Misc            108.11
+Name: jp_sales, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="en-cuanto-a-los-analisis-resulta-interesante-ver-que-los-gustos-de-los-generos-en-na-y-eu-son-bastante-parecidos-salvo-un-cambio-en-el-cuarto-lugar-de-platform-en-na-por-racing-en-eu-luego-son-muy-similares-por-otra-parte-en-jp-se-ve-cierta-diferencia-con-respecto-a-los-demas-lugares-en-jp-el-genero-mas-vendido-es-de-tipo-role-playing-mientras-que-accion-tambien-se-cuentra-listado-como-en-eu-y-na-de-manera-concreta-parece-que-a-nivel-global-action-y-sports-son-los-preferidos-y-hay-una-tendencia-marcada-en-jp-por-los-de-rol">
+<h3>En cuanto a los analisis, resulta interesante ver que los gustos de los generos en NA y EU son bastante parecidos, salvo un cambio en el cuarto lugar de Platform en NA por Racing en EU luego son muy similares. Por otra parte, en JP se ve cierta diferencia con respecto a los demas lugares. En JP el genero mas vendido es de tipo Role-Playing mientras que accion tambien se cuentra listado como en EU y NA. De manera concreta parece que a nivel global Action y Sports son los preferidos y hay una tendencia marcada en JP por los de Rol.<a class="headerlink" href="#en-cuanto-a-los-analisis-resulta-interesante-ver-que-los-gustos-de-los-generos-en-na-y-eu-son-bastante-parecidos-salvo-un-cambio-en-el-cuarto-lugar-de-platform-en-na-por-racing-en-eu-luego-son-muy-similares-por-otra-parte-en-jp-se-ve-cierta-diferencia-con-respecto-a-los-demas-lugares-en-jp-el-genero-mas-vendido-es-de-tipo-role-playing-mientras-que-accion-tambien-se-cuentra-listado-como-en-eu-y-na-de-manera-concreta-parece-que-a-nivel-global-action-y-sports-son-los-preferidos-y-hay-una-tendencia-marcada-en-jp-por-los-de-rol" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="si-las-clasificaciones-de-esrb-afectan-a-las-ventas-en-regiones-individuales">
+<h3>Si las clasificaciones de ESRB afectan a las ventas en regiones individuales.<a class="headerlink" href="#si-las-clasificaciones-de-esrb-afectan-a-las-ventas-en-regiones-individuales" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Top 5 generos en Norteamérica</span>
+<span class="n">top_esrb_na</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;rating&#39;</span><span class="p">)[</span><span class="s1">&#39;na_sales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top_esrb_na</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rating
+E       1292.99
+RP      1242.46
+T        759.75
+M        748.48
+E10+     353.32
+Name: na_sales, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_esrb_eu</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;rating&#39;</span><span class="p">)[</span><span class="s1">&#39;eu_sales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top_esrb_eu</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rating
+E       710.25
+RP      613.91
+M       483.97
+T       427.03
+E10+    188.52
+Name: eu_sales, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_esrb_jp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;rating&#39;</span><span class="p">)[</span><span class="s1">&#39;jp_sales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top_esrb_jp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rating
+RP      841.96
+E       198.11
+T       151.40
+M        64.24
+E10+     40.20
+Name: jp_sales, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<section id="aca-podemos-observar-que-la-clasificacion-mas-comprada-es-la-e-y-la-rp-resulta-intrigante-que-haya-muchas-compras-de-juegos-con-clasificacion-pendiente-pero-asumo-que-es-por-las-preventas-de-muchos-juegos-asi-mismo-se-ve-que-los-juegos-con-clasificaciones-distintas-a-e-y-rp-suelen-ser-muy-similares-en-todas-las-regiones">
+<h4>Aca podemos observar que la clasificacion mas comprada es la E y la RP. Resulta intrigante que haya muchas compras de juegos con clasificacion pendiente, pero asumo que es por las preventas de muchos juegos. Asi mismo se ve que los juegos con clasificaciones distintas a E y RP suelen ser muy similares en todas las regiones.<a class="headerlink" href="#aca-podemos-observar-que-la-clasificacion-mas-comprada-es-la-e-y-la-rp-resulta-intrigante-que-haya-muchas-compras-de-juegos-con-clasificacion-pendiente-pero-asumo-que-es-por-las-preventas-de-muchos-juegos-asi-mismo-se-ve-que-los-juegos-con-clasificaciones-distintas-a-e-y-rp-suelen-ser-muy-similares-en-todas-las-regiones" title="Permalink to this heading">#</a></h4>
+</section>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="prueba-las-siguientes-hipotesis">
+<h1>5. Prueba las siguientes hipótesis:<a class="headerlink" href="#prueba-las-siguientes-hipotesis" title="Permalink to this heading">#</a></h1>
+<section id="las-calificaciones-promedio-de-los-usuarios-para-las-plataformas-xbox-one-y-pc-son-las-mismas">
+<h2>Las calificaciones promedio de los usuarios para las plataformas Xbox One y PC son las mismas.<a class="headerlink" href="#las-calificaciones-promedio-de-los-usuarios-para-las-plataformas-xbox-one-y-pc-son-las-mismas" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+
+<span class="n">xbox</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;XOne&#39;</span><span class="p">,</span> <span class="s1">&#39;user_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">pc</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;PC&#39;</span><span class="p">,</span> <span class="s1">&#39;user_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="n">t_stat1</span><span class="p">,</span> <span class="n">p_val1</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">xbox</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;t =&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">t_stat1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s2">&quot;, p-value =&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">p_val1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">p_val1</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rechazamos H0: Sí hay diferencia significativa en las calificaciones.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No rechazamos H0: No hay evidencia de diferencia en las calificaciones.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t = -4.653 , p-value = 0.0
+Rechazamos H0: Sí hay diferencia significativa en las calificaciones.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="las-calificaciones-promedio-de-los-usuarios-para-los-generos-de-accion-y-deportes-son-diferentes">
+<h2>Las calificaciones promedio de los usuarios para los géneros de Acción y Deportes son diferentes.<a class="headerlink" href="#las-calificaciones-promedio-de-los-usuarios-para-los-generos-de-accion-y-deportes-son-diferentes" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accion</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;genre&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Action&#39;</span><span class="p">,</span> <span class="s1">&#39;user_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">deportes</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;genre&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Sports&#39;</span><span class="p">,</span> <span class="s1">&#39;user_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="n">t_stat2</span><span class="p">,</span> <span class="n">p_val2</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">accion</span><span class="p">,</span> <span class="n">deportes</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;t =&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">t_stat2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s2">&quot;, p-value =&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">p_val2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">p_val2</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rechazamos H0: Sí hay diferencia significativa en las calificaciones.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No rechazamos H0: No hay evidencia de diferencia en las calificaciones.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t = 1.577 , p-value = 0.11484
+No rechazamos H0: No hay evidencia de diferencia en las calificaciones.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="explica-como-formulaste-las-hipotesis-nula-y-alternativa">
+<h2>Explica: Cómo formulaste las hipótesis nula y alternativa.<a class="headerlink" href="#explica-como-formulaste-las-hipotesis-nula-y-alternativa" title="Permalink to this heading">#</a></h2>
+<section id="para-realizar-las-formulaciones-me-base-en-las-premisas-dadas-en-el-enunciado-ene-el-caso-de-la-primera-se-dice-que-las-calificaciones-para-dos-plataformas-son-las-mismas-tomando-esta-como-la-nula-y-la-alternativa-seria-que-si-hay-diferencias-para-la-segunda-hipotesis-se-nos-dice-que-las-calificaciones-de-dos-generos-en-especifico-son-distintas-para-tomar-la-alternativa-simplemente-negue-la-primera-es-decir-verificar-si-no-son-diferentes">
+<h3>Para realizar las formulaciones me base en las premisas dadas en el enunciado. Ene el caso de la primera se dice que las calificaciones para dos plataformas son las mismas. Tomando esta como la nula, y la alternativa seria que si hay diferencias. Para la segunda hipotesis, se nos dice que las calificaciones de dos generos en especifico son distintas. Para tomar la alternativa simplemente negue la primera, es decir verificar si no son diferentes.<a class="headerlink" href="#para-realizar-las-formulaciones-me-base-en-las-premisas-dadas-en-el-enunciado-ene-el-caso-de-la-primera-se-dice-que-las-calificaciones-para-dos-plataformas-son-las-mismas-tomando-esta-como-la-nula-y-la-alternativa-seria-que-si-hay-diferencias-para-la-segunda-hipotesis-se-nos-dice-que-las-calificaciones-de-dos-generos-en-especifico-son-distintas-para-tomar-la-alternativa-simplemente-negue-la-primera-es-decir-verificar-si-no-son-diferentes" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="explica-que-criterio-utilizaste-para-probar-las-hipotesis-y-por-que">
+<h2>Explica: Qué criterio utilizaste para probar las hipótesis y por qué.<a class="headerlink" href="#explica-que-criterio-utilizaste-para-probar-las-hipotesis-y-por-que" title="Permalink to this heading">#</a></h2>
+<section id="utilice-una-prueba-t-de-student-para-muestras-independientes-scipy-stats-ttest-ind-porque">
+<h3>Utilicé una prueba t de Student para muestras independientes (scipy.stats.ttest_ind) porque:<a class="headerlink" href="#utilice-una-prueba-t-de-student-para-muestras-independientes-scipy-stats-ttest-ind-porque" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="se-trata-de-comparar-dos-grupos-distintos-ejemplo-xbox-one-vs-pc-o-accion-vs-deportes">
+<h3>Se trata de comparar dos grupos distintos (ejemplo: Xbox One vs PC, o Acción vs Deportes).<a class="headerlink" href="#se-trata-de-comparar-dos-grupos-distintos-ejemplo-xbox-one-vs-pc-o-accion-vs-deportes" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="la-variable-de-interes-user-score-es-numerica-y-continua-adecuada-para-este-test">
+<h3>La variable de interés (user_score) es numérica y continua, adecuada para este test.<a class="headerlink" href="#la-variable-de-interes-user-score-es-numerica-y-continua-adecuada-para-este-test" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="la-prueba-t-evalua-si-las-diferencias-observadas-entre-medias-son-estadisticamente-significativas-o-si-pueden-deberse-al-azar">
+<h3>La prueba t evalúa si las diferencias observadas entre medias son estadísticamente significativas o si pueden deberse al azar.<a class="headerlink" href="#la-prueba-t-evalua-si-las-diferencias-observadas-entre-medias-son-estadisticamente-significativas-o-si-pueden-deberse-al-azar" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="escribe-una-conclusion-general">
+<h1>6. Escribe una conclusión general<a class="headerlink" href="#escribe-una-conclusion-general" title="Permalink to this heading">#</a></h1>
+<p>El análisis del dataset de videojuegos permitió identificar patrones importantes en la industria. Primero, se observó que las ventas varían considerablemente según la región, lo que evidencia que las preferencias de los consumidores no son homogéneas a nivel global. Asimismo, ciertos géneros y plataformas se consolidan como líderes de mercado, mientras que otros tienen una presencia mucho más limitada.</p>
+<p>En cuanto a la relación entre las calificaciones y las ventas, se comprobó que las reseñas de críticos y usuarios ejercen un impacto en el desempeño comercial de los juegos, aunque no siempre de manera determinante. Las pruebas de hipótesis aplicadas mediante la prueba t de Student mostraron que existen diferencias estadísticamente significativas entre plataformas y géneros en términos de puntuación, lo cual sugiere que la calidad percibida no es uniforme en todos los segmentos.</p>
+<p>En general, el estudio confirma que la combinación de factores como plataforma, género y valoración crítica influyen en el éxito comercial de un título. Estos resultados refuerzan la importancia de segmentar estrategias de marketing y desarrollo según las características de cada mercado y perfil de jugador.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Data_Wrangling.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Manipulación de Datos (Déjame escuchar música)</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Análisis de Ventas de Videojuegos</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#open-the-file">1. Open the file</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-data">2. Preparing Data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reemplaza-los-nombres-de-las-columnas-ponlos-en-minusculas">Reemplaza los nombres de las columnas (ponlos en minúsculas).</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convierte-los-datos-en-los-tipos-necesarios">Convierte los datos en los tipos necesarios.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explica-por-que-rellenaste-los-valores-ausentes-como-lo-hiciste-o-por-que-decidiste-dejarlos-en-blanco">Explica por qué rellenaste los valores ausentes como lo hiciste o por qué decidiste dejarlos en blanco.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#las-columnas-en-las-que-cambie-el-tipo-de-dato-son">Las columnas en las que cambié el tipo de dato son:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plataforma-como-categoria-lo-cambie-para-mejorar-el-rendimiento-de-ciertas-operaciones-y-para-optimizarlas">plataforma como categoría. Lo cambié para mejorar el rendimiento de ciertas operaciones y para optimizarlas.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ano-de-lanzamiento-lo-cambie-para-mostrar-los-datos-de-forma-mas-clara-ya-que-el-ano-siempre-es-un-dato-entero">año_de_lanzamiento. Lo cambié para mostrar los datos de forma más clara, ya que el año siempre es un dato entero.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#genero-y-calificacion-tambien-cambie-su-tipo-de-dato-a-categoria-por-la-misma-razon-que-en-las-otras-columnas">género y calificación. También cambié su tipo de dato a categoría por la misma razón que en las otras columnas.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critic-score-mantendra-su-tipo-de-dato-porque-tiene-un-valor-por-determinar-que-es-una-cadena">critic_score mantendrá su tipo de dato porque tiene un valor por determinar que es una cadena.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-crees-que-los-valores-estan-ausentes-brinda-explicaciones-posibles">¿Por qué crees que los valores están ausentes? Brinda explicaciones posibles.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creo-que-los-valores-son-nulos-porque-quizas-el-usuario-o-la-persona-que-digito-o-agrego-los-datos-se-equivoco">Creo que los valores son nulos porque quizás el usuario o la persona que digitó o agregó los datos se equivocó.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otra-razon-es-que-algunos-valores-aun-no-se-completaron-por-el-momento-deberian-completarse">Otra razón es que algunos valores aún no se completaron; por el momento, deberían completarse.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presta-atencion-a-la-abreviatura-tbd-significa-to-be-determined-a-determinar-especifica-como-piensas-manejar-estos-casos">Presta atención a la abreviatura TBD: significa “to be determined” (a determinar). Especifica cómo piensas manejar estos casos.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calcula-las-ventas-totales-la-suma-de-las-ventas-en-todas-las-regiones-para-cada-juego-y-coloca-estos-valores-en-una-columna-separada">Calcula las ventas totales (la suma de las ventas en todas las regiones) para cada juego y coloca estos valores en una columna separada.</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analiza-los-datos">3. Analiza los datos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mira-cuantos-juegos-fueron-lanzados-en-diferentes-anos-son-significativos-los-datos-de-cada-periodo">Mira cuántos juegos fueron lanzados en diferentes años. ¿Son significativos los datos de cada período?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-many-cases-yes-there-are-significative-data-since-1993">In many cases yes. There are significative data since 1993.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observa-como-varian-las-ventas-de-una-plataforma-a-otra-elige-las-plataformas-con-las-mayores-ventas-totales-y-construye-una-distribucion-basada-en-los-datos-de-cada-ano-busca-las-plataformas-que-solian-ser-populares-pero-que-ahora-no-tienen-ventas-cuanto-tardan-generalmente-las-nuevas-plataformas-en-aparecer-y-las-antiguas-en-desaparecer">Observa cómo varían las ventas de una plataforma a otra. Elige las plataformas con las mayores ventas totales y construye una distribución basada en los datos de cada año. Busca las plataformas que solían ser populares pero que ahora no tienen ventas. ¿Cuánto tardan generalmente las nuevas plataformas en aparecer y las antiguas en desaparecer?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#total-sales-per-platform">1. Total sales per platform</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedemnos-a-convertir-la-lista-en-un-dataframe-y-a-filtrar-para-ver-las-ventas-mayores-a-100-millones">2. Procedemnos a convertir la lista en un dataframe y a filtrar para ver las ventas mayores a 100 millones.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#despues-de-analizar-el-grafico-vemos-que-lo-mas-adecuado-es-filtrar-solo-las-6-mas-vendidas">3. Despues de analizar el grafico, vemos que lo mas adecuado es filtrar solo las 6 mas vendidas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#veremos-el-tiemmpo-de-vida-que-tiene-una-consola">4. Veremos el tiemmpo de vida que tiene una consola.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#veremos-cuanto-tarda-una-nueva-consola-en-aparecer">Veremos cuanto tarda una nueva consola en aparecer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determina-para-que-periodo-debes-tomar-datos-para-hacerlo-mira-tus-respuestas-a-las-preguntas-anteriores-los-datos-deberian-permitirte-construir-un-modelo-para-2017">Determina para qué período debes tomar datos. Para hacerlo mira tus respuestas a las preguntas anteriores. Los datos deberían permitirte construir un modelo para 2017.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#del-ultimo-grafico-que-veo-el-periodo-que-deberia-utilizar-para-construir-un-modelo-es-1994-a-2016-esto-se-debe-a-que-a-partir-de-este-ano-parece-que-comienza-una-nueva-era-de-consolas">Del último gráfico que veo el periodo que debería utilizar para construir un modelo es 1994 a 2016. Esto se debe a que a partir de este año parece que comienza una nueva era de consolas.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-plataformas-son-lideres-en-ventas-cuales-crecen-y-cuales-se-reducen-elige-varias-plataformas-potencialmente-rentables">¿Qué plataformas son líderes en ventas? ¿Cuáles crecen y cuáles se reducen? Elige varias plataformas potencialmente rentables.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#las-plataformas-que-lideran-las-ventas-son-ps2-x360-ps3-wii-ds-y-ps">Las plataformas que lideran las ventas son PS2, X360, PS3, Wii, DS y PS.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crea-un-diagrama-de-caja-para-las-ventas-globales-de-todos-los-juegos-desglosados-por-plataforma-son-significativas-las-diferencias-en-las-ventas-que-sucede-con-las-ventas-promedio-en-varias-plataformas-describe-tus-hallazgos">Crea un diagrama de caja para las ventas globales de todos los juegos, desglosados por plataforma. ¿Son significativas las diferencias en las ventas? ¿Qué sucede con las ventas promedio en varias plataformas? Describe tus hallazgos.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-hay-diferencias-abismales-en-la-distribucion-tipica-de-ventas-entre-plataformas-aunque-puede-haber-diferencias-pequenas-a-simple-vista-las-distribuciones-son-muy-parecidas-todas-las-cajas-50-central-de-los-datos-estan-ubicadas-en-un-rango-similar">No hay diferencias abismales en la distribución típica de ventas entre plataformas, aunque puede haber diferencias pequeñas. A simple vista, las distribuciones son muy parecidas: todas las cajas (50% central de los datos) están ubicadas en un rango similar.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#las-diferencias-mas-notorias-estan-en-los-outliers-que-elevan-el-promedio-en-algunas-consolas-ej-wii-ps2">Las diferencias más notorias están en los outliers, que elevan el promedio en algunas consolas (ej. Wii, PS2).</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-cuanto-al-promedio-no-refleja-bien-la-tendencia-central-porque-esta-sesgado-por-pocos-juegos-con-ventas-enormes-la-mediana-es-mas-representativa">En cuanto al promedio no refleja bien la tendencia central, porque está sesgado por pocos juegos con ventas enormes; la mediana es más representativa.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mira-como-las-resenas-de-usuarios-y-profesionales-afectan-las-ventas-de-una-plataforma-popular-tu-eleccion-crea-un-grafico-de-dispersion-y-calcula-la-correlacion-entre-las-resenas-y-las-ventas-saca-conclusiones">Mira cómo las reseñas de usuarios y profesionales afectan las ventas de una plataforma popular (tu elección). Crea un gráfico de dispersión y calcula la correlación entre las reseñas y las ventas. Saca conclusiones.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualmente-si-hay-relacion-sobre-todo-en-la-cola-alta-de-ventas-los-superventas-suelen-tener-buenas-resenas">Visualmente sí hay relación, sobre todo en la “cola alta” de ventas (los superventas suelen tener buenas reseñas).</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pero-estadisticamente-la-correlacion-es-debil-porque-la-mayoria-de-juegos-no-siguen-esa-regla-tan-claramente">Pero estadísticamente la correlación es débil, porque la mayoría de juegos no siguen esa regla tan claramente.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teniendo-en-cuenta-tus-conclusiones-compara-las-ventas-de-los-mismos-juegos-en-otras-plataformas">Teniendo en cuenta tus conclusiones compara las ventas de los mismos juegos en otras plataformas.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-partir-de-aca-puedo-tomar-cualquier-titulo-que-se-encuentre-en-cualquier-plataforma-para-poder-llevar-acabo-el-analisis-en-este-caso-tomare-el-juego-2010-fifa-world-cup-south-africa-y-el-de-007">A partir de acá, puedo tomar cualquier título que se encuentre en cualquier plataforma para poder llevar acabo el análisis. En este caso tomaré el juego 2010 FIFA World Cup South Africa y el de 007.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ahora-es-posible-aplicar-la-correlacion-entre-el-rating-y-las-ventas">Ahora es posible aplicar la correlación entre el rating y las ventas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#al-ver-los-resultados-se-puede-ver-que-en-ambos-juegos-la-correlacion-entre-las-criticas-y-las-ventas-es-distinta-por-un-lado-el-juego-deportivo-tuvo-buena-correlacion-pero-el-otro-juego-no-posiblemente-este-relacionado-a-la-consola-o-el-genero-de-los-juegos-pero-es-necesario-hacer-mas-analisis">Al ver los resultados se puede ver que en ambos juegos la correlación entre las críticas y las ventas es distinta. Por un lado el juego deportivo tuvo buena correlación, pero el otro juego no. Posiblemente esté relacionado a la consola o el género de los juegos, pero es necesario hacer más análisis.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#echa-un-vistazo-a-la-distribucion-general-de-los-juegos-por-genero-que-se-puede-decir-de-los-generos-mas-rentables-puedes-generalizar-acerca-de-los-generos-con-ventas-altas-y-bajas">Echa un vistazo a la distribución general de los juegos por género. ¿Qué se puede decir de los géneros más rentables? ¿Puedes generalizar acerca de los géneros con ventas altas y bajas?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#de-acuerdo-a-las-graficas-podemos-notar-que-action-es-por-lejos-el-genero-con-mas-juegos-lanzados-mas-de-3-000-titulos">De acuerdo a las gráficas podemos notar que Action es, por lejos, el género con más juegos lanzados (más de 3,000 títulos).</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asi-mismo-generos-como-puzzle-strategy-y-adventure-tienen-muy-pocos-juegos-publicados-en-comparacion">Así mismo, géneros como Puzzle, Strategy y Adventure tienen muy pocos juegos publicados en comparación.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#action-tambien-lidera-en-ventas-globales-lo-cual-coincide-con-su-gran-cantidad-de-titulos">Action también lidera en ventas globales, lo cual coincide con su gran cantidad de títulos.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sports-y-shooter-destacan-no-tienen-tantos-juegos-como-action-pero-si-concentran-ventas-muy-altas-lo-que-indica-que-son-generos-con-mucha-demanda-y-titulos-muy-exitosos">Sports y Shooter destacan: no tienen tantos juegos como Action, pero sí concentran ventas muy altas, lo que indica que son géneros con mucha demanda y títulos muy exitosos.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#crea-un-perfil-de-usuario-para-cada-region">Crea un perfil de usuario para cada región</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-cinco-plataformas-principales-describe-las-variaciones-en-sus-cuotas-de-mercado-de-una-region-a-otra">Las cinco plataformas principales. Describe las variaciones en sus cuotas de mercado de una región a otra.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-base-a-lo-mostrado-en-las-tablas-es-facil-distinguir-que-la-mayor-cantidad-de-ventas-se-ha-producido-en-na-y-esto-tiene-mucho-sentido-debido-a-que-en-dicho-pais-existe-un-mayor-nivel-de-consumismo-y-mayor-pib-que-en-europa-por-otro-lado-en-na-tambien-se-nota-una-mayor-compra-de-videojuegos-para-la-consola-x360-lo-cual-tambien-tiene-sentido-debido-a-que-esta-marca-pertenece-a-la-empresa-microsoft-por-el-lado-de-europa-se-ven-mayores-ventas-que-en-japon-y-a-la-par-aca-tambien-se-puede-apreciar-una-mayor-demanda-de-los-juegos-de-la-consola-de-somy-finalmente-en-jp-se-ve-que-la-mayoria-de-juegos-son-para-consolas-niponas">En base a lo mostrado en las tablas, es facil distinguir que la mayor cantidad de ventas se ha producido en NA, y esto tiene mucho sentido debido a que en dicho pais existe un mayor nivel de consumismo y mayor pib que en Europa. Por otro lado en NA tambien se nota una mayor compra de videojuegos para la consola X360 lo cual tambien tiene sentido debido a que esta marca pertenece a la empresa Microsoft. Por el lado de Europa se ven mayores ventas que en  Japon y a la par aca tambien se puede apreciar una mayor demanda de los juegos de la consola de Somy. Finalmente en JP se ve que la mayoria de juegos son para consolas Niponas.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#los-cinco-generos-principales-explica-la-diferencia">Los cinco géneros principales. Explica la diferencia.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-cuanto-a-los-analisis-resulta-interesante-ver-que-los-gustos-de-los-generos-en-na-y-eu-son-bastante-parecidos-salvo-un-cambio-en-el-cuarto-lugar-de-platform-en-na-por-racing-en-eu-luego-son-muy-similares-por-otra-parte-en-jp-se-ve-cierta-diferencia-con-respecto-a-los-demas-lugares-en-jp-el-genero-mas-vendido-es-de-tipo-role-playing-mientras-que-accion-tambien-se-cuentra-listado-como-en-eu-y-na-de-manera-concreta-parece-que-a-nivel-global-action-y-sports-son-los-preferidos-y-hay-una-tendencia-marcada-en-jp-por-los-de-rol">En cuanto a los analisis, resulta interesante ver que los gustos de los generos en NA y EU son bastante parecidos, salvo un cambio en el cuarto lugar de Platform en NA por Racing en EU luego son muy similares. Por otra parte, en JP se ve cierta diferencia con respecto a los demas lugares. En JP el genero mas vendido es de tipo Role-Playing mientras que accion tambien se cuentra listado como en EU y NA. De manera concreta parece que a nivel global Action y Sports son los preferidos y hay una tendencia marcada en JP por los de Rol.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#si-las-clasificaciones-de-esrb-afectan-a-las-ventas-en-regiones-individuales">Si las clasificaciones de ESRB afectan a las ventas en regiones individuales.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aca-podemos-observar-que-la-clasificacion-mas-comprada-es-la-e-y-la-rp-resulta-intrigante-que-haya-muchas-compras-de-juegos-con-clasificacion-pendiente-pero-asumo-que-es-por-las-preventas-de-muchos-juegos-asi-mismo-se-ve-que-los-juegos-con-clasificaciones-distintas-a-e-y-rp-suelen-ser-muy-similares-en-todas-las-regiones">Aca podemos observar que la clasificacion mas comprada es la E y la RP. Resulta intrigante que haya muchas compras de juegos con clasificacion pendiente, pero asumo que es por las preventas de muchos juegos. Asi mismo se ve que los juegos con clasificaciones distintas a E y RP suelen ser muy similares en todas las regiones.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-las-siguientes-hipotesis">5. Prueba las siguientes hipótesis:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-calificaciones-promedio-de-los-usuarios-para-las-plataformas-xbox-one-y-pc-son-las-mismas">Las calificaciones promedio de los usuarios para las plataformas Xbox One y PC son las mismas.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-calificaciones-promedio-de-los-usuarios-para-los-generos-de-accion-y-deportes-son-diferentes">Las calificaciones promedio de los usuarios para los géneros de Acción y Deportes son diferentes.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explica-como-formulaste-las-hipotesis-nula-y-alternativa">Explica: Cómo formulaste las hipótesis nula y alternativa.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#para-realizar-las-formulaciones-me-base-en-las-premisas-dadas-en-el-enunciado-ene-el-caso-de-la-primera-se-dice-que-las-calificaciones-para-dos-plataformas-son-las-mismas-tomando-esta-como-la-nula-y-la-alternativa-seria-que-si-hay-diferencias-para-la-segunda-hipotesis-se-nos-dice-que-las-calificaciones-de-dos-generos-en-especifico-son-distintas-para-tomar-la-alternativa-simplemente-negue-la-primera-es-decir-verificar-si-no-son-diferentes">Para realizar las formulaciones me base en las premisas dadas en el enunciado. Ene el caso de la primera se dice que las calificaciones para dos plataformas son las mismas. Tomando esta como la nula, y la alternativa seria que si hay diferencias. Para la segunda hipotesis, se nos dice que las calificaciones de dos generos en especifico son distintas. Para tomar la alternativa simplemente negue la primera, es decir verificar si no son diferentes.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explica-que-criterio-utilizaste-para-probar-las-hipotesis-y-por-que">Explica: Qué criterio utilizaste para probar las hipótesis y por qué.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilice-una-prueba-t-de-student-para-muestras-independientes-scipy-stats-ttest-ind-porque">Utilicé una prueba t de Student para muestras independientes (scipy.stats.ttest_ind) porque:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#se-trata-de-comparar-dos-grupos-distintos-ejemplo-xbox-one-vs-pc-o-accion-vs-deportes">Se trata de comparar dos grupos distintos (ejemplo: Xbox One vs PC, o Acción vs Deportes).</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-variable-de-interes-user-score-es-numerica-y-continua-adecuada-para-este-test">La variable de interés (user_score) es numérica y continua, adecuada para este test.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-prueba-t-evalua-si-las-diferencias-observadas-entre-medias-son-estadisticamente-significativas-o-si-pueden-deberse-al-azar">La prueba t evalúa si las diferencias observadas entre medias son estadísticamente significativas o si pueden deberse al azar.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#escribe-una-conclusion-general">6. Escribe una conclusión general</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

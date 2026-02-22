@@ -1,0 +1,1131 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Manipulación de Datos (Déjame escuchar música) &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Data_Wrangling';</script>
+    <link rel="canonical" href="/Data_Analyst/Data_Wrangling.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Análisis de Ventas de Videojuegos" href="Analisis_de_Ventas_de_Videojuegos.html" />
+    <link rel="prev" title="Data Wrangling (¡Llena ese carrito!)" href="Data_Wrangling%20-%202.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Predicciones.html">Predicciones de cancelaciones de membresias de Gimnasio</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Investigacion.html">Investigación del comportamiento usuarios</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Data_Wrangling%20-%202.html">Data Wrangling (¡Llena ese carrito!)</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Manipulación de Datos (Déjame escuchar música)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Analisis_de_Ventas_de_Videojuegos.html">Análisis de Ventas de Videojuegos</a></li>
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FData_Wrangling.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Data_Wrangling.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Manipulación de Datos (Déjame escuchar música)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Manipulación de Datos (Déjame escuchar música)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etapa-1-descripcion-de-los-datos-a-id-data-review-a">Etapa 1. Descripción de los datos <a id="data_review"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escribe-algunas-observaciones-por-tu-parte-contesta-a-las-siguientes-preguntas-a-id-data-review-conclusions-a">Escribe algunas observaciones por tu parte. Contesta a las siguientes preguntas: <a id="data_review_conclusions"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etapa-2-preprocesamiento-de-los-datos-a-id-data-preprocessing-a">Etapa 2. Preprocesamiento de los datos <a id="data_preprocessing"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estilo-del-encabezado-a-id-header-style-a">Estilo del encabezado <a id="header_style"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-ausentes-a-id-missing-values-a">Valores ausentes <a id="missing_values"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#duplicados-a-id-duplicates-a">Duplicados <a id="duplicates"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etapa-3-analisis">Etapa 3. Análisis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tarea-comparar-el-comportamiento-de-los-usuarios-en-las-dos-ciudades-a-id-activity-a">Tarea: Comparar el comportamiento de los usuarios en las dos ciudades <a id="activity"></a></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones-a-id-end-a">Conclusiones <a id="end"></a></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escribe-tus-conclusiones-finales-sobre-el-analisis">Escribe tus conclusiones finales sobre el análisis</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="manipulacion-de-datos-dejame-escuchar-musica">
+<h1>Manipulación de Datos (Déjame escuchar música)<a class="headerlink" href="#manipulacion-de-datos-dejame-escuchar-musica" title="Permalink to this heading">#</a></h1>
+<section id="etapa-1-descripcion-de-los-datos-a-id-data-review-a">
+<h2>Etapa 1. Descripción de los datos <a id='data_review'></a><a class="headerlink" href="#etapa-1-descripcion-de-los-datos-a-id-data-review-a" title="Permalink to this heading">#</a></h2>
+<p>Abre los datos y examínalos.</p>
+<p>Etapa 1.1. Necesitarás <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, así que impórtalo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importa pandas</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Importa pandas</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Etapa 1.2. Lee el archivo <code class="docutils literal notranslate"><span class="pre">music_project_en.csv</span></code> de la carpeta <code class="docutils literal notranslate"><span class="pre">/datasets/</span></code> y guárdalo en la variable <code class="docutils literal notranslate"><span class="pre">df</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lee el archivo y almacénalo en df</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/datasets/music_project_en.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Etapa 1.3. Muestra las 10 primeras filas de la tabla:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtén las 10 primeras filas de la tabla df</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     userID                        Track            artist   genre  \
+0  FFB692EC            Kamigata To Boots  The Mass Missile    rock   
+1  55204538  Delayed Because of Accident  Andreas Rönnberg    rock   
+2    20EC38            Funiculì funiculà       Mario Lanza     pop   
+3  A3DD03C9        Dragons in the Sunset        Fire + Ice    folk   
+4  E2DC1FAE                  Soul People        Space Echo   dance   
+5  842029A1                       Chains          Obladaet  rusrap   
+6  4CB90AA5                         True      Roman Messer   dance   
+7  F03E1C1F             Feeling This Way   Polina Griffith   dance   
+8  8FA1D3BE                     L’estate       Julia Dalia  ruspop   
+9  E772D5C0                    Pessimist               NaN   dance   
+
+        City        time        Day  
+0  Shelbyville  20:28:33  Wednesday  
+1  Springfield  14:07:09     Friday  
+2  Shelbyville  20:58:07  Wednesday  
+3  Shelbyville  08:37:09     Monday  
+4  Springfield  08:34:34     Monday  
+5  Shelbyville  13:09:41     Friday  
+6  Springfield  13:00:07  Wednesday  
+7  Springfield  20:47:49  Wednesday  
+8  Springfield  09:17:40     Friday  
+9  Shelbyville  21:20:49  Wednesday  
+</pre></div>
+</div>
+</div>
+</div>
+<p>Etapa 1.4. Obtén la información general sobre la tabla con el método info().</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtén la información general sobre nuestros datos</span>
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 65079 entries, 0 to 65078
+Data columns (total 7 columns):
+ #   Column    Non-Null Count  Dtype 
+---  ------    --------------  ----- 
+ 0     userID  65079 non-null  object
+ 1   Track     63736 non-null  object
+ 2   artist    57512 non-null  object
+ 3   genre     63881 non-null  object
+ 4     City    65079 non-null  object
+ 5   time      65079 non-null  object
+ 6   Day       65079 non-null  object
+dtypes: object(7)
+memory usage: 3.5+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<p>Estas son nuestras observaciones sobre la tabla. Contiene siete columnas que almacenan los mismos tipos de datos: <code class="docutils literal notranslate"><span class="pre">object</span></code>.</p>
+<p>Según la documentación:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">userID'</span></code>: identificador del usuario;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'Track'</span></code>: título de la canción;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'artist'</span></code>: nombre del artista;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'genre'</span></code>: género de la canción;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'City'</span></code>: ciudad del usuario;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'time'</span></code>: la hora exacta en la que se reprodujo la canción;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'Day'</span></code>: día de la semana.</p></li>
+</ul>
+<p>Podemos ver dos problemas con el estilo en los encabezados de la tabla:</p>
+<ol class="arabic">
+<li><p>Algunos encabezados están en mayúsculas, otros en minúsculas.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Identifica</span> <span class="pre">tú</span> <span class="pre">mismo</span> <span class="pre">el</span> <span class="pre">segundo</span> <span class="pre">problema</span> <span class="pre">y</span> <span class="pre">escríbelo</span> <span class="pre">aquí.</span></code></p>
+<p>Hay espacios al inicio de los nombres de userID y City</p>
+</li>
+</ol>
+<section id="escribe-algunas-observaciones-por-tu-parte-contesta-a-las-siguientes-preguntas-a-id-data-review-conclusions-a">
+<h3>Escribe algunas observaciones por tu parte. Contesta a las siguientes preguntas: <a id='data_review_conclusions'></a><a class="headerlink" href="#escribe-algunas-observaciones-por-tu-parte-contesta-a-las-siguientes-preguntas-a-id-data-review-conclusions-a" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">1.</span>&#160;&#160; <span class="pre">¿Qué</span> <span class="pre">tipo</span> <span class="pre">de</span> <span class="pre">datos</span> <span class="pre">hay</span> <span class="pre">en</span> <span class="pre">las</span> <span class="pre">filas?</span> <span class="pre">¿Cómo</span> <span class="pre">podemos</span> <span class="pre">saber</span> <span class="pre">qué</span> <span class="pre">almacenan</span> <span class="pre">las</span> <span class="pre">columnas?</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">2.</span>&#160;&#160; <span class="pre">¿Hay</span> <span class="pre">suficientes</span> <span class="pre">datos</span> <span class="pre">para</span> <span class="pre">proporcionar</span> <span class="pre">respuestas</span> <span class="pre">a</span> <span class="pre">nuestra</span> <span class="pre">hipótesis</span> <span class="pre">o</span> <span class="pre">necesitamos</span> <span class="pre">más</span> <span class="pre">información?</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">3.</span>&#160;&#160; <span class="pre">¿Notaste</span> <span class="pre">algún</span> <span class="pre">problema</span> <span class="pre">en</span> <span class="pre">los</span> <span class="pre">datos,</span> <span class="pre">como</span> <span class="pre">valores</span> <span class="pre">ausentes,</span> <span class="pre">duplicados</span> <span class="pre">o</span> <span class="pre">tipos</span> <span class="pre">de</span> <span class="pre">datos</span> <span class="pre">incorrectos?</span></code></p>
+<p>Escribe aquí tus respuestas:</p>
+<ol class="arabic simple">
+<li><p>Según el método info, las columas en su totalidad tienen datos de tipo object en sus filas. Podemos reconocerlo por el método info que acabod e mencionar así como la propieda dtypes</p></li>
+<li><p>Si, con el método info podemos ver las cabeceras y con ello ver los espacios que presentan algunas de ellas así como que no hay homogeneidad en el capital letter de ellas.</p></li>
+<li><p>En el head sólo vi como inusual un id que es algo más corto que los demás, pero con el método info veo que en las columnas Track, artist y genre hay valores nulos.</p></li>
+</ol>
+</section>
+</section>
+<section id="etapa-2-preprocesamiento-de-los-datos-a-id-data-preprocessing-a">
+<h2>Etapa 2. Preprocesamiento de los datos <a id='data_preprocessing'></a><a class="headerlink" href="#etapa-2-preprocesamiento-de-los-datos-a-id-data-preprocessing-a" title="Permalink to this heading">#</a></h2>
+<p>Tu objetivo aquí es preparar los datos para analizarlos.
+El primer paso es resolver los problemas con los encabezados. Después podemos avanzar a los valores ausentes y duplicados. ¡Empecemos!</p>
+<p>Vamos a corregir el formato en los encabezados de la tabla.</p>
+<section id="estilo-del-encabezado-a-id-header-style-a">
+<h3>Estilo del encabezado <a id='header_style'></a><a class="headerlink" href="#estilo-del-encabezado-a-id-header-style-a" title="Permalink to this heading">#</a></h3>
+<p>Etapa 2.1. Muestra los encabezados de la tabla (los nombres de las columnas):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Muestra los nombres de las columnas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;  userID&#39;, &#39;Track&#39;, &#39;artist&#39;, &#39;genre&#39;, &#39;  City  &#39;, &#39;time&#39;, &#39;Day&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos cambiar los encabezados de la tabla siguiendo las reglas estilísticas convencionales:</p>
+<ul class="simple">
+<li><p>Todos los caracteres deben ser minúsculas.</p></li>
+<li><p>Elimina los espacios.</p></li>
+<li><p>Si el nombre tiene varias palabras, utiliza snake_case, es decir, añade un guion bajo ( _ ) entre las palabras en lugar de un espacio.</p></li>
+</ul>
+<p>Etapa 2.2. Utiliza el bucle for para iterar sobre los nombres de las columnas y poner todos los caracteres en minúsculas. Cuando hayas terminado, vuelve a mostrar los encabezados de la tabla:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bucle que itera sobre los encabezados y los pone todos en minúsculas</span>
+
+<span class="n">new_columns</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="p">:</span>
+    <span class="n">new_columns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">new_columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Etapa 2.3. Ahora, utilizando el mismo método, elimina los espacios al principio y al final de los nombres de las columnas y muestra los nombres de las columnas de nuevo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bucle que itera sobre los encabezados y elimina los espacios</span>
+
+<span class="n">new_columns</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="p">:</span>
+    <span class="n">new_columns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">new_columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Etapa 2.4. Necesitamos aplicar la regla de snake_case en la columna <code class="docutils literal notranslate"><span class="pre">userid</span></code>. Debe ser <code class="docutils literal notranslate"><span class="pre">user_id</span></code>. Cambia el nombre de esta columna y muestra los nombres de todas las columnas cuando hayas terminado.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cambia el nombre de la columna &quot;userid&quot;</span>
+<span class="n">new_columns</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="p">:</span>
+    <span class="n">new_columns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;userid&#39;</span><span class="p">,</span> <span class="s1">&#39;user_id&#39;</span><span class="p">))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">new_columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Etapa 2.5. Comprueba el resultado. Muestra los encabezados una vez más:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comprueba el resultado: lista de encabezados</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;user_id&#39;, &#39;track&#39;, &#39;artist&#39;, &#39;genre&#39;, &#39;city&#39;, &#39;time&#39;, &#39;day&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="valores-ausentes-a-id-missing-values-a">
+<h3>Valores ausentes <a id='missing_values'></a><a class="headerlink" href="#valores-ausentes-a-id-missing-values-a" title="Permalink to this heading">#</a></h3>
+<p>Etapa 2.5. Primero, encuentra el número de valores ausentes en la tabla. Debes utilizar dos métodos para obtener el número de valores ausentes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcula el número de valores ausentes</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>user_id       0
+track      1343
+artist     7567
+genre      1198
+city          0
+time          0
+day           0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Etapa 2.6. Sustituye los valores ausentes en las columnas <code class="docutils literal notranslate"><span class="pre">'track'</span></code>, <code class="docutils literal notranslate"><span class="pre">'artist'</span></code> y <code class="docutils literal notranslate"><span class="pre">'genre'</span></code> con el string <code class="docutils literal notranslate"><span class="pre">'unknown'</span></code>.</p>
+<ol class="arabic simple">
+<li><p>Crea una lista llamada columns_to_replace que contenga los nombres de las columnas ‘track’, ‘artist’ y ‘genre’.</p></li>
+<li><p>Usa un bucle for para iterar sobre cada columna en columns_to_replace.</p></li>
+<li><p>Dentro del bucle, sustituye los valores ausentes en cada columna con el string <code class="docutils literal notranslate"><span class="pre">'unknown'</span></code>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bucle en los encabezados reemplazando los valores ausentes con &#39;unknown&#39;</span>
+<span class="n">columns_to_replace</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;track&#39;</span><span class="p">,</span> <span class="s1">&#39;artist&#39;</span> <span class="p">,</span> <span class="s1">&#39;genre&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">columns_to_replace</span><span class="p">:</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;unknown&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Etapa 2.7. Ahora comprueba el resultado para asegurarte de que no falten valores ausentes por reemplazar en el conjunto de datos. Para ello, cuenta los valores ausentes una vez más.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cuenta los valores ausentes</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>user_id    0
+track      0
+artist     0
+genre      0
+city       0
+time       0
+day        0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="duplicados-a-id-duplicates-a">
+<h3>Duplicados <a id='duplicates'></a><a class="headerlink" href="#duplicados-a-id-duplicates-a" title="Permalink to this heading">#</a></h3>
+<p>Etapa 2.8. Encuentra el número de duplicados explícitos en la tabla. Una vez más, debes aplicar dos métodos para obtener la cantidad de duplicados explícitos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cuenta los duplicados explícitos</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3826
+</pre></div>
+</div>
+</div>
+</div>
+<p>Etapa 2.9. Ahora, elimina todos los duplicados. Para ello, llama al método que hace exactamente esto.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Elimina los duplicados explícitos</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Etapa 2.10. Comprobemos ahora si conseguimos eliminar todos los duplicados. Cuenta los duplicados explícitos una vez más para asegurarte de haberlos eliminado todos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comprueba de nuevo si hay duplicados</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora queremos deshacernos de los duplicados implícitos en la columna <code class="docutils literal notranslate"><span class="pre">genre</span></code>. Por ejemplo, el nombre de un género se puede escribir de varias formas. Dichos errores también pueden afectar al resultado.</p>
+<p>Etapa 2.11. Primero debemos mostrar una lista de nombres de géneros únicos, por orden alfabético. Para ello:</p>
+<ol class="arabic simple">
+<li><p>Extrae la columna <code class="docutils literal notranslate"><span class="pre">genre</span></code> del DataFrame.</p></li>
+<li><p>Llama al método que devolverá todos los valores únicos en la columna extraída.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inspecciona los nombres de géneros únicos</span>
+<span class="n">df_genre</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;genre&#39;</span><span class="p">]</span>
+<span class="n">df_uniques_genres</span> <span class="o">=</span> <span class="n">df_genre</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">df_uniques_genres</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;acid&#39;, &#39;acoustic&#39;, &#39;action&#39;, &#39;adult&#39;, &#39;africa&#39;, &#39;afrikaans&#39;, &#39;alternative&#39;, &#39;ambient&#39;, &#39;americana&#39;, &#39;animated&#39;, &#39;anime&#39;, &#39;arabesk&#39;, &#39;arabic&#39;, &#39;arena&#39;, &#39;argentinetango&#39;, &#39;art&#39;, &#39;audiobook&#39;, &#39;avantgarde&#39;, &#39;axé&#39;, &#39;baile&#39;, &#39;balkan&#39;, &#39;beats&#39;, &#39;bigroom&#39;, &#39;black&#39;, &#39;bluegrass&#39;, &#39;blues&#39;, &#39;bollywood&#39;, &#39;bossa&#39;, &#39;brazilian&#39;, &#39;breakbeat&#39;, &#39;breaks&#39;, &#39;broadway&#39;, &#39;cantautori&#39;, &#39;cantopop&#39;, &#39;canzone&#39;, &#39;caribbean&#39;, &#39;caucasian&#39;, &#39;celtic&#39;, &#39;chamber&#39;, &#39;children&#39;, &#39;chill&#39;, &#39;chinese&#39;, &#39;choral&#39;, &#39;christian&#39;, &#39;christmas&#39;, &#39;classical&#39;, &#39;classicmetal&#39;, &#39;club&#39;, &#39;colombian&#39;, &#39;comedy&#39;, &#39;conjazz&#39;, &#39;contemporary&#39;, &#39;country&#39;, &#39;cuban&#39;, &#39;dance&#39;, &#39;dancehall&#39;, &#39;dancepop&#39;, &#39;dark&#39;, &#39;death&#39;, &#39;deep&#39;, &#39;deutschrock&#39;, &#39;deutschspr&#39;, &#39;dirty&#39;, &#39;disco&#39;, &#39;dnb&#39;, &#39;documentary&#39;, &#39;downbeat&#39;, &#39;downtempo&#39;, &#39;drum&#39;, &#39;dub&#39;, &#39;dubstep&#39;, &#39;eastern&#39;, &#39;easy&#39;, &#39;electronic&#39;, &#39;electropop&#39;, &#39;emo&#39;, &#39;entehno&#39;, &#39;epicmetal&#39;, &#39;estrada&#39;, &#39;ethnic&#39;, &#39;eurofolk&#39;, &#39;european&#39;, &#39;experimental&#39;, &#39;extrememetal&#39;, &#39;fado&#39;, &#39;film&#39;, &#39;fitness&#39;, &#39;flamenco&#39;, &#39;folk&#39;, &#39;folklore&#39;, &#39;folkmetal&#39;, &#39;folkrock&#39;, &#39;folktronica&#39;, &#39;forró&#39;, &#39;frankreich&#39;, &#39;französisch&#39;, &#39;french&#39;, &#39;funk&#39;, &#39;future&#39;, &#39;gangsta&#39;, &#39;garage&#39;, &#39;german&#39;, &#39;ghazal&#39;, &#39;gitarre&#39;, &#39;glitch&#39;, &#39;gospel&#39;, &#39;gothic&#39;, &#39;grime&#39;, &#39;grunge&#39;, &#39;gypsy&#39;, &#39;handsup&#39;, &quot;hard&#39;n&#39;heavy&quot;, &#39;hardcore&#39;, &#39;hardstyle&#39;, &#39;hardtechno&#39;, &#39;hip&#39;, &#39;hip-hop&#39;, &#39;hiphop&#39;, &#39;historisch&#39;, &#39;holiday&#39;, &#39;hop&#39;, &#39;horror&#39;, &#39;house&#39;, &#39;idm&#39;, &#39;independent&#39;, &#39;indian&#39;, &#39;indie&#39;, &#39;indipop&#39;, &#39;industrial&#39;, &#39;inspirational&#39;, &#39;instrumental&#39;, &#39;international&#39;, &#39;irish&#39;, &#39;jam&#39;, &#39;japanese&#39;, &#39;jazz&#39;, &#39;jewish&#39;, &#39;jpop&#39;, &#39;jungle&#39;, &#39;k-pop&#39;, &#39;karadeniz&#39;, &#39;karaoke&#39;, &#39;kayokyoku&#39;, &#39;korean&#39;, &#39;laiko&#39;, &#39;latin&#39;, &#39;latino&#39;, &#39;leftfield&#39;, &#39;local&#39;, &#39;lounge&#39;, &#39;loungeelectronic&#39;, &#39;lovers&#39;, &#39;malaysian&#39;, &#39;mandopop&#39;, &#39;marschmusik&#39;, &#39;meditative&#39;, &#39;mediterranean&#39;, &#39;melodic&#39;, &#39;metal&#39;, &#39;metalcore&#39;, &#39;mexican&#39;, &#39;middle&#39;, &#39;minimal&#39;, &#39;miscellaneous&#39;, &#39;modern&#39;, &#39;mood&#39;, &#39;mpb&#39;, &#39;muslim&#39;, &#39;native&#39;, &#39;neoklassik&#39;, &#39;neue&#39;, &#39;new&#39;, &#39;newage&#39;, &#39;newwave&#39;, &#39;nu&#39;, &#39;nujazz&#39;, &#39;numetal&#39;, &#39;oceania&#39;, &#39;old&#39;, &#39;opera&#39;, &#39;orchestral&#39;, &#39;other&#39;, &#39;piano&#39;, &#39;pop&#39;, &#39;popelectronic&#39;, &#39;popeurodance&#39;, &#39;post&#39;, &#39;posthardcore&#39;, &#39;postrock&#39;, &#39;power&#39;, &#39;progmetal&#39;, &#39;progressive&#39;, &#39;psychedelic&#39;, &#39;punjabi&#39;, &#39;punk&#39;, &#39;quebecois&#39;, &#39;ragga&#39;, &#39;ram&#39;, &#39;rancheras&#39;, &#39;rap&#39;, &#39;rave&#39;, &#39;reggae&#39;, &#39;reggaeton&#39;, &#39;regional&#39;, &#39;relax&#39;, &#39;religious&#39;, &#39;retro&#39;, &#39;rhythm&#39;, &#39;rnb&#39;, &#39;rnr&#39;, &#39;rock&#39;, &#39;rockabilly&#39;, &#39;romance&#39;, &#39;roots&#39;, &#39;ruspop&#39;, &#39;rusrap&#39;, &#39;rusrock&#39;, &#39;salsa&#39;, &#39;samba&#39;, &#39;schlager&#39;, &#39;self&#39;, &#39;sertanejo&#39;, &#39;shoegazing&#39;, &#39;showtunes&#39;, &#39;singer&#39;, &#39;ska&#39;, &#39;slow&#39;, &#39;smooth&#39;, &#39;soul&#39;, &#39;soulful&#39;, &#39;sound&#39;, &#39;soundtrack&#39;, &#39;southern&#39;, &#39;specialty&#39;, &#39;speech&#39;, &#39;spiritual&#39;, &#39;sport&#39;, &#39;stonerrock&#39;, &#39;surf&#39;, &#39;swing&#39;, &#39;synthpop&#39;, &#39;sängerportrait&#39;, &#39;tango&#39;, &#39;tanzorchester&#39;, &#39;taraftar&#39;, &#39;tech&#39;, &#39;techno&#39;, &#39;thrash&#39;, &#39;top&#39;, &#39;traditional&#39;, &#39;tradjazz&#39;, &#39;trance&#39;, &#39;tribal&#39;, &#39;trip&#39;, &#39;triphop&#39;, &#39;tropical&#39;, &#39;türk&#39;, &#39;türkçe&#39;, &#39;unknown&#39;, &#39;urban&#39;, &#39;uzbek&#39;, &#39;variété&#39;, &#39;vi&#39;, &#39;videogame&#39;, &#39;vocal&#39;, &#39;western&#39;, &#39;world&#39;, &#39;worldbeat&#39;, &#39;ïîï&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Etapa 2.12. Vamos a examinar la lista para identificar <strong>duplicados implícitos</strong> del género <code class="docutils literal notranslate"><span class="pre">hiphop</span></code>, es decir, nombres mal escritos o variantes que hacen referencia al mismo género musical.</p>
+<p>Los duplicados que encontrarás son:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hip</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hop</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hip-hop</span></code></p></li>
+</ul>
+<p>Para solucionarlo, vamos a crear una función llamada <code class="docutils literal notranslate"><span class="pre">replace_wrong_values()</span></code>.</p>
+<ol class="arabic simple">
+<li><p>Define una función llamada <code class="docutils literal notranslate"><span class="pre">replace_wrong_values()</span></code> que reciba los siguientes parámetros:</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df</span></code>: el DataFrame a modificar</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">column</span></code>: el nombre de la columna a trabajar</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wrong_values</span></code>: una lista con los valores incorrectos</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">correct_value</span></code>: el valor correcto para reemplazar</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Dentro de la función, usa un bucle <code class="docutils literal notranslate"><span class="pre">for</span></code> para iterar sobre cada valor incorrecto y aplicar <code class="docutils literal notranslate"><span class="pre">.replace()</span></code>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Función para reemplazar los duplicados implícitos</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">replace_wrong_values</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">wrong_values</span><span class="p">,</span> <span class="n">correct_value</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">wrong_value</span> <span class="ow">in</span> <span class="n">wrong_values</span><span class="p">:</span>
+        <span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">wrong_value</span><span class="p">,</span> <span class="n">correct_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Etapa 2.13. Ahora, llama a la función pasando:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df</span></code> como el DataFrame</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'genre'</span></code> como nombre de columna</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">['hip',</span> <span class="pre">'hop',</span> <span class="pre">'hip-hop']</span></code> como lista de valores incorrectos</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'hiphop'</span></code> como valor correcto</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Elimina los duplicados implícitos</span>
+<span class="n">wrong_values</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hip&#39;</span><span class="p">,</span> <span class="s1">&#39;hop&#39;</span><span class="p">,</span> <span class="s1">&#39;hip-hop&#39;</span><span class="p">]</span>
+<span class="n">replace_wrong_values</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;genre&#39;</span><span class="p">,</span> <span class="n">wrong_values</span><span class="p">,</span> <span class="s1">&#39;hiphop&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Etapa 2.14. Asegúrate de que los nombres duplicados se hayan eliminado. Muestra la lista de valores únicos de la columna <code class="docutils literal notranslate"><span class="pre">'genre'</span></code> una vez más:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comprueba de nuevo los duplicados implícitos</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;genre&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;acid&#39;, &#39;acoustic&#39;, &#39;action&#39;, &#39;adult&#39;, &#39;africa&#39;, &#39;afrikaans&#39;, &#39;alternative&#39;, &#39;ambient&#39;, &#39;americana&#39;, &#39;animated&#39;, &#39;anime&#39;, &#39;arabesk&#39;, &#39;arabic&#39;, &#39;arena&#39;, &#39;argentinetango&#39;, &#39;art&#39;, &#39;audiobook&#39;, &#39;avantgarde&#39;, &#39;axé&#39;, &#39;baile&#39;, &#39;balkan&#39;, &#39;beats&#39;, &#39;bigroom&#39;, &#39;black&#39;, &#39;bluegrass&#39;, &#39;blues&#39;, &#39;bollywood&#39;, &#39;bossa&#39;, &#39;brazilian&#39;, &#39;breakbeat&#39;, &#39;breaks&#39;, &#39;broadway&#39;, &#39;cantautori&#39;, &#39;cantopop&#39;, &#39;canzone&#39;, &#39;caribbean&#39;, &#39;caucasian&#39;, &#39;celtic&#39;, &#39;chamber&#39;, &#39;children&#39;, &#39;chill&#39;, &#39;chinese&#39;, &#39;choral&#39;, &#39;christian&#39;, &#39;christmas&#39;, &#39;classical&#39;, &#39;classicmetal&#39;, &#39;club&#39;, &#39;colombian&#39;, &#39;comedy&#39;, &#39;conjazz&#39;, &#39;contemporary&#39;, &#39;country&#39;, &#39;cuban&#39;, &#39;dance&#39;, &#39;dancehall&#39;, &#39;dancepop&#39;, &#39;dark&#39;, &#39;death&#39;, &#39;deep&#39;, &#39;deutschrock&#39;, &#39;deutschspr&#39;, &#39;dirty&#39;, &#39;disco&#39;, &#39;dnb&#39;, &#39;documentary&#39;, &#39;downbeat&#39;, &#39;downtempo&#39;, &#39;drum&#39;, &#39;dub&#39;, &#39;dubstep&#39;, &#39;eastern&#39;, &#39;easy&#39;, &#39;electronic&#39;, &#39;electropop&#39;, &#39;emo&#39;, &#39;entehno&#39;, &#39;epicmetal&#39;, &#39;estrada&#39;, &#39;ethnic&#39;, &#39;eurofolk&#39;, &#39;european&#39;, &#39;experimental&#39;, &#39;extrememetal&#39;, &#39;fado&#39;, &#39;film&#39;, &#39;fitness&#39;, &#39;flamenco&#39;, &#39;folk&#39;, &#39;folklore&#39;, &#39;folkmetal&#39;, &#39;folkrock&#39;, &#39;folktronica&#39;, &#39;forró&#39;, &#39;frankreich&#39;, &#39;französisch&#39;, &#39;french&#39;, &#39;funk&#39;, &#39;future&#39;, &#39;gangsta&#39;, &#39;garage&#39;, &#39;german&#39;, &#39;ghazal&#39;, &#39;gitarre&#39;, &#39;glitch&#39;, &#39;gospel&#39;, &#39;gothic&#39;, &#39;grime&#39;, &#39;grunge&#39;, &#39;gypsy&#39;, &#39;handsup&#39;, &quot;hard&#39;n&#39;heavy&quot;, &#39;hardcore&#39;, &#39;hardstyle&#39;, &#39;hardtechno&#39;, &#39;hiphop&#39;, &#39;historisch&#39;, &#39;holiday&#39;, &#39;horror&#39;, &#39;house&#39;, &#39;idm&#39;, &#39;independent&#39;, &#39;indian&#39;, &#39;indie&#39;, &#39;indipop&#39;, &#39;industrial&#39;, &#39;inspirational&#39;, &#39;instrumental&#39;, &#39;international&#39;, &#39;irish&#39;, &#39;jam&#39;, &#39;japanese&#39;, &#39;jazz&#39;, &#39;jewish&#39;, &#39;jpop&#39;, &#39;jungle&#39;, &#39;k-pop&#39;, &#39;karadeniz&#39;, &#39;karaoke&#39;, &#39;kayokyoku&#39;, &#39;korean&#39;, &#39;laiko&#39;, &#39;latin&#39;, &#39;latino&#39;, &#39;leftfield&#39;, &#39;local&#39;, &#39;lounge&#39;, &#39;loungeelectronic&#39;, &#39;lovers&#39;, &#39;malaysian&#39;, &#39;mandopop&#39;, &#39;marschmusik&#39;, &#39;meditative&#39;, &#39;mediterranean&#39;, &#39;melodic&#39;, &#39;metal&#39;, &#39;metalcore&#39;, &#39;mexican&#39;, &#39;middle&#39;, &#39;minimal&#39;, &#39;miscellaneous&#39;, &#39;modern&#39;, &#39;mood&#39;, &#39;mpb&#39;, &#39;muslim&#39;, &#39;native&#39;, &#39;neoklassik&#39;, &#39;neue&#39;, &#39;new&#39;, &#39;newage&#39;, &#39;newwave&#39;, &#39;nu&#39;, &#39;nujazz&#39;, &#39;numetal&#39;, &#39;oceania&#39;, &#39;old&#39;, &#39;opera&#39;, &#39;orchestral&#39;, &#39;other&#39;, &#39;piano&#39;, &#39;pop&#39;, &#39;popelectronic&#39;, &#39;popeurodance&#39;, &#39;post&#39;, &#39;posthardcore&#39;, &#39;postrock&#39;, &#39;power&#39;, &#39;progmetal&#39;, &#39;progressive&#39;, &#39;psychedelic&#39;, &#39;punjabi&#39;, &#39;punk&#39;, &#39;quebecois&#39;, &#39;ragga&#39;, &#39;ram&#39;, &#39;rancheras&#39;, &#39;rap&#39;, &#39;rave&#39;, &#39;reggae&#39;, &#39;reggaeton&#39;, &#39;regional&#39;, &#39;relax&#39;, &#39;religious&#39;, &#39;retro&#39;, &#39;rhythm&#39;, &#39;rnb&#39;, &#39;rnr&#39;, &#39;rock&#39;, &#39;rockabilly&#39;, &#39;romance&#39;, &#39;roots&#39;, &#39;ruspop&#39;, &#39;rusrap&#39;, &#39;rusrock&#39;, &#39;salsa&#39;, &#39;samba&#39;, &#39;schlager&#39;, &#39;self&#39;, &#39;sertanejo&#39;, &#39;shoegazing&#39;, &#39;showtunes&#39;, &#39;singer&#39;, &#39;ska&#39;, &#39;slow&#39;, &#39;smooth&#39;, &#39;soul&#39;, &#39;soulful&#39;, &#39;sound&#39;, &#39;soundtrack&#39;, &#39;southern&#39;, &#39;specialty&#39;, &#39;speech&#39;, &#39;spiritual&#39;, &#39;sport&#39;, &#39;stonerrock&#39;, &#39;surf&#39;, &#39;swing&#39;, &#39;synthpop&#39;, &#39;sängerportrait&#39;, &#39;tango&#39;, &#39;tanzorchester&#39;, &#39;taraftar&#39;, &#39;tech&#39;, &#39;techno&#39;, &#39;thrash&#39;, &#39;top&#39;, &#39;traditional&#39;, &#39;tradjazz&#39;, &#39;trance&#39;, &#39;tribal&#39;, &#39;trip&#39;, &#39;triphop&#39;, &#39;tropical&#39;, &#39;türk&#39;, &#39;türkçe&#39;, &#39;unknown&#39;, &#39;urban&#39;, &#39;uzbek&#39;, &#39;variété&#39;, &#39;vi&#39;, &#39;videogame&#39;, &#39;vocal&#39;, &#39;western&#39;, &#39;world&#39;, &#39;worldbeat&#39;, &#39;ïîï&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="etapa-3-analisis">
+<h2>Etapa 3. Análisis<a class="headerlink" href="#etapa-3-analisis" title="Permalink to this heading">#</a></h2>
+<section id="tarea-comparar-el-comportamiento-de-los-usuarios-en-las-dos-ciudades-a-id-activity-a">
+<h3>Tarea: Comparar el comportamiento de los usuarios en las dos ciudades <a id='activity'></a><a class="headerlink" href="#tarea-comparar-el-comportamiento-de-los-usuarios-en-las-dos-ciudades-a-id-activity-a" title="Permalink to this heading">#</a></h3>
+<p>Queremos analizar si hay diferencias en la cantidad de canciones reproducidas en Springfield y Shelbyville. Para ello, usaremos los datos de dos días de la semana: lunes y viernes.</p>
+<p>Compararemos cuántas canciones se escucharon en cada ciudad durante esos días para identificar posibles patrones de comportamiento.</p>
+<p>Sigue estos tres pasos para organizar tu análisis:</p>
+<ul class="simple">
+<li><p>Dividir: agrupa los datos por ciudad.</p></li>
+<li><p>Aplicar: cuenta cuántas canciones se reproducen en cada grupo.</p></li>
+<li><p>Combinar: presenta los resultados de forma que se puedan comparar fácilmente ambas ciudades.</p></li>
+</ul>
+<p>Repite este proceso por separado para cada uno de los dos días.</p>
+<p>Etapa 3.1.
+Cuenta cuántas canciones se reprodujeron en cada ciudad utilizando la columna <code class="docutils literal notranslate"><span class="pre">'track'</span></code> como referencia.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cuenta las canciones reproducidas en cada ciudad</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;city&#39;</span><span class="p">)[</span><span class="s1">&#39;track&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>city
+Shelbyville    18512
+Springfield    42741
+Name: track, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Etapa 3.2. Redacta brevemente tus observaciones sobre los resultados.</p>
+<p>¿Qué diferencias encontraste entre Springfield y Shelbyville? ¿A qué podrían deberse?</p>
+<p>Que el número de tracks reproducidas en SpringField es mayor al número de tracks reproducidos en Shelbyville.</p>
+<p>Etapa 3.3.
+Agrupa los datos por día de la semana y cuenta cuántas canciones se reprodujeron los lunes y viernes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcula las canciones reproducidas en cada uno de los dos días</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">)[</span><span class="s1">&#39;track&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>day
+Friday       21840
+Monday       21354
+Wednesday    18059
+Name: track, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Etapa 3.4. Describe brevemente qué observaste al comparar los lunes y viernes.</p>
+<p>¿Hubo un día con más actividad? ¿Cambia algo si analizas cada ciudad por separado?</p>
+<p>Si, los viernes. Sería interesante saber si en cada ciudad estos datos son diferentes o es algo general que en todas las ciudades ocurre lo del día. Se me hace interesante como esto puede llevarse a otro nivel viendo las diferencias culturales en cuanto a como podría variar en referencia a los días.</p>
+<p>Etapa 3.5</p>
+<p>Ahora vamos a combinar dos criterios: día y ciudad.</p>
+<p>Crea una función llamada <code class="docutils literal notranslate"><span class="pre">number_tracks()</span></code> que reciba dos parámetros:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">day</span></code>: un día de la semana (por ejemplo, <code class="docutils literal notranslate"><span class="pre">'Monday'</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">city</span></code>: el nombre de una ciudad (por ejemplo, <code class="docutils literal notranslate"><span class="pre">'Springfield'</span></code>)</p></li>
+</ul>
+<p>Dentro de la función:</p>
+<ol class="arabic simple">
+<li><p>Filtra el DataFrame por el día.</p></li>
+<li><p>Luego, filtra por la ciudad.</p></li>
+<li><p>Cuenta cuántas veces aparece <code class="docutils literal notranslate"><span class="pre">'user_id'</span></code> en ese filtro.</p></li>
+<li><p>Devuelve ese número como resultado.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Declara la función number_tracks() con dos parámetros: day= y city=.</span>
+
+    <span class="c1"># Almacena las filas del DataFrame donde el valor en la columna &#39;day&#39; es igual al parámetro day=</span>
+
+    <span class="c1"># Filtra las filas donde el valor en la columna &#39;city&#39; es igual al parámetro city=</span>
+
+    <span class="c1"># Extrae la columna &#39;user_id&#39; de la tabla filtrada y aplica el método count()</span>
+
+    <span class="c1"># Devuelve el número de valores de la columna &#39;user_id&#39;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">number_tracks</span><span class="p">(</span><span class="n">day</span><span class="p">,</span> <span class="n">city</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;day == @day &amp; city == @city&quot;</span><span class="p">)[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Etapa 3.6. Llama a <code class="docutils literal notranslate"><span class="pre">number_tracks()</span></code> cuatro veces: una por ciudad en cada uno de los dos días.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># El número de canciones reproducidas en Springfield el lunes</span>
+<span class="n">number_tracks</span><span class="p">(</span><span class="s1">&#39;Monday&#39;</span><span class="p">,</span> <span class="s1">&#39;Springfield&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15740
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># El número de canciones reproducidas en Shelbyville el lunes</span>
+<span class="n">number_tracks</span><span class="p">(</span><span class="s1">&#39;Monday&#39;</span><span class="p">,</span> <span class="s1">&#39;Shelbyville&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5614
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># El número de canciones reproducidas en Springfield el viernes</span>
+<span class="n">number_tracks</span><span class="p">(</span><span class="s1">&#39;Friday&#39;</span><span class="p">,</span> <span class="s1">&#39;Springfield&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15945
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># El número de canciones reproducidas en Shelbyville el viernes</span>
+<span class="n">number_tracks</span><span class="p">(</span><span class="s1">&#39;Friday&#39;</span><span class="p">,</span> <span class="s1">&#39;Shelbyville&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5895
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="conclusiones-a-id-end-a">
+<h1>Conclusiones <a id='end'></a><a class="headerlink" href="#conclusiones-a-id-end-a" title="Permalink to this heading">#</a></h1>
+<section id="escribe-tus-conclusiones-finales-sobre-el-analisis">
+<h2>Escribe tus conclusiones finales sobre el análisis<a class="headerlink" href="#escribe-tus-conclusiones-finales-sobre-el-analisis" title="Permalink to this heading">#</a></h2>
+<p>Redacta un resumen breve y claro de los hallazgos obtenidos durante el proceso de análisis. Tu conclusión debe:</p>
+<ul class="simple">
+<li><p>Mencionar los principales patrones que observaste en los datos.</p></li>
+<li><p>Identificar cualquier problema encontrado y cómo lo solucionaste.</p></li>
+<li><p>Explicar cómo estas acciones ayudaron a mejorar la calidad del análisis.</p></li>
+</ul>
+<p>Reflexiona también sobre la pregunta central:</p>
+<blockquote>
+<div><p><em>¿Los datos muestran que el comportamiento de los usuarios —en cuanto a la música que escuchan— varía según la ciudad y el día de la semana?</em></p>
+</div></blockquote>
+<p>Apoya tu respuesta con ejemplos concretos de los resultados obtenidos.</p>
+<p>En base a los datos finales encontrados podemos observar que en SpringField se suele escuchar más música que en Shelvyville y que por otro lado las personas suelen escuchar música de preferencia los viernes antes que los lunes. Es interesante ver que considerando en días como el miércoles, la cantidad de canciones es mucho menor por lo que sería interesante compararlo con otros datos para ver la razón de este comportamiento.</p>
+<p>En cuánto a los problemas encontrados, inicialmente fue el tema de limpieza de datos y datos nulos que existían en el archivo y fue bueno recordar algunos métodos como el fillna en conjunto con la estructura for para poder dar solución a ello. De igual manera el uso del método sorted para poder ordenar los datos y facilitar las cosas para el filtrado.</p>
+<p>Por otra parte, los datos sí desmuestran un cambio en cuanto a las ciudades ya que este comportamiento es normal ya que el aspecto cultural puede modificar la manera en la que las personas se distraen. Sin embargo, algo curioso es que aún así en cuanto a los días, vemos un patrón que también llama la atención. Sería bueno ver si ese patrón se extiende más allá de las ciudades evaluadas y se repite a nivel del país o del continente.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Data_Wrangling%20-%202.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Wrangling (¡Llena ese carrito!)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Analisis_de_Ventas_de_Videojuegos.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Análisis de Ventas de Videojuegos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Manipulación de Datos (Déjame escuchar música)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etapa-1-descripcion-de-los-datos-a-id-data-review-a">Etapa 1. Descripción de los datos <a id="data_review"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escribe-algunas-observaciones-por-tu-parte-contesta-a-las-siguientes-preguntas-a-id-data-review-conclusions-a">Escribe algunas observaciones por tu parte. Contesta a las siguientes preguntas: <a id="data_review_conclusions"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etapa-2-preprocesamiento-de-los-datos-a-id-data-preprocessing-a">Etapa 2. Preprocesamiento de los datos <a id="data_preprocessing"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estilo-del-encabezado-a-id-header-style-a">Estilo del encabezado <a id="header_style"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-ausentes-a-id-missing-values-a">Valores ausentes <a id="missing_values"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#duplicados-a-id-duplicates-a">Duplicados <a id="duplicates"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etapa-3-analisis">Etapa 3. Análisis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tarea-comparar-el-comportamiento-de-los-usuarios-en-las-dos-ciudades-a-id-activity-a">Tarea: Comparar el comportamiento de los usuarios en las dos ciudades <a id="activity"></a></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones-a-id-end-a">Conclusiones <a id="end"></a></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escribe-tus-conclusiones-finales-sobre-el-analisis">Escribe tus conclusiones finales sobre el análisis</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

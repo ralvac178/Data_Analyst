@@ -1,0 +1,1901 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Data Wrangling (¡Llena ese carrito!) &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Data_Wrangling - 2';</script>
+    <link rel="canonical" href="/Data_Analyst/Data_Wrangling - 2.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Manipulación de Datos (Déjame escuchar música)" href="Data_Wrangling.html" />
+    <link rel="prev" title="Investigación del comportamiento usuarios" href="Investigacion.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Predicciones.html">Predicciones de cancelaciones de membresias de Gimnasio</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Investigacion.html">Investigación del comportamiento usuarios</a></li>
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Wrangling (¡Llena ese carrito!)</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Data_Wrangling.html">Manipulación de Datos (Déjame escuchar música)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Analisis_de_Ventas_de_Videojuegos.html">Análisis de Ventas de Videojuegos</a></li>
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FData_Wrangling - 2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Data_Wrangling - 2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Wrangling (¡Llena ese carrito!)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data Wrangling (¡Llena ese carrito!)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">Introducción</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diccionario-de-datos">Diccionario de datos</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paso-1-descripcion-de-los-datos">Paso 1. Descripción de los datos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plan-de-solucion">Plan de solución</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paso-2-preprocesamiento-de-los-datos">Paso 2. Preprocesamiento de los datos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Plan de solución</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encuentra-y-elimina-los-valores-duplicados-y-describe-como-tomaste-tus-decisiones">Encuentra y elimina los valores duplicados (y describe cómo tomaste tus decisiones).</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orders-data-frame"><code class="docutils literal notranslate"><span class="pre">orders</span></code> data frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#products-data-frame"><code class="docutils literal notranslate"><span class="pre">products</span></code> data frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#departments-data-frame"><code class="docutils literal notranslate"><span class="pre">departments</span></code> data frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aisles-data-frame"><code class="docutils literal notranslate"><span class="pre">aisles</span></code> data frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#order-products-data-frame"><code class="docutils literal notranslate"><span class="pre">order_products</span></code> data frame</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encuentra-y-elimina-los-valores-ausentes">Encuentra y elimina los valores ausentes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">products</span></code> data frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">orders</span></code> data frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">order_products</span></code> data frame</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paso-3-analisis-de-los-datos">Paso 3. Análisis de los datos</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-facil-deben-completarse-todos-para-aprobar">[A] Fácil (deben completarse todos para aprobar)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-verifica-que-los-valores-sean-sensibles">[A1] Verifica que los valores sean sensibles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a2-para-cada-hora-del-dia-cuantas-personas-hacen-ordenes">[A2] Para cada hora del día, ¿cuántas personas hacen órdenes?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a3-que-dia-de-la-semana-compran-viveres-las-personas">[A3] ¿Qué día de la semana compran víveres las personas?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a4-cuanto-tiempo-esperan-las-personas-hasta-hacer-otro-pedido-comenta-sobre-los-valores-minimos-y-maximos">[A4] ¿Cuánto tiempo esperan las personas hasta hacer otro pedido? Comenta sobre los valores mínimos y máximos.</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b-intermedio-deben-completarse-todos-para-aprobar">[B] Intermedio (deben completarse todos para aprobar)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-diferencia-entre-miercoles-y-sabados-para-order-hour-of-day-traza-graficos-de-barra-para-los-dos-dias-y-describe-las-diferencias-que-veas">[B1] Diferencia entre miércoles y sábados para  <code class="docutils literal notranslate"><span class="pre">'order_hour_of_day'</span></code>. Traza gráficos de barra para los dos días y describe las diferencias que veas.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-cual-es-la-distribucion-para-el-numero-de-pedidos-por-cliente">[B2] ¿Cuál es la distribución para el número de pedidos por cliente?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-cuales-son-los-20-productos-mas-populares-muestra-su-id-y-nombre">[B3] ¿Cuáles son los 20 productos más populares (muestra su ID y nombre)?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#c-dificil-deben-completarse-todos-para-aprobar">[C] Difícil (deben completarse todos para aprobar)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-cuantos-articulos-compran-normalmente-las-personas-en-un-pedido-como-es-la-distribucion">[C1] ¿Cuántos artículos compran normalmente las personas en un pedido? ¿Cómo es la distribución?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-cuales-son-los-20-principales-articulos-que-vuelven-a-pedirse-con-mayor-frecuencia-muestra-sus-nombres-e-ids-de-los-productos">[C2] ¿Cuáles son los 20 principales artículos que vuelven a pedirse con mayor frecuencia (muestra sus nombres e IDs de los productos)?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-para-cada-producto-cual-es-la-proporcion-de-las-veces-que-se-pide-y-que-se-vuelve-a-pedir">[C3] Para cada producto, ¿cuál es la proporción de las veces que se pide y que se vuelve a pedir?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c4-para-cada-cliente-que-proporcion-de-sus-productos-ya-los-habia-pedido">[C4] Para cada cliente, ¿qué proporción de sus productos ya los había pedido?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-cuales-son-los-20-principales-articulos-que-las-personas-ponen-primero-en-sus-carritos">[C5] ¿Cuáles son los 20 principales artículos que las personas ponen primero en sus carritos?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-general-del-proyecto">Conclusion general del proyecto:</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-wrangling-llena-ese-carrito">
+<h1>Data Wrangling (¡Llena ese carrito!)<a class="headerlink" href="#data-wrangling-llena-ese-carrito" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="introduccion">
+<h1>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
+<p>Instacart es una plataforma de entregas de comestibles donde la clientela puede registrar un pedido y hacer que se lo entreguen, similar a Uber Eats y Door Dash.
+El conjunto de datos que te hemos proporcionado tiene modificaciones del original. Redujimos el tamaño del conjunto para que tus cálculos se hicieran más rápido e introdujimos valores ausentes y duplicados. Tuvimos cuidado de conservar las distribuciones de los datos originales cuando hicimos los cambios.</p>
+<p>Debes completar tres pasos. Para cada uno de ellos, escribe una breve introducción que refleje con claridad cómo pretendes resolver cada paso, y escribe párrafos explicatorios que justifiquen tus decisiones al tiempo que avanzas en tu solución.  También escribe una conclusión que resuma tus hallazgos y elecciones.</p>
+<section id="diccionario-de-datos">
+<h2>Diccionario de datos<a class="headerlink" href="#diccionario-de-datos" title="Permalink to this heading">#</a></h2>
+<p>Hay cinco tablas en el conjunto de datos, y tendrás que usarlas todas para hacer el preprocesamiento de datos y el análisis exploratorio de datos. A continuación se muestra un diccionario de datos que enumera las columnas de cada tabla y describe los datos que contienen.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">instacart_orders.csv</span></code>: cada fila corresponde a un pedido en la aplicación Instacart.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'order_id'</span></code>: número de ID que identifica de manera única cada pedido.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'user_id'</span></code>: número de ID que identifica de manera única la cuenta de cada cliente.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'order_number'</span></code>: el número de veces que este cliente ha hecho un pedido.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'order_dow'</span></code>: día de la semana en que se hizo el pedido (0 si es domingo).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'order_hour_of_day'</span></code>: hora del día en que se hizo el pedido.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'days_since_prior_order'</span></code>: número de días transcurridos desde que este cliente hizo su pedido anterior.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">products.csv</span></code>: cada fila corresponde a un producto único que pueden comprar los clientes.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'product_id'</span></code>: número ID que identifica de manera única cada producto.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'product_name'</span></code>: nombre del producto.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'aisle_id'</span></code>: número ID que identifica de manera única cada categoría de pasillo de víveres.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'department_id'</span></code>: número ID que identifica de manera única cada departamento de víveres.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">order_products.csv</span></code>: cada fila corresponde a un artículo pedido en un pedido.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'order_id'</span></code>: número de ID que identifica de manera única cada pedido.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'product_id'</span></code>: número ID que identifica de manera única cada producto.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'add_to_cart_order'</span></code>: el orden secuencial en el que se añadió cada artículo en el carrito.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'reordered'</span></code>: 0 si el cliente nunca ha pedido este producto antes, 1 si lo ha pedido.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">aisles.csv</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'aisle_id'</span></code>: número ID que identifica de manera única cada categoría de pasillo de víveres.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'aisle'</span></code>: nombre del pasillo.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">departments.csv</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'department_id'</span></code>: número ID que identifica de manera única cada departamento de víveres.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'department'</span></code>: nombre del departamento.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="paso-1-descripcion-de-los-datos">
+<h1>Paso 1. Descripción de los datos<a class="headerlink" href="#paso-1-descripcion-de-los-datos" title="Permalink to this heading">#</a></h1>
+<p>Lee los archivos de datos (<code class="docutils literal notranslate"><span class="pre">/datasets/instacart_orders.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">/datasets/products.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">/datasets/aisles.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">/datasets/departments.csv</span></code> y <code class="docutils literal notranslate"><span class="pre">/datasets/order_products.csv</span></code>) con <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> usando los parámetros adecuados para leer los datos correctamente. Verifica la información para cada DataFrame creado.</p>
+<section id="plan-de-solucion">
+<h2>Plan de solución<a class="headerlink" href="#plan-de-solucion" title="Permalink to this heading">#</a></h2>
+<p>Escribe aquí tu plan de solución para el Paso 1. Descripción de los datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># importar librerías</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># importar librerías</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># leer conjuntos de datos en los DataFrames</span>
+<span class="n">instacard_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/datasets/instacart_orders.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+<span class="n">products_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/datasets/products.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+<span class="n">order_products_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/datasets/order_products.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+<span class="n">aisles_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/datasets/aisles.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+<span class="n">department_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/datasets/departments.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mostrar información del DataFrame</span>
+<span class="n">instacard_df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 478967 entries, 0 to 478966
+Data columns (total 6 columns):
+ #   Column                  Non-Null Count   Dtype  
+---  ------                  --------------   -----  
+ 0   order_id                478967 non-null  int64  
+ 1   user_id                 478967 non-null  int64  
+ 2   order_number            478967 non-null  int64  
+ 3   order_dow               478967 non-null  int64  
+ 4   order_hour_of_day       478967 non-null  int64  
+ 5   days_since_prior_order  450148 non-null  float64
+dtypes: float64(1), int64(5)
+memory usage: 21.9 MB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mostrar información del DataFrame</span>
+<span class="n">products_df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 49694 entries, 0 to 49693
+Data columns (total 4 columns):
+ #   Column         Non-Null Count  Dtype 
+---  ------         --------------  ----- 
+ 0   product_id     49694 non-null  int64 
+ 1   product_name   48436 non-null  object
+ 2   aisle_id       49694 non-null  int64 
+ 3   department_id  49694 non-null  int64 
+dtypes: int64(3), object(1)
+memory usage: 1.5+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mostrar información del DataFrame</span>
+<span class="n">order_products_df</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">show_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 4545007 entries, 0 to 4545006
+Data columns (total 4 columns):
+ #   Column             Non-Null Count    Dtype  
+---  ------             --------------    -----  
+ 0   order_id           4545007 non-null  int64  
+ 1   product_id         4545007 non-null  int64  
+ 2   add_to_cart_order  4544171 non-null  float64
+ 3   reordered          4545007 non-null  int64  
+dtypes: float64(1), int64(3)
+memory usage: 138.7 MB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mostrar información del DataFrame</span>
+<span class="n">aisles_df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 134 entries, 0 to 133
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype 
+---  ------    --------------  ----- 
+ 0   aisle_id  134 non-null    int64 
+ 1   aisle     134 non-null    object
+dtypes: int64(1), object(1)
+memory usage: 2.2+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mostrar información del DataFrame</span>
+<span class="n">department_df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 21 entries, 0 to 20
+Data columns (total 2 columns):
+ #   Column         Non-Null Count  Dtype 
+---  ------         --------------  ----- 
+ 0   department_id  21 non-null     int64 
+ 1   department     21 non-null     object
+dtypes: int64(1), object(1)
+memory usage: 464.0+ bytes
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="conclusiones">
+<h2>Conclusiones<a class="headerlink" href="#conclusiones" title="Permalink to this heading">#</a></h2>
+<p>Inicialmente se puede observar tras una primera ejecución del método info que los datos csv no están separados por comas como lo es el standar, sino que están separados por ‘punto y coma’. Por lo tanto para poder obtener una muestra más precisa de los datos de la hoja de cálculo, es necesario indicar el tipo de separador correcto con la propiedad ‘sep’ y así poder ver la cantidad de columas y filas que contiene cada documento.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="paso-2-preprocesamiento-de-los-datos">
+<h1>Paso 2. Preprocesamiento de los datos<a class="headerlink" href="#paso-2-preprocesamiento-de-los-datos" title="Permalink to this heading">#</a></h1>
+<p>Preprocesa los datos de la siguiente manera:</p>
+<ul class="simple">
+<li><p>Verifica y corrige los tipos de datos (por ejemplo, asegúrate de que las columnas de ID sean números enteros).</p></li>
+<li><p>Identifica y completa los valores ausentes.</p></li>
+<li><p>Identifica y elimina los valores duplicados.</p></li>
+</ul>
+<p>Asegúrate de explicar qué tipos de valores ausentes y duplicados encontraste, cómo los completaste o eliminaste y por qué usaste esos métodos. ¿Por qué crees que estos valores ausentes y duplicados pueden haber estado presentes en el conjunto de datos?</p>
+<section id="id1">
+<h2>Plan de solución<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>El plan es identificar los tipos de datos de cada df y realizar als conversiones necesarias. Así mismo, veririficar valores duplicados y valores ausentes para su reemplazo o eliminación.</p>
+</section>
+<section id="encuentra-y-elimina-los-valores-duplicados-y-describe-como-tomaste-tus-decisiones">
+<h2>Encuentra y elimina los valores duplicados (y describe cómo tomaste tus decisiones).<a class="headerlink" href="#encuentra-y-elimina-los-valores-duplicados-y-describe-como-tomaste-tus-decisiones" title="Permalink to this heading">#</a></h2>
+<div class="alert alert-block alert-success">
+<b>Comentario del Revisor #1</b> <a class="tocSkip"></a>
+<p>Es correcto que abordes primero los valores duplicados antes de llenar los valores ausentes. Si eliminas duplicados después, podrías haber trabajado innecesariamente en filas que no eran relevantes para el análisis. Esto te permite ahorrar tiempo y esfuerzo mientras aseguras que los datos sean consistentes desde el principio.</p>
+</div><section id="orders-data-frame">
+<h3><code class="docutils literal notranslate"><span class="pre">orders</span></code> data frame<a class="headerlink" href="#orders-data-frame" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Revisa si hay pedidos duplicados</span>
+<span class="n">instacard_df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="c1">#instacard_df[instacard_df.duplicated()]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>order_id  user_id  order_number  order_dow  order_hour_of_day  days_since_prior_order
+1021560   53767    3             3          2                  9.0                       2
+467134    63189    21            3          2                  2.0                       2
+391768    57671    19            3          2                  10.0                      2
+2282673   86751    49            3          2                  2.0                       2
+408114    68324    4             3          2                  18.0                      2
+                                                                                        ..
+1141863   88987    2             1          11                 14.0                      1
+1141854   125458   91            6          8                  2.0                       1
+1141847   156072   4             2          21                 6.0                       1
+1141845   153218   2             3          8                  6.0                       1
+3421079   108687   6             1          13                 0.0                       1
+Length: 450135, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>¿Tienes líneas duplicadas? Si sí, ¿qué tienen en común? Que todos ellos se hicieron el día miércoles a las 2 pm</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Basándote en tus hallazgos,</span>
+<span class="c1"># Verifica todos los pedidos que se hicieron el miércoles a las 2:00 a.m.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>¿Qué sugiere este resultado?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Elimina los pedidos duplicados</span>
+<span class="n">instacard_df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vuelve a verificar si hay filas duplicadas</span>
+<span class="n">instacard_df</span><span class="p">[</span><span class="n">instacard_df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>order_id                  0
+user_id                   0
+order_number              0
+order_dow                 0
+order_hour_of_day         0
+days_since_prior_order    0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vuelve a verificar únicamente si hay IDs duplicados de pedidos</span>
+<span class="n">instacard_df</span><span class="p">[</span><span class="s1">&#39;order_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Después de haber borrado las filas duplicadas, ahora podemos ver que tanto verificando el df completo así como filtrándolo por el id, ya no existen duplicados.</p>
+</section>
+<section id="products-data-frame">
+<h3><code class="docutils literal notranslate"><span class="pre">products</span></code> data frame<a class="headerlink" href="#products-data-frame" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verifica si hay filas totalmente duplicadas</span>
+<span class="n">products_df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>product_id  product_name                                       aisle_id  department_id
+1           Chocolate Sandwich Cookies                         61        19               1
+33112       Krinkle Cut Carolina BBQ Potato Chips              107       19               1
+33103       Fresh Ground Turkey- 85% Lean/15% Fat              35        12               1
+33104       Organic Unsweetened Ketchup                        72        13               1
+33105       French Vanilla Concentrated Liquid Coffee Creamer  53        16               1
+                                                                                         ..
+16570       Organic Fresh Carrot Chips                         123       4                1
+16571       Unbleached Jumbo Baking Cups                       97        13               1
+16572       Super Glue Gel Control                             87        17               1
+16573       3 Cheese Ravioli                                   38        1                1
+49694       BURRITO- STEAK &amp; CHEESE                            38        1                1
+Length: 48436, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Revisa únicamente si hay ID de productos duplicados</span>
+<span class="n">products_df</span><span class="p">[</span><span class="s1">&#39;product_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Revisa únicamente si hay nombres duplicados de productos (convierte los nombres a letras mayúsculas para compararlos mejor)</span>
+<span class="n">products_df</span><span class="p">[</span><span class="s1">&#39;product_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">products_df</span><span class="p">[</span><span class="s1">&#39;product_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">products_df</span><span class="p">[</span><span class="s1">&#39;product_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1361
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Revisa si hay nombres duplicados de productos no faltantes</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">products_df</span><span class="p">[</span><span class="n">products_df</span><span class="p">[</span><span class="s1">&#39;product_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">==</span><span class="kc">True</span> <span class="o">&amp;</span> <span class="n">products_df</span><span class="p">[</span><span class="s1">&#39;product_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;product_name&quot;</span><span class="p">))</span>
+<span class="c1">#products_df[&#39;product_name&#39;].value_counts()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       product_id                               product_name  aisle_id  \
+23339       23340  18-IN-1 HEMP PEPPERMINT PURE-CASTILE SOAP        25   
+31844       31845  18-IN-1 HEMP PEPPERMINT PURE-CASTILE SOAP        25   
+19941       19942            AGED BALSAMIC VINEGAR OF MODENA        19   
+13152       13153            AGED BALSAMIC VINEGAR OF MODENA        19   
+24830       24831         ALBACORE SOLID WHITE TUNA IN WATER        95   
+...           ...                                        ...       ...   
+46873       46874                         VITAMIN D3 5000 IU        47   
+21366       21367              WILD SARDINES IN SPRING WATER        95   
+40093       40094              WILD SARDINES IN SPRING WATER        95   
+1826         1827           YAMS CUT SWEET POTATOES IN SYRUP        81   
+38260       38261           YAMS CUT SWEET POTATOES IN SYRUP        81   
+
+       department_id  
+23339             11  
+31844             11  
+19941             13  
+13152             13  
+24830             15  
+...              ...  
+46873             11  
+21366             15  
+40093             15  
+1826              15  
+38260             15  
+
+[207 rows x 4 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Después de tomar la columna ‘product_name’ y pasar todo a mayúscula y quitar espacios en blanco, noté que efectivamente hay duplicados. Sin embargo, es probable que en las demás tablas estos productos duplicados con id distinto estén siendo utilizados por lo que he decidido dejarlos como tal. Una posible solución sería realizar un reemplazo de los id por un único pero correría el riesgo de perder datos.</p>
+</section>
+<section id="departments-data-frame">
+<h3><code class="docutils literal notranslate"><span class="pre">departments</span></code> data frame<a class="headerlink" href="#departments-data-frame" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Revisa si hay filas totalmente duplicadas</span>
+<span class="n">department_df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Revisa únicamente si hay IDs duplicadas de departamentos</span>
+<span class="n">department_df</span><span class="p">[</span><span class="s1">&#39;department_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por lo visto, no hay filas duplicadas en este df.</p>
+</section>
+<section id="aisles-data-frame">
+<h3><code class="docutils literal notranslate"><span class="pre">aisles</span></code> data frame<a class="headerlink" href="#aisles-data-frame" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Revisa si hay filas totalmente duplicadas</span>
+<span class="n">aisles_df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Revisa únicamente si hay IDs duplicadas de pasillos</span>
+<span class="n">aisles_df</span><span class="p">[</span><span class="s1">&#39;aisle_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por lo visto, no hay filas duplicadas en este df.</p>
+</section>
+<section id="order-products-data-frame">
+<h3><code class="docutils literal notranslate"><span class="pre">order_products</span></code> data frame<a class="headerlink" href="#order-products-data-frame" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Revisa si hay filas totalmente duplicadas</span>
+<span class="n">order_products_df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vuelve a verificar si hay cualquier otro duplicado engañoso</span>
+<span class="n">order_products_df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>order_id  product_id  add_to_cart_order  reordered
+4         10054       5.0                1            1
+2277733   35233       5.0                1            1
+2277734   15233       4.0                1            1
+          11471       2.0                1            1
+          6374        3.0                1            1
+                                                     ..
+1145037   26790       21.0               1            1
+          27767       10.0               1            1
+          32086       16.0               0            1
+          33572       5.0                1            1
+3421079   30136       1.0                0            1
+Length: 4544171, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hay duplicados en los id’s pero es normal debido a que una orden contiene varios productos.</p>
+</section>
+</section>
+<section id="encuentra-y-elimina-los-valores-ausentes">
+<h2>Encuentra y elimina los valores ausentes<a class="headerlink" href="#encuentra-y-elimina-los-valores-ausentes" title="Permalink to this heading">#</a></h2>
+<p>Al trabajar con valores duplicados, pudimos observar que también nos falta investigar valores ausentes:</p>
+<ul class="simple">
+<li><p>La columna <code class="docutils literal notranslate"><span class="pre">'product_name'</span></code> de la tabla products.</p></li>
+<li><p>La columna <code class="docutils literal notranslate"><span class="pre">'days_since_prior_order'</span></code> de la tabla orders.</p></li>
+<li><p>La columna <code class="docutils literal notranslate"><span class="pre">'add_to_cart_order'</span></code> de la tabla order_productos.</p></li>
+</ul>
+<section id="id2">
+<h3><code class="docutils literal notranslate"><span class="pre">products</span></code> data frame<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Encuentra los valores ausentes en la columna &#39;product_name&#39;</span>
+<span class="n">products_df</span><span class="p">[</span><span class="s1">&#39;product_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1258
+</pre></div>
+</div>
+</div>
+</div>
+<p>En ‘product_name’ encontré 1258 valores ausentes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#  ¿Todos los nombres de productos ausentes están relacionados con el pasillo con ID 100?</span>
+<span class="c1">#products_df[&#39;product_name&#39;].isna().sum()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">products_df</span><span class="p">[</span><span class="n">products_df</span><span class="p">[</span><span class="s1">&#39;product_name&#39;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;aisle_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   aisle_id  count
+0       100   1258
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si, todos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ¿Todos los nombres de productos ausentes están relacionados con el departamento con ID 21?</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">products_df</span><span class="p">[</span><span class="n">products_df</span><span class="p">[</span><span class="s1">&#39;product_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
+    <span class="o">&amp;</span> <span class="p">(</span><span class="n">products_df</span><span class="p">[</span><span class="s1">&#39;aisle_id&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">100</span><span class="p">)</span>
+    <span class="o">&amp;</span> <span class="p">(</span><span class="n">products_df</span><span class="p">[</span><span class="s1">&#39;department_id&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">21</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       product_id product_name  aisle_id  department_id
+37             38          NaN       100             21
+71             72          NaN       100             21
+109           110          NaN       100             21
+296           297          NaN       100             21
+416           417          NaN       100             21
+...           ...          ...       ...            ...
+49552       49553          NaN       100             21
+49574       49575          NaN       100             21
+49640       49641          NaN       100             21
+49663       49664          NaN       100             21
+49668       49669          NaN       100             21
+
+[1258 rows x 4 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si. Todos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usa las tablas department y aisle para revisar los datos del pasillo con ID 100 y el departamento con ID 21.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">aisles_df</span><span class="p">[</span><span class="n">aisles_df</span><span class="p">[</span><span class="s1">&#39;aisle_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">100</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">department_df</span><span class="p">[</span><span class="n">department_df</span><span class="p">[</span><span class="s1">&#39;department_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">21</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    aisle_id    aisle
+99       100  missing
+
+    department_id department
+20             21    missing
+</pre></div>
+</div>
+</div>
+</div>
+<p>En base a los df department y aisle, se puede ibservar que los id’s mencionados están con valores de missing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Completa los nombres de productos ausentes con &#39;Unknown&#39;</span>
+<span class="n">products_df</span><span class="p">[</span><span class="s1">&#39;product_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;Unknown&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">products_df</span><span class="p">[</span><span class="n">products_df</span><span class="p">[</span><span class="s1">&#39;product_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Empty DataFrame
+Columns: [product_id, product_name, aisle_id, department_id]
+Index: []
+</pre></div>
+</div>
+</div>
+</div>
+<p>Después de llenar los nombres vaciós, vemos como ahora ya todos los datos de la columna ‘product_name’ tienen valores</p>
+</section>
+<section id="id3">
+<h3><code class="docutils literal notranslate"><span class="pre">orders</span></code> data frame<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Encuentra los valores ausentes</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">instacard_df</span><span class="p">[</span><span class="n">instacard_df</span><span class="p">[</span><span class="s1">&#39;days_since_prior_order&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        order_id  user_id  order_number  order_dow  order_hour_of_day  \
+28        133707   182261             1          3                 10   
+96        787445    25685             1          6                 18   
+100       294410   111449             1          0                 19   
+103      2869915   123958             1          4                 16   
+104      2521921    42286             1          3                 18   
+...          ...      ...           ...        ...                ...   
+478895   2589657   205028             1          0                 16   
+478896   2222353   141211             1          2                 13   
+478922   2272807   204154             1          1                 15   
+478926   2499542    68810             1          4                 19   
+478945   1387033    22496             1          5                 14   
+
+        days_since_prior_order  
+28                         NaN  
+96                         NaN  
+100                        NaN  
+103                        NaN  
+104                        NaN  
+...                        ...  
+478895                     NaN  
+478896                     NaN  
+478922                     NaN  
+478926                     NaN  
+478945                     NaN  
+
+[28817 rows x 6 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ¿Hay algún valor ausente que no sea el primer pedido del cliente?</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">instacard_df</span><span class="p">[</span><span class="n">instacard_df</span><span class="p">[</span><span class="s1">&#39;days_since_prior_order&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">instacard_df</span><span class="p">[</span><span class="s1">&#39;order_number&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Empty DataFrame
+Columns: [order_id, user_id, order_number, order_dow, order_hour_of_day, days_since_prior_order]
+Index: []
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los valores ausentes que encontramos en este df se encuentran en la columna ‘days_since_prior_order’ y sólo están cuando son la primera compra por lo que eso es correcto.</p>
+</section>
+<section id="id4">
+<h3><code class="docutils literal notranslate"><span class="pre">order_products</span></code> data frame<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Encuentra los valores ausentes</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">order_products_df</span><span class="p">[</span><span class="n">order_products_df</span><span class="p">[</span><span class="s1">&#39;add_to_cart_order&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         order_id  product_id  add_to_cart_order  reordered
+737       2449164        5068                NaN          0
+9926      1968313       43867                NaN          0
+14394     2926893       11688                NaN          0
+16418     1717990        4142                NaN          0
+30114     1959075       42828                NaN          1
+...           ...         ...                ...        ...
+4505662   1800005        7411                NaN          0
+4511400   1633337         260                NaN          0
+4517562    404157        9517                NaN          0
+4534112   1673227       17835                NaN          0
+4535739   1832957       17949                NaN          1
+
+[836 rows x 4 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ¿Cuáles son los valores mínimos y máximos en esta columna?</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Min value:&#39;</span><span class="p">,</span><span class="n">order_products_df</span><span class="p">[</span><span class="s1">&#39;add_to_cart_order&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Max value:&#39;</span><span class="p">,</span><span class="n">order_products_df</span><span class="p">[</span><span class="s1">&#39;add_to_cart_order&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Min value: 1.0
+Max value: 64.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>el valor máximo encontrado es 64, pero se ven, tal como se mostraba en el ‘info’ que esa columna tiene el tipo float cuando debe ser int</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Guarda todas las IDs de pedidos que tengan un valor ausente en &#39;add_to_cart_order&#39;</span>
+<span class="n">order_product_ids</span> <span class="o">=</span> <span class="n">order_products_df</span><span class="p">[</span><span class="n">order_products_df</span><span class="p">[</span><span class="s1">&#39;add_to_cart_order&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()][[</span><span class="s1">&#39;order_id&#39;</span><span class="p">,</span> <span class="s1">&#39;product_id&#39;</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">order_product_ids</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         order_id  product_id
+737       2449164        5068
+9926      1968313       43867
+14394     2926893       11688
+16418     1717990        4142
+30114     1959075       42828
+...           ...         ...
+4505662   1800005        7411
+4511400   1633337         260
+4517562    404157        9517
+4534112   1673227       17835
+4535739   1832957       17949
+
+[836 rows x 2 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ¿Todos los pedidos con valores ausentes tienen más de 64 productos?</span>
+<span class="c1"># Agrupa todos los pedidos con datos ausentes por su ID de pedido.</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">order_product_ids</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;order_id&#39;</span><span class="p">)[</span><span class="s1">&#39;product_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="c1"># Cuenta el número de &#39;product_id&#39; en cada pedido y revisa el valor mínimo del conteo.</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>order_id
+9310        1
+747668      1
+1598369     1
+1677118     1
+2170451     1
+           ..
+1959075    34
+171934     40
+2136777    44
+3308010    51
+61355      63
+Name: product_id, Length: 70, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>La cuenta de los productos por cada pedido que tiene la columna add_to_card vacía oscila entre 1 a 63.Por lo que a la pregunta inicial, la respuesta es no.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remplaza los valores ausentes en la columna &#39;add_to_cart? con 999 y convierte la columna al tipo entero.</span>
+
+<span class="n">order_products_df</span><span class="p">[</span><span class="s1">&#39;add_to_cart_order&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">999</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">order_products_df</span><span class="p">[</span><span class="s1">&#39;add_to_cart_order&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">order_products_df</span><span class="p">[</span><span class="s1">&#39;add_to_cart_order&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">order_products_df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 4545007 entries, 0 to 4545006
+Data columns (total 4 columns):
+ #   Column             Dtype
+---  ------             -----
+ 0   order_id           int64
+ 1   product_id         int64
+ 2   add_to_cart_order  int64
+ 3   reordered          int64
+dtypes: int64(4)
+memory usage: 138.7 MB
+</pre></div>
+</div>
+</div>
+</div>
+<p>Luego de haber llenado los valores vacíos con el número 999 ya pudimos cambiar el tipo de dato a int. Con ya se podrían hacer cálculos más adelante
+o incluisve trabajar con gráficos.</p>
+</section>
+</section>
+<section id="id5">
+<h2>Conclusiones<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<p>Me parece super bueno que ya estemos aplicando lo que hemos estudiado anteriormente en un caso más real e integral. El caso tiene varias tablas y a la vez varios de los errores vistos en las clases. Iniciamos con valores duplicados y luego con valores nulos. Interesante igual lo de agrupar debido a que una orden tiene varios productos y en base a eso poder luego reemplazar los valores perdidos por ‘unknown’. Finalmente también la ultima parte que contenía valores nulos en la columna de la orden del carrito, en los cuales se reemplazó por 999 para así poder mantener los valores y a la vez facilitar más adelante otros análisis con el cambio del tipo de dato.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="paso-3-analisis-de-los-datos">
+<h1>Paso 3. Análisis de los datos<a class="headerlink" href="#paso-3-analisis-de-los-datos" title="Permalink to this heading">#</a></h1>
+<p>Una vez los datos estén procesados y listos, haz el siguiente análisis:</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="a-facil-deben-completarse-todos-para-aprobar">
+<h1>[A] Fácil (deben completarse todos para aprobar)<a class="headerlink" href="#a-facil-deben-completarse-todos-para-aprobar" title="Permalink to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Verifica que los valores en las columnas <code class="docutils literal notranslate"><span class="pre">'order_hour_of_day'</span></code> y <code class="docutils literal notranslate"><span class="pre">'order_dow'</span></code> en la tabla orders sean razonables (es decir, <code class="docutils literal notranslate"><span class="pre">'order_hour_of_day'</span></code> oscile entre 0 y 23 y <code class="docutils literal notranslate"><span class="pre">'order_dow'</span></code> oscile entre 0 y 6).</p></li>
+<li><p>Crea un gráfico que muestre el número de personas que hacen pedidos dependiendo de la hora del día.</p></li>
+<li><p>Crea un gráfico que muestre qué día de la semana la gente hace sus compras.</p></li>
+<li><p>Crea un gráfico que muestre el tiempo que la gente espera hasta hacer su siguiente pedido, y comenta sobre los valores mínimos y máximos.</p></li>
+</ol>
+<section id="a1-verifica-que-los-valores-sean-sensibles">
+<h2>[A1] Verifica que los valores sean sensibles<a class="headerlink" href="#a1-verifica-que-los-valores-sean-sensibles" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;order_hour_of_day value min:&#39;</span><span class="p">,</span><span class="n">instacard_df</span><span class="p">[</span><span class="s1">&#39;order_hour_of_day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;order_hour_of_day value min:&#39;</span><span class="p">,</span><span class="n">instacard_df</span><span class="p">[</span><span class="s1">&#39;order_hour_of_day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>order_hour_of_day value min: 0
+order_hour_of_day value min: 23
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;order_dow value min:&#39;</span><span class="p">,</span><span class="n">instacard_df</span><span class="p">[</span><span class="s1">&#39;order_dow&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;order_dow value min:&#39;</span><span class="p">,</span><span class="n">instacard_df</span><span class="p">[</span><span class="s1">&#39;order_dow&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>order_dow value min: 0
+order_dow value min: 6
+</pre></div>
+</div>
+</div>
+</div>
+<p>De acuerdo a lo especificado, los rangos son correctos.</p>
+</section>
+<section id="a2-para-cada-hora-del-dia-cuantas-personas-hacen-ordenes">
+<h2>[A2] Para cada hora del día, ¿cuántas personas hacen órdenes?<a class="headerlink" href="#a2-para-cada-hora-del-dia-cuantas-personas-hacen-ordenes" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">instacard_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;order_hour_of_day&#39;</span><span class="p">)[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>order_hour_of_day
+0      3180
+1      1763
+2       989
+3       770
+4       765
+5      1371
+6      4215
+7     13043
+8     25024
+9     35896
+10    40578
+11    40032
+12    38034
+13    39007
+14    39631
+15    39789
+16    38112
+17    31930
+18    25510
+19    19547
+20    14624
+21    11019
+22     8512
+23     5611
+Name: user_id, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por lo que se ve, a partir de la noche, específicamente desde las 22 hay una caída notable. Luego a partir de las 7 am vemos nuevamente un mayor movimiento.</p>
+</section>
+<section id="a3-que-dia-de-la-semana-compran-viveres-las-personas">
+<h2>[A3] ¿Qué día de la semana compran víveres las personas?<a class="headerlink" href="#a3-que-dia-de-la-semana-compran-viveres-las-personas" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orders_by_day</span> <span class="o">=</span> <span class="n">instacard_df</span><span class="p">[</span><span class="s1">&#39;order_dow&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">orders_by_day</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    84090
+1    82185
+2    65833
+3    60897
+4    59810
+5    63488
+6    62649
+Name: order_dow, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vemos que las personas compran a diario, pero vemos así mismo que los días donde más se suele comprar son los días domingos y lunes. Por otro lado el día de menor compra son los jueves.</p>
+</section>
+<section id="a4-cuanto-tiempo-esperan-las-personas-hasta-hacer-otro-pedido-comenta-sobre-los-valores-minimos-y-maximos">
+<h2>[A4] ¿Cuánto tiempo esperan las personas hasta hacer otro pedido? Comenta sobre los valores mínimos y máximos.<a class="headerlink" href="#a4-cuanto-tiempo-esperan-las-personas-hasta-hacer-otro-pedido-comenta-sobre-los-valores-minimos-y-maximos" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">days_since_prior_order</span> <span class="o">=</span> <span class="n">instacard_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;days_since_prior_order&#39;</span><span class="p">)[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">days_since_prior_order</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>days_since_prior_order
+0.0      9589
+1.0     20179
+2.0     27138
+3.0     30224
+4.0     31006
+5.0     30096
+6.0     33930
+7.0     44577
+8.0     25361
+9.0     16753
+10.0    13309
+11.0    11467
+12.0    10658
+13.0    11737
+14.0    13992
+15.0     9416
+16.0     6587
+17.0     5498
+18.0     4971
+19.0     4939
+20.0     5302
+21.0     6448
+22.0     4514
+23.0     3337
+24.0     3015
+25.0     2711
+26.0     2640
+27.0     2986
+28.0     3745
+29.0     2673
+30.0    51337
+Name: user_id, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Acá se pueden ver cosas muy interesantes. Por ejemplo que en la primera semana el número suele elevado, tomando como pico la primera semana exacta y tomando una bajada a la quincena. Por último, vemos otro pico al mes. Esto tiene sentido ya que hay personas que seguramente compran de manera diaria, otros semanal, otros quincenal y por ultimo mensual.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="b-intermedio-deben-completarse-todos-para-aprobar">
+<h1>[B] Intermedio (deben completarse todos para aprobar)<a class="headerlink" href="#b-intermedio-deben-completarse-todos-para-aprobar" title="Permalink to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>¿Existe alguna diferencia entre las distribuciones <code class="docutils literal notranslate"><span class="pre">'order_hour_of_day'</span></code> de los miércoles y los sábados? Traza gráficos de barra de <code class="docutils literal notranslate"><span class="pre">'order_hour_of_day'</span></code> para ambos días en la misma figura y describe las diferencias que observes.</p></li>
+<li><p>Grafica la distribución para el número de órdenes que hacen los clientes (es decir, cuántos clientes hicieron solo 1 pedido, cuántos hicieron 2, cuántos 3, y así sucesivamente…).</p></li>
+<li><p>¿Cuáles son los 20 principales productos que se piden con más frecuencia (muestra su identificación y nombre)?</p></li>
+</ol>
+<section id="b1-diferencia-entre-miercoles-y-sabados-para-order-hour-of-day-traza-graficos-de-barra-para-los-dos-dias-y-describe-las-diferencias-que-veas">
+<h2>[B1] Diferencia entre miércoles y sábados para  <code class="docutils literal notranslate"><span class="pre">'order_hour_of_day'</span></code>. Traza gráficos de barra para los dos días y describe las diferencias que veas.<a class="headerlink" href="#b1-diferencia-entre-miercoles-y-sabados-para-order-hour-of-day-traza-graficos-de-barra-para-los-dos-dias-y-describe-las-diferencias-que-veas" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Filtrar solo miércoles (3) y sábado (6)</span>
+<span class="n">days</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">instacard_filtered</span> <span class="o">=</span> <span class="n">instacard_df</span><span class="p">[</span><span class="n">instacard_df</span><span class="p">[</span><span class="s1">&#39;order_dow&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">days</span><span class="p">)]</span>
+
+
+<span class="c1"># Agrupar por día de la semana y hora del día</span>
+<span class="n">orders_by_hour</span> <span class="o">=</span> <span class="n">instacard_filtered</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;order_dow&#39;</span><span class="p">,</span><span class="s1">&#39;order_hour_of_day&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+
+<span class="c1"># Renombrar días</span>
+<span class="n">orders_by_hour</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">orders_by_hour</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;Miércoles&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;Sábado&quot;</span><span class="p">})</span>
+
+<span class="c1"># Gráfico de barras comparativas</span>
+<span class="n">orders_by_hour</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Pedidos por hora (Miércoles vs Sábado)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Hora del día&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Número de pedidos&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Día&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b382fb6d4106b35d62e3b404c7a31de48426696e5218d1213a79adbd93a9e496.png" src="_images/b382fb6d4106b35d62e3b404c7a31de48426696e5218d1213a79adbd93a9e496.png" />
+</div>
+</div>
+<p>Se puede concluir que los días sábados por la tarde, las personas suelen realizar más compras que los miércoles. Por la mañanna, por el otro lado, suele comprarse más los miercoles.</p>
+</section>
+<section id="b2-cual-es-la-distribucion-para-el-numero-de-pedidos-por-cliente">
+<h2>[B2] ¿Cuál es la distribución para el número de pedidos por cliente?<a class="headerlink" href="#b2-cual-es-la-distribucion-para-el-numero-de-pedidos-por-cliente" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orders_per_customer</span> <span class="o">=</span> <span class="n">instacard_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;user_id&quot;</span><span class="p">)[</span><span class="s2">&quot;order_number&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">distribution</span> <span class="o">=</span> <span class="n">orders_per_customer</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">distribution</span><span class="p">[</span><span class="n">distribution</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;=</span> <span class="mi">50</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Número de pedidos por cliente&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Número de clientes&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribución de clientes según número de pedidos&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>  <span class="c1"># ← gira etiquetas 45°</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/588a940742051d17705f5b0cbf02064ac68557f26763e91bf24d8f51a88badcf.png" src="_images/588a940742051d17705f5b0cbf02064ac68557f26763e91bf24d8f51a88badcf.png" />
+</div>
+</div>
+<p>Vemos que el número de personas que hace entre 1 y 2 pedidos es elevado y que no suelen ser clientes recurrentes. Por otro lado, vemos que sí hay muchas personas que han hecho al menos 5 pedidos y luego va bajando su nivel de compras. Es interesante ver qué pasa luego de la 5ta compra en las personas y ver la manera de que la curva siga subiendo con el número de veces que compran. Es decir, que haya más recurrencia.</p>
+</section>
+<section id="b3-cuales-son-los-20-productos-mas-populares-muestra-su-id-y-nombre">
+<h2>[B3] ¿Cuáles son los 20 productos más populares (muestra su ID y nombre)?<a class="headerlink" href="#b3-cuales-son-los-20-productos-mas-populares-muestra-su-id-y-nombre" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orders_per_product</span> <span class="o">=</span> <span class="n">order_products_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;product_id&quot;</span><span class="p">)[</span><span class="s2">&quot;order_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">top20</span> <span class="o">=</span> <span class="n">orders_per_product</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">top20</span> <span class="o">=</span> <span class="n">top20</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">products_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;product_id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+
+<span class="n">top20</span><span class="p">[</span><span class="s2">&quot;product_label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">top20</span><span class="p">[</span><span class="s2">&quot;product_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span> <span class="o">+</span> <span class="n">top20</span><span class="p">[</span><span class="s2">&quot;product_name&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">top20</span><span class="p">[</span><span class="s2">&quot;product_label&quot;</span><span class="p">],</span> <span class="n">top20</span><span class="p">[</span><span class="s2">&quot;order_id&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Productos (ID - Nombre)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Número de órdenes&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Top 20 productos más populares&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/263e3feb40b24e1bfbf8b662fcb7420d6d1c75dbae1e14c0f1b889ca4a2f6df8.png" src="_images/263e3feb40b24e1bfbf8b662fcb7420d6d1c75dbae1e14c0f1b889ca4a2f6df8.png" />
+</div>
+</div>
+<p>A través de este análisis podemos ver los 20 productos que más se venden, donde en primer lugar tenemos a la banana, seguido de la banana orgánica.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="c-dificil-deben-completarse-todos-para-aprobar">
+<h1>[C] Difícil (deben completarse todos para aprobar)<a class="headerlink" href="#c-dificil-deben-completarse-todos-para-aprobar" title="Permalink to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>¿Cuántos artículos suelen comprar las personas en un pedido? ¿Cómo es la distribución?</p></li>
+<li><p>¿Cuáles son los 20 principales artículos que vuelven a pedirse con mayor frecuencia (muestra sus nombres e IDs de los productos)?</p></li>
+<li><p>Para cada producto, ¿cuál es la tasa de repetición del pedido (número de repeticiones de pedido/total de pedidos?</p></li>
+<li><p>Para cada cliente, ¿qué proporción de los productos que pidió ya los había pedido? Calcula la tasa de repetición de pedido para cada usuario en lugar de para cada producto.</p></li>
+<li><p>¿Cuáles son los 20 principales artículos que la gente pone primero en sus carritos (muestra las IDs de los productos, sus nombres, y el número de veces en que fueron el primer artículo en añadirse al carrito)?</p></li>
+</ol>
+<section id="c1-cuantos-articulos-compran-normalmente-las-personas-en-un-pedido-como-es-la-distribucion">
+<h2>[C1] ¿Cuántos artículos compran normalmente las personas en un pedido? ¿Cómo es la distribución?<a class="headerlink" href="#c1-cuantos-articulos-compran-normalmente-las-personas-en-un-pedido-como-es-la-distribucion" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">items_per_order</span> <span class="o">=</span> <span class="n">order_products_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;order_id&quot;</span><span class="p">)[</span><span class="s2">&quot;product_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">items_per_order</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Número de artículos en el pedido&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frecuencia&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribución de artículos por pedido&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d0cb2456f10ff2417fb44b8dd158376cc0db8507fd443b0e4e7700452151e7bf.png" src="_images/d0cb2456f10ff2417fb44b8dd158376cc0db8507fd443b0e4e7700452151e7bf.png" />
+</div>
+</div>
+<p>Resulta interesante la gráfica pues muestra que las compras con bajos productos son resaltantes pero, podemos ver que luego hay un aumento que es el pico de frecuencia de ventas y por último una caída razonable a partir de 20 productos en ade</p>
+</section>
+<section id="c2-cuales-son-los-20-principales-articulos-que-vuelven-a-pedirse-con-mayor-frecuencia-muestra-sus-nombres-e-ids-de-los-productos">
+<h2>[C2] ¿Cuáles son los 20 principales artículos que vuelven a pedirse con mayor frecuencia (muestra sus nombres e IDs de los productos)?<a class="headerlink" href="#c2-cuales-son-los-20-principales-articulos-que-vuelven-a-pedirse-con-mayor-frecuencia-muestra-sus-nombres-e-ids-de-los-productos" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reorders_per_product</span> <span class="o">=</span> <span class="n">order_products_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;product_id&quot;</span><span class="p">)[</span><span class="s2">&quot;reordered&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="n">top20_reorders</span> <span class="o">=</span> <span class="n">reorders_per_product</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">top20_reorders</span> <span class="o">=</span> <span class="n">top20_reorders</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">products_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;product_id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+
+<span class="n">top20_reorders</span><span class="p">[</span><span class="s2">&quot;product_label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">top20_reorders</span><span class="p">[</span><span class="s2">&quot;product_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span> <span class="o">+</span> <span class="n">top20_reorders</span><span class="p">[</span><span class="s2">&quot;product_name&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">top20_reorders</span><span class="p">[</span><span class="s2">&quot;product_label&quot;</span><span class="p">],</span> <span class="n">top20_reorders</span><span class="p">[</span><span class="s2">&quot;reordered&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Productos (ID - Nombre)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Número de veces reordenado&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Top 20 productos más reordenados&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/52d9439890bf934ee347844e3c3ddaeba8068d9eab67640557d53aec150304c8.png" src="_images/52d9439890bf934ee347844e3c3ddaeba8068d9eab67640557d53aec150304c8.png" />
+</div>
+</div>
+<p>La gráfica se parece mucho a la que se vio en los productos más vendidos. Esto es coherente y por otro lado vemos obviamente una disminución ya que los productos que vuelven a ordenarse suelen ser menores a los vendidos en general.</p>
+</section>
+<section id="c3-para-cada-producto-cual-es-la-proporcion-de-las-veces-que-se-pide-y-que-se-vuelve-a-pedir">
+<h2>[C3] Para cada producto, ¿cuál es la proporción de las veces que se pide y que se vuelve a pedir?<a class="headerlink" href="#c3-para-cada-producto-cual-es-la-proporcion-de-las-veces-que-se-pide-y-que-se-vuelve-a-pedir" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_per_product</span> <span class="o">=</span> <span class="n">order_products_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;product_id&quot;</span><span class="p">)[</span><span class="s2">&quot;order_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+<span class="n">reorders_per_product</span> <span class="o">=</span> <span class="n">order_products_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;product_id&quot;</span><span class="p">)[</span><span class="s2">&quot;reordered&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="n">reorder_ratio</span> <span class="o">=</span> <span class="p">(</span><span class="n">reorders_per_product</span> <span class="o">/</span> <span class="n">total_per_product</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">reorder_ratio</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;product_id&quot;</span><span class="p">,</span> <span class="s2">&quot;reorder_ratio&quot;</span><span class="p">]</span>
+
+<span class="n">reorder_ratio</span> <span class="o">=</span> <span class="n">reorder_ratio</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">products_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;product_id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">reorder_ratio</span><span class="p">[</span><span class="s2">&quot;reorder_ratio&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Proporción de reorders (0-1)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Cantidad de productos&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribución de la proporción de reorders por producto&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/214ab928b0076e6ac00f8a044850e526a0feeca5b7cdc7910fca71ad497b06a9.png" src="_images/214ab928b0076e6ac00f8a044850e526a0feeca5b7cdc7910fca71ad497b06a9.png" />
+</div>
+</div>
+<p>En la gráfica se pueden ver muchos productos que unicamente se piden una sola vez, luego vemos un grueso en los demás que suelen re ordenarse. Por último. Vemos de igual manera un número interesante de productos que su número de ordenes es casi igual al de reordenes.</p>
+</section>
+<section id="c4-para-cada-cliente-que-proporcion-de-sus-productos-ya-los-habia-pedido">
+<h2>[C4] Para cada cliente, ¿qué proporción de sus productos ya los había pedido?<a class="headerlink" href="#c4-para-cada-cliente-que-proporcion-de-sus-productos-ya-los-habia-pedido" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orders_products_users</span> <span class="o">=</span> <span class="n">order_products_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+    <span class="n">instacard_df</span><span class="p">[[</span><span class="s2">&quot;order_id&quot;</span><span class="p">,</span> <span class="s2">&quot;user_id&quot;</span><span class="p">]],</span>
+    <span class="n">on</span><span class="o">=</span><span class="s2">&quot;order_id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span>
+<span class="p">)</span>
+
+<span class="n">total_per_user</span> <span class="o">=</span> <span class="n">orders_products_users</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;user_id&quot;</span><span class="p">)[</span><span class="s2">&quot;product_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">reorders_per_user</span> <span class="o">=</span> <span class="n">orders_products_users</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;user_id&quot;</span><span class="p">)[</span><span class="s2">&quot;reordered&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="n">reorder_ratio_user</span> <span class="o">=</span> <span class="p">(</span><span class="n">reorders_per_user</span> <span class="o">/</span> <span class="n">total_per_user</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">reorder_ratio_user</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;user_id&quot;</span><span class="p">,</span> <span class="s2">&quot;reorder_ratio&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">reorder_ratio_user</span><span class="p">[</span><span class="s2">&quot;reorder_ratio&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Proporción de reorders por cliente (0-1)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Cantidad de clientes&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribución de proporción de reorders por cliente&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">reorder_ratio_user</span><span class="p">[</span><span class="s2">&quot;reorder_ratio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1cc60093ee31fbeaeb62fe7419ba6c3483040e04e96930ed4521ec50c60c8e21.png" src="_images/1cc60093ee31fbeaeb62fe7419ba6c3483040e04e96930ed4521ec50c60c8e21.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    149626.000000
+mean          0.494853
+std           0.292685
+min           0.000000
+25%           0.272727
+50%           0.500000
+75%           0.724138
+max           1.000000
+Name: reorder_ratio, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>La distribución confirma que el dataset refleja dos comportamientos extremos muy fuertes (exploradores vs fieles), con una gran masa de clientes en el medio que combinan ambos estilos.</p>
+</section>
+<section id="c5-cuales-son-los-20-principales-articulos-que-las-personas-ponen-primero-en-sus-carritos">
+<h2>[C5] ¿Cuáles son los 20 principales artículos que las personas ponen primero en sus carritos?<a class="headerlink" href="#c5-cuales-son-los-20-principales-articulos-que-las-personas-ponen-primero-en-sus-carritos" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_in_cart</span> <span class="o">=</span> <span class="n">order_products_df</span><span class="p">[</span><span class="n">order_products_df</span><span class="p">[</span><span class="s2">&quot;add_to_cart_order&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">first_counts</span> <span class="o">=</span> <span class="n">first_in_cart</span><span class="p">[</span><span class="s2">&quot;product_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top20_first</span> <span class="o">=</span> <span class="n">first_counts</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">top20_first</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;product_id&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">]</span>
+
+<span class="n">top20_first</span> <span class="o">=</span> <span class="n">top20_first</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">products_df</span><span class="p">[[</span><span class="s2">&quot;product_id&quot;</span><span class="p">,</span> <span class="s2">&quot;product_name&quot;</span><span class="p">]],</span>
+                                <span class="n">on</span><span class="o">=</span><span class="s2">&quot;product_id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">top20_first</span><span class="p">[</span><span class="s2">&quot;product_name&quot;</span><span class="p">],</span> <span class="n">top20_first</span><span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Producto&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Número de veces puesto primero en carrito&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Top 20 productos que más veces son los primeros en el carrito&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7b45a5dc07160aa58c49e8aa04b0075640329724ba8d1f5545b275aed058d2d0.png" src="_images/7b45a5dc07160aa58c49e8aa04b0075640329724ba8d1f5545b275aed058d2d0.png" />
+</div>
+</div>
+<p>Escribe aquí tus conclusiones</p>
+</section>
+<section id="conclusion-general-del-proyecto">
+<h2>Conclusion general del proyecto:<a class="headerlink" href="#conclusion-general-del-proyecto" title="Permalink to this heading">#</a></h2>
+<p>Los clientes de Instacart suelen comprar más los fines de semana, sobre todo entre las 10 am. y 5 pm. La mayoría hace pedidos una vez por semana y
+repite gran parte de sus productos habituales, especialmente los básicos como leche, pan, huevos, frutas y verduras. Los artículos más populares son bananas,
+fresas, espinaca, aguacates y leche orgánica. Los pasillos más importantes son los de frutas, verduras y lácteos. Normalmente los productos de primera necesidad se
+agregan primero al carrito, mientras que snacks o bebidas se incluyen después como compras más espontáneas. En general, los datos muestran un hábito de compra regular,
+centrado en productos frescos y de uso diario.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Investigacion.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Investigación del comportamiento usuarios</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Data_Wrangling.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Manipulación de Datos (Déjame escuchar música)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data Wrangling (¡Llena ese carrito!)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">Introducción</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diccionario-de-datos">Diccionario de datos</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paso-1-descripcion-de-los-datos">Paso 1. Descripción de los datos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plan-de-solucion">Plan de solución</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paso-2-preprocesamiento-de-los-datos">Paso 2. Preprocesamiento de los datos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Plan de solución</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encuentra-y-elimina-los-valores-duplicados-y-describe-como-tomaste-tus-decisiones">Encuentra y elimina los valores duplicados (y describe cómo tomaste tus decisiones).</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orders-data-frame"><code class="docutils literal notranslate"><span class="pre">orders</span></code> data frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#products-data-frame"><code class="docutils literal notranslate"><span class="pre">products</span></code> data frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#departments-data-frame"><code class="docutils literal notranslate"><span class="pre">departments</span></code> data frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aisles-data-frame"><code class="docutils literal notranslate"><span class="pre">aisles</span></code> data frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#order-products-data-frame"><code class="docutils literal notranslate"><span class="pre">order_products</span></code> data frame</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encuentra-y-elimina-los-valores-ausentes">Encuentra y elimina los valores ausentes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">products</span></code> data frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">orders</span></code> data frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">order_products</span></code> data frame</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paso-3-analisis-de-los-datos">Paso 3. Análisis de los datos</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-facil-deben-completarse-todos-para-aprobar">[A] Fácil (deben completarse todos para aprobar)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-verifica-que-los-valores-sean-sensibles">[A1] Verifica que los valores sean sensibles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a2-para-cada-hora-del-dia-cuantas-personas-hacen-ordenes">[A2] Para cada hora del día, ¿cuántas personas hacen órdenes?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a3-que-dia-de-la-semana-compran-viveres-las-personas">[A3] ¿Qué día de la semana compran víveres las personas?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a4-cuanto-tiempo-esperan-las-personas-hasta-hacer-otro-pedido-comenta-sobre-los-valores-minimos-y-maximos">[A4] ¿Cuánto tiempo esperan las personas hasta hacer otro pedido? Comenta sobre los valores mínimos y máximos.</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b-intermedio-deben-completarse-todos-para-aprobar">[B] Intermedio (deben completarse todos para aprobar)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-diferencia-entre-miercoles-y-sabados-para-order-hour-of-day-traza-graficos-de-barra-para-los-dos-dias-y-describe-las-diferencias-que-veas">[B1] Diferencia entre miércoles y sábados para  <code class="docutils literal notranslate"><span class="pre">'order_hour_of_day'</span></code>. Traza gráficos de barra para los dos días y describe las diferencias que veas.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-cual-es-la-distribucion-para-el-numero-de-pedidos-por-cliente">[B2] ¿Cuál es la distribución para el número de pedidos por cliente?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-cuales-son-los-20-productos-mas-populares-muestra-su-id-y-nombre">[B3] ¿Cuáles son los 20 productos más populares (muestra su ID y nombre)?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#c-dificil-deben-completarse-todos-para-aprobar">[C] Difícil (deben completarse todos para aprobar)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-cuantos-articulos-compran-normalmente-las-personas-en-un-pedido-como-es-la-distribucion">[C1] ¿Cuántos artículos compran normalmente las personas en un pedido? ¿Cómo es la distribución?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-cuales-son-los-20-principales-articulos-que-vuelven-a-pedirse-con-mayor-frecuencia-muestra-sus-nombres-e-ids-de-los-productos">[C2] ¿Cuáles son los 20 principales artículos que vuelven a pedirse con mayor frecuencia (muestra sus nombres e IDs de los productos)?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-para-cada-producto-cual-es-la-proporcion-de-las-veces-que-se-pide-y-que-se-vuelve-a-pedir">[C3] Para cada producto, ¿cuál es la proporción de las veces que se pide y que se vuelve a pedir?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c4-para-cada-cliente-que-proporcion-de-sus-productos-ya-los-habia-pedido">[C4] Para cada cliente, ¿qué proporción de sus productos ya los había pedido?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-cuales-son-los-20-principales-articulos-que-las-personas-ponen-primero-en-sus-carritos">[C5] ¿Cuáles son los 20 principales artículos que las personas ponen primero en sus carritos?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-general-del-proyecto">Conclusion general del proyecto:</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
