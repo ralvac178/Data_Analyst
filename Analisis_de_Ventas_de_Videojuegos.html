@@ -174,21 +174,13 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Predicciones.html">Predicciones de cancelaciones de membresias de Gimnasio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Predicciones_de_churn_de_gym.html">Predicciones de cancelaciones de membresias de Gimnasio</a></li>
 
 
 
 
 
 <li class="toctree-l1"><a class="reference internal" href="Investigacion.html">Investigación del comportamiento usuarios</a></li>
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="Data_Wrangling%20-%202.html">Data Wrangling (¡Llena ese carrito!)</a></li>
-
-
 
 
 
@@ -403,28 +395,14 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-data">2. Preparing Data</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reemplaza-los-nombres-de-las-columnas-ponlos-en-minusculas">Reemplaza los nombres de las columnas (ponlos en minúsculas).</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convierte-los-datos-en-los-tipos-necesarios">Convierte los datos en los tipos necesarios.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explica-por-que-rellenaste-los-valores-ausentes-como-lo-hiciste-o-por-que-decidiste-dejarlos-en-blanco">Explica por qué rellenaste los valores ausentes como lo hiciste o por qué decidiste dejarlos en blanco.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#las-columnas-en-las-que-cambie-el-tipo-de-dato-son">Las columnas en las que cambié el tipo de dato son:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plataforma-como-categoria-lo-cambie-para-mejorar-el-rendimiento-de-ciertas-operaciones-y-para-optimizarlas">plataforma como categoría. Lo cambié para mejorar el rendimiento de ciertas operaciones y para optimizarlas.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ano-de-lanzamiento-lo-cambie-para-mostrar-los-datos-de-forma-mas-clara-ya-que-el-ano-siempre-es-un-dato-entero">año_de_lanzamiento. Lo cambié para mostrar los datos de forma más clara, ya que el año siempre es un dato entero.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#genero-y-calificacion-tambien-cambie-su-tipo-de-dato-a-categoria-por-la-misma-razon-que-en-las-otras-columnas">género y calificación. También cambié su tipo de dato a categoría por la misma razón que en las otras columnas.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critic-score-mantendra-su-tipo-de-dato-porque-tiene-un-valor-por-determinar-que-es-una-cadena">critic_score mantendrá su tipo de dato porque tiene un valor por determinar que es una cadena.</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-crees-que-los-valores-estan-ausentes-brinda-explicaciones-posibles">¿Por qué crees que los valores están ausentes? Brinda explicaciones posibles.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creo-que-los-valores-son-nulos-porque-quizas-el-usuario-o-la-persona-que-digito-o-agrego-los-datos-se-equivoco">Creo que los valores son nulos porque quizás el usuario o la persona que digitó o agregó los datos se equivocó.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otra-razon-es-que-algunos-valores-aun-no-se-completaron-por-el-momento-deberian-completarse">Otra razón es que algunos valores aún no se completaron; por el momento, deberían completarse.</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explica-por-que-rellenaste-los-valores-ausentes-como-lo-hiciste-o-por-que-decidiste-dejarlos-en-blanco">Explica por qué rellenaste los valores ausentes como lo hiciste o por qué decidiste dejarlos en blanco.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-crees-que-los-valores-estan-ausentes-brinda-explicaciones-posibles">¿Por qué crees que los valores están ausentes? Brinda explicaciones posibles.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presta-atencion-a-la-abreviatura-tbd-significa-to-be-determined-a-determinar-especifica-como-piensas-manejar-estos-casos">Presta atención a la abreviatura TBD: significa “to be determined” (a determinar). Especifica cómo piensas manejar estos casos.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calcula-las-ventas-totales-la-suma-de-las-ventas-en-todas-las-regiones-para-cada-juego-y-coloca-estos-valores-en-una-columna-separada">Calcula las ventas totales (la suma de las ventas en todas las regiones) para cada juego y coloca estos valores en una columna separada.</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analiza-los-datos">3. Analiza los datos</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mira-cuantos-juegos-fueron-lanzados-en-diferentes-anos-son-significativos-los-datos-de-cada-periodo">Mira cuántos juegos fueron lanzados en diferentes años. ¿Son significativos los datos de cada período?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-many-cases-yes-there-are-significative-data-since-1993">In many cases yes. There are significative data since 1993.</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mira-cuantos-juegos-fueron-lanzados-en-diferentes-anos-son-significativos-los-datos-de-cada-periodo">Mira cuántos juegos fueron lanzados en diferentes años. ¿Son significativos los datos de cada período?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observa-como-varian-las-ventas-de-una-plataforma-a-otra-elige-las-plataformas-con-las-mayores-ventas-totales-y-construye-una-distribucion-basada-en-los-datos-de-cada-ano-busca-las-plataformas-que-solian-ser-populares-pero-que-ahora-no-tienen-ventas-cuanto-tardan-generalmente-las-nuevas-plataformas-en-aparecer-y-las-antiguas-en-desaparecer">Observa cómo varían las ventas de una plataforma a otra. Elige las plataformas con las mayores ventas totales y construye una distribución basada en los datos de cada año. Busca las plataformas que solían ser populares pero que ahora no tienen ventas. ¿Cuánto tardan generalmente las nuevas plataformas en aparecer y las antiguas en desaparecer?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#total-sales-per-platform">1. Total sales per platform</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedemnos-a-convertir-la-lista-en-un-dataframe-y-a-filtrar-para-ver-las-ventas-mayores-a-100-millones">2. Procedemnos a convertir la lista en un dataframe y a filtrar para ver las ventas mayores a 100 millones.</a></li>
@@ -433,67 +411,25 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#veremos-cuanto-tarda-una-nueva-consola-en-aparecer">Veremos cuanto tarda una nueva consola en aparecer</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determina-para-que-periodo-debes-tomar-datos-para-hacerlo-mira-tus-respuestas-a-las-preguntas-anteriores-los-datos-deberian-permitirte-construir-un-modelo-para-2017">Determina para qué período debes tomar datos. Para hacerlo mira tus respuestas a las preguntas anteriores. Los datos deberían permitirte construir un modelo para 2017.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#del-ultimo-grafico-que-veo-el-periodo-que-deberia-utilizar-para-construir-un-modelo-es-1994-a-2016-esto-se-debe-a-que-a-partir-de-este-ano-parece-que-comienza-una-nueva-era-de-consolas">Del último gráfico que veo el periodo que debería utilizar para construir un modelo es 1994 a 2016. Esto se debe a que a partir de este año parece que comienza una nueva era de consolas.</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-plataformas-son-lideres-en-ventas-cuales-crecen-y-cuales-se-reducen-elige-varias-plataformas-potencialmente-rentables">¿Qué plataformas son líderes en ventas? ¿Cuáles crecen y cuáles se reducen? Elige varias plataformas potencialmente rentables.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#las-plataformas-que-lideran-las-ventas-son-ps2-x360-ps3-wii-ds-y-ps">Las plataformas que lideran las ventas son PS2, X360, PS3, Wii, DS y PS.</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crea-un-diagrama-de-caja-para-las-ventas-globales-de-todos-los-juegos-desglosados-por-plataforma-son-significativas-las-diferencias-en-las-ventas-que-sucede-con-las-ventas-promedio-en-varias-plataformas-describe-tus-hallazgos">Crea un diagrama de caja para las ventas globales de todos los juegos, desglosados por plataforma. ¿Son significativas las diferencias en las ventas? ¿Qué sucede con las ventas promedio en varias plataformas? Describe tus hallazgos.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-hay-diferencias-abismales-en-la-distribucion-tipica-de-ventas-entre-plataformas-aunque-puede-haber-diferencias-pequenas-a-simple-vista-las-distribuciones-son-muy-parecidas-todas-las-cajas-50-central-de-los-datos-estan-ubicadas-en-un-rango-similar">No hay diferencias abismales en la distribución típica de ventas entre plataformas, aunque puede haber diferencias pequeñas. A simple vista, las distribuciones son muy parecidas: todas las cajas (50% central de los datos) están ubicadas en un rango similar.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#las-diferencias-mas-notorias-estan-en-los-outliers-que-elevan-el-promedio-en-algunas-consolas-ej-wii-ps2">Las diferencias más notorias están en los outliers, que elevan el promedio en algunas consolas (ej. Wii, PS2).</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-cuanto-al-promedio-no-refleja-bien-la-tendencia-central-porque-esta-sesgado-por-pocos-juegos-con-ventas-enormes-la-mediana-es-mas-representativa">En cuanto al promedio no refleja bien la tendencia central, porque está sesgado por pocos juegos con ventas enormes; la mediana es más representativa.</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mira-como-las-resenas-de-usuarios-y-profesionales-afectan-las-ventas-de-una-plataforma-popular-tu-eleccion-crea-un-grafico-de-dispersion-y-calcula-la-correlacion-entre-las-resenas-y-las-ventas-saca-conclusiones">Mira cómo las reseñas de usuarios y profesionales afectan las ventas de una plataforma popular (tu elección). Crea un gráfico de dispersión y calcula la correlación entre las reseñas y las ventas. Saca conclusiones.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualmente-si-hay-relacion-sobre-todo-en-la-cola-alta-de-ventas-los-superventas-suelen-tener-buenas-resenas">Visualmente sí hay relación, sobre todo en la “cola alta” de ventas (los superventas suelen tener buenas reseñas).</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pero-estadisticamente-la-correlacion-es-debil-porque-la-mayoria-de-juegos-no-siguen-esa-regla-tan-claramente">Pero estadísticamente la correlación es débil, porque la mayoría de juegos no siguen esa regla tan claramente.</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teniendo-en-cuenta-tus-conclusiones-compara-las-ventas-de-los-mismos-juegos-en-otras-plataformas">Teniendo en cuenta tus conclusiones compara las ventas de los mismos juegos en otras plataformas.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-partir-de-aca-puedo-tomar-cualquier-titulo-que-se-encuentre-en-cualquier-plataforma-para-poder-llevar-acabo-el-analisis-en-este-caso-tomare-el-juego-2010-fifa-world-cup-south-africa-y-el-de-007">A partir de acá, puedo tomar cualquier título que se encuentre en cualquier plataforma para poder llevar acabo el análisis. En este caso tomaré el juego 2010 FIFA World Cup South Africa y el de 007.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ahora-es-posible-aplicar-la-correlacion-entre-el-rating-y-las-ventas">Ahora es posible aplicar la correlación entre el rating y las ventas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#al-ver-los-resultados-se-puede-ver-que-en-ambos-juegos-la-correlacion-entre-las-criticas-y-las-ventas-es-distinta-por-un-lado-el-juego-deportivo-tuvo-buena-correlacion-pero-el-otro-juego-no-posiblemente-este-relacionado-a-la-consola-o-el-genero-de-los-juegos-pero-es-necesario-hacer-mas-analisis">Al ver los resultados se puede ver que en ambos juegos la correlación entre las críticas y las ventas es distinta. Por un lado el juego deportivo tuvo buena correlación, pero el otro juego no. Posiblemente esté relacionado a la consola o el género de los juegos, pero es necesario hacer más análisis.</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#echa-un-vistazo-a-la-distribucion-general-de-los-juegos-por-genero-que-se-puede-decir-de-los-generos-mas-rentables-puedes-generalizar-acerca-de-los-generos-con-ventas-altas-y-bajas">Echa un vistazo a la distribución general de los juegos por género. ¿Qué se puede decir de los géneros más rentables? ¿Puedes generalizar acerca de los géneros con ventas altas y bajas?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#de-acuerdo-a-las-graficas-podemos-notar-que-action-es-por-lejos-el-genero-con-mas-juegos-lanzados-mas-de-3-000-titulos">De acuerdo a las gráficas podemos notar que Action es, por lejos, el género con más juegos lanzados (más de 3,000 títulos).</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asi-mismo-generos-como-puzzle-strategy-y-adventure-tienen-muy-pocos-juegos-publicados-en-comparacion">Así mismo, géneros como Puzzle, Strategy y Adventure tienen muy pocos juegos publicados en comparación.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#action-tambien-lidera-en-ventas-globales-lo-cual-coincide-con-su-gran-cantidad-de-titulos">Action también lidera en ventas globales, lo cual coincide con su gran cantidad de títulos.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sports-y-shooter-destacan-no-tienen-tantos-juegos-como-action-pero-si-concentran-ventas-muy-altas-lo-que-indica-que-son-generos-con-mucha-demanda-y-titulos-muy-exitosos">Sports y Shooter destacan: no tienen tantos juegos como Action, pero sí concentran ventas muy altas, lo que indica que son géneros con mucha demanda y títulos muy exitosos.</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determina-para-que-periodo-debes-tomar-datos-para-hacerlo-mira-tus-respuestas-a-las-preguntas-anteriores-los-datos-deberian-permitirte-construir-un-modelo-para-2017">Determina para qué período debes tomar datos. Para hacerlo mira tus respuestas a las preguntas anteriores. Los datos deberían permitirte construir un modelo para 2017.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-plataformas-son-lideres-en-ventas-cuales-crecen-y-cuales-se-reducen-elige-varias-plataformas-potencialmente-rentables">¿Qué plataformas son líderes en ventas? ¿Cuáles crecen y cuáles se reducen? Elige varias plataformas potencialmente rentables.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crea-un-diagrama-de-caja-para-las-ventas-globales-de-todos-los-juegos-desglosados-por-plataforma-son-significativas-las-diferencias-en-las-ventas-que-sucede-con-las-ventas-promedio-en-varias-plataformas-describe-tus-hallazgos">Crea un diagrama de caja para las ventas globales de todos los juegos, desglosados por plataforma. ¿Son significativas las diferencias en las ventas? ¿Qué sucede con las ventas promedio en varias plataformas? Describe tus hallazgos.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mira-como-las-resenas-de-usuarios-y-profesionales-afectan-las-ventas-de-una-plataforma-popular-tu-eleccion-crea-un-grafico-de-dispersion-y-calcula-la-correlacion-entre-las-resenas-y-las-ventas-saca-conclusiones">Mira cómo las reseñas de usuarios y profesionales afectan las ventas de una plataforma popular (tu elección). Crea un gráfico de dispersión y calcula la correlación entre las reseñas y las ventas. Saca conclusiones.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teniendo-en-cuenta-tus-conclusiones-compara-las-ventas-de-los-mismos-juegos-en-otras-plataformas">Teniendo en cuenta tus conclusiones compara las ventas de los mismos juegos en otras plataformas.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#echa-un-vistazo-a-la-distribucion-general-de-los-juegos-por-genero-que-se-puede-decir-de-los-generos-mas-rentables-puedes-generalizar-acerca-de-los-generos-con-ventas-altas-y-bajas">Echa un vistazo a la distribución general de los juegos por género. ¿Qué se puede decir de los géneros más rentables? ¿Puedes generalizar acerca de los géneros con ventas altas y bajas?</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#crea-un-perfil-de-usuario-para-cada-region">Crea un perfil de usuario para cada región</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-cinco-plataformas-principales-describe-las-variaciones-en-sus-cuotas-de-mercado-de-una-region-a-otra">Las cinco plataformas principales. Describe las variaciones en sus cuotas de mercado de una región a otra.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-base-a-lo-mostrado-en-las-tablas-es-facil-distinguir-que-la-mayor-cantidad-de-ventas-se-ha-producido-en-na-y-esto-tiene-mucho-sentido-debido-a-que-en-dicho-pais-existe-un-mayor-nivel-de-consumismo-y-mayor-pib-que-en-europa-por-otro-lado-en-na-tambien-se-nota-una-mayor-compra-de-videojuegos-para-la-consola-x360-lo-cual-tambien-tiene-sentido-debido-a-que-esta-marca-pertenece-a-la-empresa-microsoft-por-el-lado-de-europa-se-ven-mayores-ventas-que-en-japon-y-a-la-par-aca-tambien-se-puede-apreciar-una-mayor-demanda-de-los-juegos-de-la-consola-de-somy-finalmente-en-jp-se-ve-que-la-mayoria-de-juegos-son-para-consolas-niponas">En base a lo mostrado en las tablas, es facil distinguir que la mayor cantidad de ventas se ha producido en NA, y esto tiene mucho sentido debido a que en dicho pais existe un mayor nivel de consumismo y mayor pib que en Europa. Por otro lado en NA tambien se nota una mayor compra de videojuegos para la consola X360 lo cual tambien tiene sentido debido a que esta marca pertenece a la empresa Microsoft. Por el lado de Europa se ven mayores ventas que en  Japon y a la par aca tambien se puede apreciar una mayor demanda de los juegos de la consola de Somy. Finalmente en JP se ve que la mayoria de juegos son para consolas Niponas.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#los-cinco-generos-principales-explica-la-diferencia">Los cinco géneros principales. Explica la diferencia.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-cuanto-a-los-analisis-resulta-interesante-ver-que-los-gustos-de-los-generos-en-na-y-eu-son-bastante-parecidos-salvo-un-cambio-en-el-cuarto-lugar-de-platform-en-na-por-racing-en-eu-luego-son-muy-similares-por-otra-parte-en-jp-se-ve-cierta-diferencia-con-respecto-a-los-demas-lugares-en-jp-el-genero-mas-vendido-es-de-tipo-role-playing-mientras-que-accion-tambien-se-cuentra-listado-como-en-eu-y-na-de-manera-concreta-parece-que-a-nivel-global-action-y-sports-son-los-preferidos-y-hay-una-tendencia-marcada-en-jp-por-los-de-rol">En cuanto a los analisis, resulta interesante ver que los gustos de los generos en NA y EU son bastante parecidos, salvo un cambio en el cuarto lugar de Platform en NA por Racing en EU luego son muy similares. Por otra parte, en JP se ve cierta diferencia con respecto a los demas lugares. En JP el genero mas vendido es de tipo Role-Playing mientras que accion tambien se cuentra listado como en EU y NA. De manera concreta parece que a nivel global Action y Sports son los preferidos y hay una tendencia marcada en JP por los de Rol.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#si-las-clasificaciones-de-esrb-afectan-a-las-ventas-en-regiones-individuales">Si las clasificaciones de ESRB afectan a las ventas en regiones individuales.</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aca-podemos-observar-que-la-clasificacion-mas-comprada-es-la-e-y-la-rp-resulta-intrigante-que-haya-muchas-compras-de-juegos-con-clasificacion-pendiente-pero-asumo-que-es-por-las-preventas-de-muchos-juegos-asi-mismo-se-ve-que-los-juegos-con-clasificaciones-distintas-a-e-y-rp-suelen-ser-muy-similares-en-todas-las-regiones">Aca podemos observar que la clasificacion mas comprada es la E y la RP. Resulta intrigante que haya muchas compras de juegos con clasificacion pendiente, pero asumo que es por las preventas de muchos juegos. Asi mismo se ve que los juegos con clasificaciones distintas a E y RP suelen ser muy similares en todas las regiones.</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#si-las-clasificaciones-de-esrb-afectan-a-las-ventas-en-regiones-individuales">Si las clasificaciones de ESRB afectan a las ventas en regiones individuales.</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-las-siguientes-hipotesis">5. Prueba las siguientes hipótesis:</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-calificaciones-promedio-de-los-usuarios-para-las-plataformas-xbox-one-y-pc-son-las-mismas">Las calificaciones promedio de los usuarios para las plataformas Xbox One y PC son las mismas.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-calificaciones-promedio-de-los-usuarios-para-los-generos-de-accion-y-deportes-son-diferentes">Las calificaciones promedio de los usuarios para los géneros de Acción y Deportes son diferentes.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explica-como-formulaste-las-hipotesis-nula-y-alternativa">Explica: Cómo formulaste las hipótesis nula y alternativa.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#para-realizar-las-formulaciones-me-base-en-las-premisas-dadas-en-el-enunciado-ene-el-caso-de-la-primera-se-dice-que-las-calificaciones-para-dos-plataformas-son-las-mismas-tomando-esta-como-la-nula-y-la-alternativa-seria-que-si-hay-diferencias-para-la-segunda-hipotesis-se-nos-dice-que-las-calificaciones-de-dos-generos-en-especifico-son-distintas-para-tomar-la-alternativa-simplemente-negue-la-primera-es-decir-verificar-si-no-son-diferentes">Para realizar las formulaciones me base en las premisas dadas en el enunciado. Ene el caso de la primera se dice que las calificaciones para dos plataformas son las mismas. Tomando esta como la nula, y la alternativa seria que si hay diferencias. Para la segunda hipotesis, se nos dice que las calificaciones de dos generos en especifico son distintas. Para tomar la alternativa simplemente negue la primera, es decir verificar si no son diferentes.</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explica-que-criterio-utilizaste-para-probar-las-hipotesis-y-por-que">Explica: Qué criterio utilizaste para probar las hipótesis y por qué.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilice-una-prueba-t-de-student-para-muestras-independientes-scipy-stats-ttest-ind-porque">Utilicé una prueba t de Student para muestras independientes (scipy.stats.ttest_ind) porque:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#se-trata-de-comparar-dos-grupos-distintos-ejemplo-xbox-one-vs-pc-o-accion-vs-deportes">Se trata de comparar dos grupos distintos (ejemplo: Xbox One vs PC, o Acción vs Deportes).</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-variable-de-interes-user-score-es-numerica-y-continua-adecuada-para-este-test">La variable de interés (user_score) es numérica y continua, adecuada para este test.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-prueba-t-evalua-si-las-diferencias-observadas-entre-medias-son-estadisticamente-significativas-o-si-pueden-deberse-al-azar">La prueba t evalúa si las diferencias observadas entre medias son estadísticamente significativas o si pueden deberse al azar.</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explica-como-formulaste-las-hipotesis-nula-y-alternativa">Explica: Cómo formulaste las hipótesis nula y alternativa.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explica-que-criterio-utilizaste-para-probar-las-hipotesis-y-por-que">Explica: Qué criterio utilizaste para probar las hipótesis y por qué.</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#escribe-una-conclusion-general">6. Escribe una conclusión general</a></li>
@@ -511,6 +447,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="analisis-de-ventas-de-videojuegos">
 <h1>Análisis de Ventas de Videojuegos<a class="headerlink" href="#analisis-de-ventas-de-videojuegos" title="Permalink to this heading">#</a></h1>
+<p>Trabajas para la tienda online Ice que vende videojuegos por todo el mundo. Las reseñas de usuarios y expertos, los géneros, las plataformas (por ejemplo, Xbox o PlayStation) y los datos históricos sobre las ventas de juegos están disponibles en fuentes abiertas. Tienes que identificar patrones que determinen si un juego tiene éxito o no. Esto te permitirá detectar proyectos prometedores y planificar campañas publicitarias.</p>
+<p>Delante de ti hay datos que se remontan a 2016. Imaginemos que es diciembre de 2016 y estás planeando una campaña para 2017.</p>
+<p>Lo importante es adquirir experiencia de trabajo con datos. Realmente no importa si estás pronosticando las ventas de 2017 en función de los datos de 2016 o las ventas de 2027 en función de los datos de 2026.</p>
+<p>El dataset contiene una columna “rating” que almacena la clasificación ESRB de cada juego. El Entertainment Software Rating Board (la Junta de clasificación de software de entretenimiento) evalúa el contenido de un juego y asigna una clasificación de edad como Adolescente o Adulto.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="open-the-file">
 <h1>1. Open the file<a class="headerlink" href="#open-the-file" title="Permalink to this heading">#</a></h1>
@@ -803,30 +743,20 @@ memory usage: 1.1+ MB
 </div>
 </div>
 </div>
-<section id="las-columnas-en-las-que-cambie-el-tipo-de-dato-son">
-<h3>Las columnas en las que cambié el tipo de dato son:<a class="headerlink" href="#las-columnas-en-las-que-cambie-el-tipo-de-dato-son" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="plataforma-como-categoria-lo-cambie-para-mejorar-el-rendimiento-de-ciertas-operaciones-y-para-optimizarlas">
-<h3>plataforma como categoría. Lo cambié para mejorar el rendimiento de ciertas operaciones y para optimizarlas.<a class="headerlink" href="#plataforma-como-categoria-lo-cambie-para-mejorar-el-rendimiento-de-ciertas-operaciones-y-para-optimizarlas" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="ano-de-lanzamiento-lo-cambie-para-mostrar-los-datos-de-forma-mas-clara-ya-que-el-ano-siempre-es-un-dato-entero">
-<h3>año_de_lanzamiento. Lo cambié para mostrar los datos de forma más clara, ya que el año siempre es un dato entero.<a class="headerlink" href="#ano-de-lanzamiento-lo-cambie-para-mostrar-los-datos-de-forma-mas-clara-ya-que-el-ano-siempre-es-un-dato-entero" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="genero-y-calificacion-tambien-cambie-su-tipo-de-dato-a-categoria-por-la-misma-razon-que-en-las-otras-columnas">
-<h3>género y calificación. También cambié su tipo de dato a categoría por la misma razón que en las otras columnas.<a class="headerlink" href="#genero-y-calificacion-tambien-cambie-su-tipo-de-dato-a-categoria-por-la-misma-razon-que-en-las-otras-columnas" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="critic-score-mantendra-su-tipo-de-dato-porque-tiene-un-valor-por-determinar-que-es-una-cadena">
-<h3>critic_score mantendrá su tipo de dato porque tiene un valor por determinar que es una cadena.<a class="headerlink" href="#critic-score-mantendra-su-tipo-de-dato-porque-tiene-un-valor-por-determinar-que-es-una-cadena" title="Permalink to this heading">#</a></h3>
-</section>
+<p>Las columnas en las que cambié el tipo de dato son:</p>
+<ul class="simple">
+<li><p>plataforma como categoría. Lo cambié para mejorar el rendimiento de ciertas operaciones y para optimizarlas.</p></li>
+<li><p>año_de_lanzamiento. Lo cambié para mostrar los datos de forma más clara, ya que el año siempre es un dato entero.</p></li>
+<li><p>género y calificación. También cambié su tipo de dato a categoría por la misma razón que en las otras columnas.</p></li>
+<li><p>critic_score mantendrá su tipo de dato porque tiene un valor por determinar que es una cadena.</p></li>
+</ul>
 </section>
 <section id="por-que-crees-que-los-valores-estan-ausentes-brinda-explicaciones-posibles">
 <h2>¿Por qué crees que los valores están ausentes? Brinda explicaciones posibles.<a class="headerlink" href="#por-que-crees-que-los-valores-estan-ausentes-brinda-explicaciones-posibles" title="Permalink to this heading">#</a></h2>
-<section id="creo-que-los-valores-son-nulos-porque-quizas-el-usuario-o-la-persona-que-digito-o-agrego-los-datos-se-equivoco">
-<h3>Creo que los valores son nulos porque quizás el usuario o la persona que digitó o agregó los datos se equivocó.<a class="headerlink" href="#creo-que-los-valores-son-nulos-porque-quizas-el-usuario-o-la-persona-que-digito-o-agrego-los-datos-se-equivoco" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="otra-razon-es-que-algunos-valores-aun-no-se-completaron-por-el-momento-deberian-completarse">
-<h3>Otra razón es que algunos valores aún no se completaron; por el momento, deberían completarse.<a class="headerlink" href="#otra-razon-es-que-algunos-valores-aun-no-se-completaron-por-el-momento-deberian-completarse" title="Permalink to this heading">#</a></h3>
-</section>
+<ul class="simple">
+<li><p>Creo que los valores son nulos porque quizás el usuario o la persona que digitó o agregó los datos se equivocó.</p></li>
+<li><p>Otra razón es que algunos valores aún no se completaron; por el momento, deberían completarse.</p></li>
+</ul>
 </section>
 <section id="presta-atencion-a-la-abreviatura-tbd-significa-to-be-determined-a-determinar-especifica-como-piensas-manejar-estos-casos">
 <h2>Presta atención a la abreviatura TBD: significa “to be determined” (a determinar). Especifica cómo piensas manejar estos casos.<a class="headerlink" href="#presta-atencion-a-la-abreviatura-tbd-significa-to-be-determined-a-determinar-especifica-como-piensas-manejar-estos-casos" title="Permalink to this heading">#</a></h2>
@@ -916,8 +846,9 @@ memory usage: 1.2+ MB
 </div>
 </div>
 </div>
-<section id="in-many-cases-yes-there-are-significative-data-since-1993">
-<h3>In many cases yes. There are significative data since 1993.<a class="headerlink" href="#in-many-cases-yes-there-are-significative-data-since-1993" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>In many cases yes. There are significative data since 1993.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -933,7 +864,6 @@ memory usage: 1.2+ MB
 <img alt="_images/be9159ce534387c25ab084bb5fa0d6a0cbebe5c2c099bb8cff26d8333a096daa.png" src="_images/be9159ce534387c25ab084bb5fa0d6a0cbebe5c2c099bb8cff26d8333a096daa.png" />
 </div>
 </div>
-</section>
 </section>
 <section id="observa-como-varian-las-ventas-de-una-plataforma-a-otra-elige-las-plataformas-con-las-mayores-ventas-totales-y-construye-una-distribucion-basada-en-los-datos-de-cada-ano-busca-las-plataformas-que-solian-ser-populares-pero-que-ahora-no-tienen-ventas-cuanto-tardan-generalmente-las-nuevas-plataformas-en-aparecer-y-las-antiguas-en-desaparecer">
 <h2>Observa cómo varían las ventas de una plataforma a otra. Elige las plataformas con las mayores ventas totales y construye una distribución basada en los datos de cada año. Busca las plataformas que solían ser populares pero que ahora no tienen ventas. ¿Cuánto tardan generalmente las nuevas plataformas en aparecer y las antiguas en desaparecer?<a class="headerlink" href="#observa-como-varian-las-ventas-de-una-plataforma-a-otra-elige-las-plataformas-con-las-mayores-ventas-totales-y-construye-una-distribucion-basada-en-los-datos-de-cada-ano-busca-las-plataformas-que-solian-ser-populares-pero-que-ahora-no-tienen-ventas-cuanto-tardan-generalmente-las-nuevas-plataformas-en-aparecer-y-las-antiguas-en-desaparecer" title="Permalink to this heading">#</a></h2>
@@ -1149,15 +1079,15 @@ memory usage: 1.2+ MB
 </section>
 <section id="determina-para-que-periodo-debes-tomar-datos-para-hacerlo-mira-tus-respuestas-a-las-preguntas-anteriores-los-datos-deberian-permitirte-construir-un-modelo-para-2017">
 <h2>Determina para qué período debes tomar datos. Para hacerlo mira tus respuestas a las preguntas anteriores. Los datos deberían permitirte construir un modelo para 2017.<a class="headerlink" href="#determina-para-que-periodo-debes-tomar-datos-para-hacerlo-mira-tus-respuestas-a-las-preguntas-anteriores-los-datos-deberian-permitirte-construir-un-modelo-para-2017" title="Permalink to this heading">#</a></h2>
-<section id="del-ultimo-grafico-que-veo-el-periodo-que-deberia-utilizar-para-construir-un-modelo-es-1994-a-2016-esto-se-debe-a-que-a-partir-de-este-ano-parece-que-comienza-una-nueva-era-de-consolas">
-<h3>Del último gráfico que veo el periodo que debería utilizar para construir un modelo es 1994 a 2016. Esto se debe a que a partir de este año parece que comienza una nueva era de consolas.<a class="headerlink" href="#del-ultimo-grafico-que-veo-el-periodo-que-deberia-utilizar-para-construir-un-modelo-es-1994-a-2016-esto-se-debe-a-que-a-partir-de-este-ano-parece-que-comienza-una-nueva-era-de-consolas" title="Permalink to this heading">#</a></h3>
-</section>
+<ul class="simple">
+<li><p>Del último gráfico que veo el periodo que debería utilizar para construir un modelo es 1994 a 2016. Esto se debe a que a partir de este año parece que comienza una nueva era de consolas.</p></li>
+</ul>
 </section>
 <section id="que-plataformas-son-lideres-en-ventas-cuales-crecen-y-cuales-se-reducen-elige-varias-plataformas-potencialmente-rentables">
 <h2>¿Qué plataformas son líderes en ventas? ¿Cuáles crecen y cuáles se reducen? Elige varias plataformas potencialmente rentables.<a class="headerlink" href="#que-plataformas-son-lideres-en-ventas-cuales-crecen-y-cuales-se-reducen-elige-varias-plataformas-potencialmente-rentables" title="Permalink to this heading">#</a></h2>
-<section id="las-plataformas-que-lideran-las-ventas-son-ps2-x360-ps3-wii-ds-y-ps">
-<h3>Las plataformas que lideran las ventas son PS2, X360, PS3, Wii, DS y PS.<a class="headerlink" href="#las-plataformas-que-lideran-las-ventas-son-ps2-x360-ps3-wii-ds-y-ps" title="Permalink to this heading">#</a></h3>
-</section>
+<ul class="simple">
+<li><p>Las plataformas que lideran las ventas son PS2, X360, PS3, Wii, DS y PS.</p></li>
+</ul>
 </section>
 <section id="crea-un-diagrama-de-caja-para-las-ventas-globales-de-todos-los-juegos-desglosados-por-plataforma-son-significativas-las-diferencias-en-las-ventas-que-sucede-con-las-ventas-promedio-en-varias-plataformas-describe-tus-hallazgos">
 <h2>Crea un diagrama de caja para las ventas globales de todos los juegos, desglosados por plataforma. ¿Son significativas las diferencias en las ventas? ¿Qué sucede con las ventas promedio en varias plataformas? Describe tus hallazgos.<a class="headerlink" href="#crea-un-diagrama-de-caja-para-las-ventas-globales-de-todos-los-juegos-desglosados-por-plataforma-son-significativas-las-diferencias-en-las-ventas-que-sucede-con-las-ventas-promedio-en-varias-plataformas-describe-tus-hallazgos" title="Permalink to this heading">#</a></h2>
@@ -1189,15 +1119,11 @@ memory usage: 1.2+ MB
 <img alt="_images/e20bb5c3684db3fe5650fe87cdcce8f4517f8fa0f8f477532c0587aa0975e308.png" src="_images/e20bb5c3684db3fe5650fe87cdcce8f4517f8fa0f8f477532c0587aa0975e308.png" />
 </div>
 </div>
-<section id="no-hay-diferencias-abismales-en-la-distribucion-tipica-de-ventas-entre-plataformas-aunque-puede-haber-diferencias-pequenas-a-simple-vista-las-distribuciones-son-muy-parecidas-todas-las-cajas-50-central-de-los-datos-estan-ubicadas-en-un-rango-similar">
-<h3>No hay diferencias abismales en la distribución típica de ventas entre plataformas, aunque puede haber diferencias pequeñas. A simple vista, las distribuciones son muy parecidas: todas las cajas (50% central de los datos) están ubicadas en un rango similar.<a class="headerlink" href="#no-hay-diferencias-abismales-en-la-distribucion-tipica-de-ventas-entre-plataformas-aunque-puede-haber-diferencias-pequenas-a-simple-vista-las-distribuciones-son-muy-parecidas-todas-las-cajas-50-central-de-los-datos-estan-ubicadas-en-un-rango-similar" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="las-diferencias-mas-notorias-estan-en-los-outliers-que-elevan-el-promedio-en-algunas-consolas-ej-wii-ps2">
-<h3>Las diferencias más notorias están en los outliers, que elevan el promedio en algunas consolas (ej. Wii, PS2).<a class="headerlink" href="#las-diferencias-mas-notorias-estan-en-los-outliers-que-elevan-el-promedio-en-algunas-consolas-ej-wii-ps2" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="en-cuanto-al-promedio-no-refleja-bien-la-tendencia-central-porque-esta-sesgado-por-pocos-juegos-con-ventas-enormes-la-mediana-es-mas-representativa">
-<h3>En cuanto al promedio no refleja bien la tendencia central, porque está sesgado por pocos juegos con ventas enormes; la mediana es más representativa.<a class="headerlink" href="#en-cuanto-al-promedio-no-refleja-bien-la-tendencia-central-porque-esta-sesgado-por-pocos-juegos-con-ventas-enormes-la-mediana-es-mas-representativa" title="Permalink to this heading">#</a></h3>
-</section>
+<ul class="simple">
+<li><p>No hay diferencias abismales en la distribución típica de ventas entre plataformas, aunque puede haber diferencias pequeñas. A simple vista, las distribuciones son muy parecidas: todas las cajas (50% central de los datos) están ubicadas en un rango similar.</p></li>
+<li><p>Las diferencias más notorias están en los outliers, que elevan el promedio en algunas consolas (ej. Wii, PS2).</p></li>
+<li><p>En cuanto al promedio no refleja bien la tendencia central, porque está sesgado por pocos juegos con ventas enormes; la mediana es más representativa.</p></li>
+</ul>
 </section>
 <section id="mira-como-las-resenas-de-usuarios-y-profesionales-afectan-las-ventas-de-una-plataforma-popular-tu-eleccion-crea-un-grafico-de-dispersion-y-calcula-la-correlacion-entre-las-resenas-y-las-ventas-saca-conclusiones">
 <h2>Mira cómo las reseñas de usuarios y profesionales afectan las ventas de una plataforma popular (tu elección). Crea un gráfico de dispersión y calcula la correlación entre las reseñas y las ventas. Saca conclusiones.<a class="headerlink" href="#mira-como-las-resenas-de-usuarios-y-profesionales-afectan-las-ventas-de-una-plataforma-popular-tu-eleccion-crea-un-grafico-de-dispersion-y-calcula-la-correlacion-entre-las-resenas-y-las-ventas-saca-conclusiones" title="Permalink to this heading">#</a></h2>
@@ -1255,12 +1181,10 @@ total_sales     0.172866      0.395435     1.000000
 </div>
 </div>
 </div>
-<section id="visualmente-si-hay-relacion-sobre-todo-en-la-cola-alta-de-ventas-los-superventas-suelen-tener-buenas-resenas">
-<h3>Visualmente sí hay relación, sobre todo en la “cola alta” de ventas (los superventas suelen tener buenas reseñas).<a class="headerlink" href="#visualmente-si-hay-relacion-sobre-todo-en-la-cola-alta-de-ventas-los-superventas-suelen-tener-buenas-resenas" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="pero-estadisticamente-la-correlacion-es-debil-porque-la-mayoria-de-juegos-no-siguen-esa-regla-tan-claramente">
-<h3>Pero estadísticamente la correlación es débil, porque la mayoría de juegos no siguen esa regla tan claramente.<a class="headerlink" href="#pero-estadisticamente-la-correlacion-es-debil-porque-la-mayoria-de-juegos-no-siguen-esa-regla-tan-claramente" title="Permalink to this heading">#</a></h3>
-</section>
+<ul class="simple">
+<li><p>Visualmente sí hay relación, sobre todo en la “cola alta” de ventas (los superventas suelen tener buenas reseñas).</p></li>
+<li><p>Pero estadísticamente la correlación es débil, porque la mayoría de juegos no siguen esa regla tan claramente.</p></li>
+</ul>
 </section>
 <section id="teniendo-en-cuenta-tus-conclusiones-compara-las-ventas-de-los-mismos-juegos-en-otras-plataformas">
 <h2>Teniendo en cuenta tus conclusiones compara las ventas de los mismos juegos en otras plataformas.<a class="headerlink" href="#teniendo-en-cuenta-tus-conclusiones-compara-las-ventas-de-los-mismos-juegos-en-otras-plataformas" title="Permalink to this heading">#</a></h2>
@@ -1292,8 +1216,9 @@ total_sales     0.172866      0.395435     1.000000
 </div>
 </div>
 </div>
-<section id="a-partir-de-aca-puedo-tomar-cualquier-titulo-que-se-encuentre-en-cualquier-plataforma-para-poder-llevar-acabo-el-analisis-en-este-caso-tomare-el-juego-2010-fifa-world-cup-south-africa-y-el-de-007">
-<h3>A partir de acá, puedo tomar cualquier título que se encuentre en cualquier plataforma para poder llevar acabo el análisis. En este caso tomaré el juego 2010 FIFA World Cup South Africa y el de 007.<a class="headerlink" href="#a-partir-de-aca-puedo-tomar-cualquier-titulo-que-se-encuentre-en-cualquier-plataforma-para-poder-llevar-acabo-el-analisis-en-este-caso-tomare-el-juego-2010-fifa-world-cup-south-africa-y-el-de-007" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A partir de acá, puedo tomar cualquier título que se encuentre en cualquier plataforma para poder llevar acabo el análisis. En este caso tomaré el juego 2010 FIFA World Cup South Africa y el de 007.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">game1</span> <span class="o">=</span> <span class="s2">&quot;2010 FIFA World Cup South Africa&quot;</span>
@@ -1312,9 +1237,9 @@ total_sales     0.172866      0.395435     1.000000
 </div>
 </div>
 </div>
-</section>
-<section id="ahora-es-posible-aplicar-la-correlacion-entre-el-rating-y-las-ventas">
-<h3>Ahora es posible aplicar la correlación entre el rating y las ventas<a class="headerlink" href="#ahora-es-posible-aplicar-la-correlacion-entre-el-rating-y-las-ventas" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Ahora es posible aplicar la correlación entre el rating y las ventas</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_game1</span><span class="p">[[</span><span class="s1">&#39;user_score&#39;</span><span class="p">,</span><span class="s1">&#39;critic_score&#39;</span><span class="p">,</span><span class="s1">&#39;total_sales&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
@@ -1441,10 +1366,9 @@ total_sales     0.172866      0.395435     1.000000
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="al-ver-los-resultados-se-puede-ver-que-en-ambos-juegos-la-correlacion-entre-las-criticas-y-las-ventas-es-distinta-por-un-lado-el-juego-deportivo-tuvo-buena-correlacion-pero-el-otro-juego-no-posiblemente-este-relacionado-a-la-consola-o-el-genero-de-los-juegos-pero-es-necesario-hacer-mas-analisis">
-<h3>Al ver los resultados se puede ver que en ambos juegos la correlación entre las críticas y las ventas es distinta. Por un lado el juego deportivo tuvo buena correlación, pero el otro juego no. Posiblemente esté relacionado a la consola o el género de los juegos, pero es necesario hacer más análisis.<a class="headerlink" href="#al-ver-los-resultados-se-puede-ver-que-en-ambos-juegos-la-correlacion-entre-las-criticas-y-las-ventas-es-distinta-por-un-lado-el-juego-deportivo-tuvo-buena-correlacion-pero-el-otro-juego-no-posiblemente-este-relacionado-a-la-consola-o-el-genero-de-los-juegos-pero-es-necesario-hacer-mas-analisis" title="Permalink to this heading">#</a></h3>
-</section>
+<ul class="simple">
+<li><p>Al ver los resultados se puede ver que en ambos juegos la correlación entre las críticas y las ventas es distinta. Por un lado el juego deportivo tuvo buena correlación, pero el otro juego no. Posiblemente esté relacionado a la consola o el género de los juegos, pero es necesario hacer más análisis.</p></li>
+</ul>
 </section>
 <section id="echa-un-vistazo-a-la-distribucion-general-de-los-juegos-por-genero-que-se-puede-decir-de-los-generos-mas-rentables-puedes-generalizar-acerca-de-los-generos-con-ventas-altas-y-bajas">
 <h2>Echa un vistazo a la distribución general de los juegos por género. ¿Qué se puede decir de los géneros más rentables? ¿Puedes generalizar acerca de los géneros con ventas altas y bajas?<a class="headerlink" href="#echa-un-vistazo-a-la-distribucion-general-de-los-juegos-por-genero-que-se-puede-decir-de-los-generos-mas-rentables-puedes-generalizar-acerca-de-los-generos-con-ventas-altas-y-bajas" title="Permalink to this heading">#</a></h2>
@@ -1477,18 +1401,12 @@ total_sales     0.172866      0.395435     1.000000
 <img alt="_images/76c23bc862601568d7ef6c7fa5cce036cdef1e99bc84d188abd6e6c237748d35.png" src="_images/76c23bc862601568d7ef6c7fa5cce036cdef1e99bc84d188abd6e6c237748d35.png" />
 </div>
 </div>
-<section id="de-acuerdo-a-las-graficas-podemos-notar-que-action-es-por-lejos-el-genero-con-mas-juegos-lanzados-mas-de-3-000-titulos">
-<h3>De acuerdo a las gráficas podemos notar que Action es, por lejos, el género con más juegos lanzados (más de 3,000 títulos).<a class="headerlink" href="#de-acuerdo-a-las-graficas-podemos-notar-que-action-es-por-lejos-el-genero-con-mas-juegos-lanzados-mas-de-3-000-titulos" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="asi-mismo-generos-como-puzzle-strategy-y-adventure-tienen-muy-pocos-juegos-publicados-en-comparacion">
-<h3>Así mismo, géneros como Puzzle, Strategy y Adventure tienen muy pocos juegos publicados en comparación.<a class="headerlink" href="#asi-mismo-generos-como-puzzle-strategy-y-adventure-tienen-muy-pocos-juegos-publicados-en-comparacion" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="action-tambien-lidera-en-ventas-globales-lo-cual-coincide-con-su-gran-cantidad-de-titulos">
-<h3>Action también lidera en ventas globales, lo cual coincide con su gran cantidad de títulos.<a class="headerlink" href="#action-tambien-lidera-en-ventas-globales-lo-cual-coincide-con-su-gran-cantidad-de-titulos" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="sports-y-shooter-destacan-no-tienen-tantos-juegos-como-action-pero-si-concentran-ventas-muy-altas-lo-que-indica-que-son-generos-con-mucha-demanda-y-titulos-muy-exitosos">
-<h3>Sports y Shooter destacan: no tienen tantos juegos como Action, pero sí concentran ventas muy altas, lo que indica que son géneros con mucha demanda y títulos muy exitosos.<a class="headerlink" href="#sports-y-shooter-destacan-no-tienen-tantos-juegos-como-action-pero-si-concentran-ventas-muy-altas-lo-que-indica-que-son-generos-con-mucha-demanda-y-titulos-muy-exitosos" title="Permalink to this heading">#</a></h3>
-</section>
+<ul class="simple">
+<li><p>De acuerdo a las gráficas podemos notar que Action es, por lejos, el género con más juegos lanzados (más de 3,000 títulos).</p></li>
+<li><p>Así mismo, géneros como Puzzle, Strategy y Adventure tienen muy pocos juegos publicados en comparación.</p></li>
+<li><p>Action también lidera en ventas globales, lo cual coincide con su gran cantidad de títulos.</p></li>
+<li><p>Sports y Shooter destacan: no tienen tantos juegos como Action, pero sí concentran ventas muy altas, lo que indica que son géneros con mucha demanda y títulos muy exitosos.</p></li>
+</ul>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="crea-un-perfil-de-usuario-para-cada-region">
@@ -1555,9 +1473,9 @@ Name: jp_sales, dtype: float64
 </div>
 </div>
 </div>
-<section id="en-base-a-lo-mostrado-en-las-tablas-es-facil-distinguir-que-la-mayor-cantidad-de-ventas-se-ha-producido-en-na-y-esto-tiene-mucho-sentido-debido-a-que-en-dicho-pais-existe-un-mayor-nivel-de-consumismo-y-mayor-pib-que-en-europa-por-otro-lado-en-na-tambien-se-nota-una-mayor-compra-de-videojuegos-para-la-consola-x360-lo-cual-tambien-tiene-sentido-debido-a-que-esta-marca-pertenece-a-la-empresa-microsoft-por-el-lado-de-europa-se-ven-mayores-ventas-que-en-japon-y-a-la-par-aca-tambien-se-puede-apreciar-una-mayor-demanda-de-los-juegos-de-la-consola-de-somy-finalmente-en-jp-se-ve-que-la-mayoria-de-juegos-son-para-consolas-niponas">
-<h3>En base a lo mostrado en las tablas, es facil distinguir que la mayor cantidad de ventas se ha producido en NA, y esto tiene mucho sentido debido a que en dicho pais existe un mayor nivel de consumismo y mayor pib que en Europa. Por otro lado en NA tambien se nota una mayor compra de videojuegos para la consola X360 lo cual tambien tiene sentido debido a que esta marca pertenece a la empresa Microsoft. Por el lado de Europa se ven mayores ventas que en  Japon y a la par aca tambien se puede apreciar una mayor demanda de los juegos de la consola de Somy. Finalmente en JP se ve que la mayoria de juegos son para consolas Niponas.<a class="headerlink" href="#en-base-a-lo-mostrado-en-las-tablas-es-facil-distinguir-que-la-mayor-cantidad-de-ventas-se-ha-producido-en-na-y-esto-tiene-mucho-sentido-debido-a-que-en-dicho-pais-existe-un-mayor-nivel-de-consumismo-y-mayor-pib-que-en-europa-por-otro-lado-en-na-tambien-se-nota-una-mayor-compra-de-videojuegos-para-la-consola-x360-lo-cual-tambien-tiene-sentido-debido-a-que-esta-marca-pertenece-a-la-empresa-microsoft-por-el-lado-de-europa-se-ven-mayores-ventas-que-en-japon-y-a-la-par-aca-tambien-se-puede-apreciar-una-mayor-demanda-de-los-juegos-de-la-consola-de-somy-finalmente-en-jp-se-ve-que-la-mayoria-de-juegos-son-para-consolas-niponas" title="Permalink to this heading">#</a></h3>
-</section>
+<ul class="simple">
+<li><p>En base a lo mostrado en las tablas, es facil distinguir que la mayor cantidad de ventas se ha producido en NA, y esto tiene mucho sentido debido a que en dicho pais existe un mayor nivel de consumismo y mayor pib que en Europa. Por otro lado en NA tambien se nota una mayor compra de videojuegos para la consola X360 lo cual tambien tiene sentido debido a que esta marca pertenece a la empresa Microsoft. Por el lado de Europa se ven mayores ventas que en  Japon y a la par aca tambien se puede apreciar una mayor demanda de los juegos de la consola de Somy. Finalmente en JP se ve que la mayoria de juegos son para consolas Niponas.</p></li>
+</ul>
 <section id="los-cinco-generos-principales-explica-la-diferencia">
 <h3>Los cinco géneros principales. Explica la diferencia.<a class="headerlink" href="#los-cinco-generos-principales-explica-la-diferencia" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -1618,9 +1536,9 @@ Name: jp_sales, dtype: float64
 </div>
 </div>
 </div>
-</section>
-<section id="en-cuanto-a-los-analisis-resulta-interesante-ver-que-los-gustos-de-los-generos-en-na-y-eu-son-bastante-parecidos-salvo-un-cambio-en-el-cuarto-lugar-de-platform-en-na-por-racing-en-eu-luego-son-muy-similares-por-otra-parte-en-jp-se-ve-cierta-diferencia-con-respecto-a-los-demas-lugares-en-jp-el-genero-mas-vendido-es-de-tipo-role-playing-mientras-que-accion-tambien-se-cuentra-listado-como-en-eu-y-na-de-manera-concreta-parece-que-a-nivel-global-action-y-sports-son-los-preferidos-y-hay-una-tendencia-marcada-en-jp-por-los-de-rol">
-<h3>En cuanto a los analisis, resulta interesante ver que los gustos de los generos en NA y EU son bastante parecidos, salvo un cambio en el cuarto lugar de Platform en NA por Racing en EU luego son muy similares. Por otra parte, en JP se ve cierta diferencia con respecto a los demas lugares. En JP el genero mas vendido es de tipo Role-Playing mientras que accion tambien se cuentra listado como en EU y NA. De manera concreta parece que a nivel global Action y Sports son los preferidos y hay una tendencia marcada en JP por los de Rol.<a class="headerlink" href="#en-cuanto-a-los-analisis-resulta-interesante-ver-que-los-gustos-de-los-generos-en-na-y-eu-son-bastante-parecidos-salvo-un-cambio-en-el-cuarto-lugar-de-platform-en-na-por-racing-en-eu-luego-son-muy-similares-por-otra-parte-en-jp-se-ve-cierta-diferencia-con-respecto-a-los-demas-lugares-en-jp-el-genero-mas-vendido-es-de-tipo-role-playing-mientras-que-accion-tambien-se-cuentra-listado-como-en-eu-y-na-de-manera-concreta-parece-que-a-nivel-global-action-y-sports-son-los-preferidos-y-hay-una-tendencia-marcada-en-jp-por-los-de-rol" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>En cuanto a los analisis, resulta interesante ver que los gustos de los generos en NA y EU son bastante parecidos, salvo un cambio en el cuarto lugar de Platform en NA por Racing en EU luego son muy similares. Por otra parte, en JP se ve cierta diferencia con respecto a los demas lugares. En JP el genero mas vendido es de tipo Role-Playing mientras que accion tambien se cuentra listado como en EU y NA. De manera concreta parece que a nivel global Action y Sports son los preferidos y hay una tendencia marcada en JP por los de Rol.</p></li>
+</ul>
 </section>
 <section id="si-las-clasificaciones-de-esrb-afectan-a-las-ventas-en-regiones-individuales">
 <h3>Si las clasificaciones de ESRB afectan a las ventas en regiones individuales.<a class="headerlink" href="#si-las-clasificaciones-de-esrb-afectan-a-las-ventas-en-regiones-individuales" title="Permalink to this heading">#</a></h3>
@@ -1682,16 +1600,15 @@ Name: jp_sales, dtype: float64
 </div>
 </div>
 </div>
-<section id="aca-podemos-observar-que-la-clasificacion-mas-comprada-es-la-e-y-la-rp-resulta-intrigante-que-haya-muchas-compras-de-juegos-con-clasificacion-pendiente-pero-asumo-que-es-por-las-preventas-de-muchos-juegos-asi-mismo-se-ve-que-los-juegos-con-clasificaciones-distintas-a-e-y-rp-suelen-ser-muy-similares-en-todas-las-regiones">
-<h4>Aca podemos observar que la clasificacion mas comprada es la E y la RP. Resulta intrigante que haya muchas compras de juegos con clasificacion pendiente, pero asumo que es por las preventas de muchos juegos. Asi mismo se ve que los juegos con clasificaciones distintas a E y RP suelen ser muy similares en todas las regiones.<a class="headerlink" href="#aca-podemos-observar-que-la-clasificacion-mas-comprada-es-la-e-y-la-rp-resulta-intrigante-que-haya-muchas-compras-de-juegos-con-clasificacion-pendiente-pero-asumo-que-es-por-las-preventas-de-muchos-juegos-asi-mismo-se-ve-que-los-juegos-con-clasificaciones-distintas-a-e-y-rp-suelen-ser-muy-similares-en-todas-las-regiones" title="Permalink to this heading">#</a></h4>
-</section>
+<ul class="simple">
+<li><p>Aca podemos observar que la clasificacion mas comprada es la E y la RP. Resulta intrigante que haya muchas compras de juegos con clasificacion pendiente, pero asumo que es por las preventas de muchos juegos. Asi mismo se ve que los juegos con clasificaciones distintas a E y RP suelen ser muy similares en todas las regiones.</p></li>
+</ul>
 </section>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="prueba-las-siguientes-hipotesis">
 <h1>5. Prueba las siguientes hipótesis:<a class="headerlink" href="#prueba-las-siguientes-hipotesis" title="Permalink to this heading">#</a></h1>
-<section id="las-calificaciones-promedio-de-los-usuarios-para-las-plataformas-xbox-one-y-pc-son-las-mismas">
-<h2>Las calificaciones promedio de los usuarios para las plataformas Xbox One y PC son las mismas.<a class="headerlink" href="#las-calificaciones-promedio-de-los-usuarios-para-las-plataformas-xbox-one-y-pc-son-las-mismas" title="Permalink to this heading">#</a></h2>
+<p>-Las calificaciones promedio de los usuarios para las plataformas Xbox One y PC son las mismas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
@@ -1717,9 +1634,9 @@ Rechazamos H0: Sí hay diferencia significativa en las calificaciones.
 </div>
 </div>
 </div>
-</section>
-<section id="las-calificaciones-promedio-de-los-usuarios-para-los-generos-de-accion-y-deportes-son-diferentes">
-<h2>Las calificaciones promedio de los usuarios para los géneros de Acción y Deportes son diferentes.<a class="headerlink" href="#las-calificaciones-promedio-de-los-usuarios-para-los-generos-de-accion-y-deportes-son-diferentes" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Las calificaciones promedio de los usuarios para los géneros de Acción y Deportes son diferentes.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accion</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;genre&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Action&#39;</span><span class="p">,</span> <span class="s1">&#39;user_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
@@ -1743,27 +1660,20 @@ No rechazamos H0: No hay evidencia de diferencia en las calificaciones.
 </div>
 </div>
 </div>
-</section>
 <section id="explica-como-formulaste-las-hipotesis-nula-y-alternativa">
 <h2>Explica: Cómo formulaste las hipótesis nula y alternativa.<a class="headerlink" href="#explica-como-formulaste-las-hipotesis-nula-y-alternativa" title="Permalink to this heading">#</a></h2>
-<section id="para-realizar-las-formulaciones-me-base-en-las-premisas-dadas-en-el-enunciado-ene-el-caso-de-la-primera-se-dice-que-las-calificaciones-para-dos-plataformas-son-las-mismas-tomando-esta-como-la-nula-y-la-alternativa-seria-que-si-hay-diferencias-para-la-segunda-hipotesis-se-nos-dice-que-las-calificaciones-de-dos-generos-en-especifico-son-distintas-para-tomar-la-alternativa-simplemente-negue-la-primera-es-decir-verificar-si-no-son-diferentes">
-<h3>Para realizar las formulaciones me base en las premisas dadas en el enunciado. Ene el caso de la primera se dice que las calificaciones para dos plataformas son las mismas. Tomando esta como la nula, y la alternativa seria que si hay diferencias. Para la segunda hipotesis, se nos dice que las calificaciones de dos generos en especifico son distintas. Para tomar la alternativa simplemente negue la primera, es decir verificar si no son diferentes.<a class="headerlink" href="#para-realizar-las-formulaciones-me-base-en-las-premisas-dadas-en-el-enunciado-ene-el-caso-de-la-primera-se-dice-que-las-calificaciones-para-dos-plataformas-son-las-mismas-tomando-esta-como-la-nula-y-la-alternativa-seria-que-si-hay-diferencias-para-la-segunda-hipotesis-se-nos-dice-que-las-calificaciones-de-dos-generos-en-especifico-son-distintas-para-tomar-la-alternativa-simplemente-negue-la-primera-es-decir-verificar-si-no-son-diferentes" title="Permalink to this heading">#</a></h3>
-</section>
+<ul class="simple">
+<li><p>Para realizar las formulaciones me base en las premisas dadas en el enunciado. Ene el caso de la primera se dice que las calificaciones para dos plataformas son las mismas. Tomando esta como la nula, y la alternativa seria que si hay diferencias. Para la segunda hipotesis, se nos dice que las calificaciones de dos generos en especifico son distintas. Para tomar la alternativa simplemente negue la primera, es decir verificar si no son diferentes.</p></li>
+</ul>
 </section>
 <section id="explica-que-criterio-utilizaste-para-probar-las-hipotesis-y-por-que">
 <h2>Explica: Qué criterio utilizaste para probar las hipótesis y por qué.<a class="headerlink" href="#explica-que-criterio-utilizaste-para-probar-las-hipotesis-y-por-que" title="Permalink to this heading">#</a></h2>
-<section id="utilice-una-prueba-t-de-student-para-muestras-independientes-scipy-stats-ttest-ind-porque">
-<h3>Utilicé una prueba t de Student para muestras independientes (scipy.stats.ttest_ind) porque:<a class="headerlink" href="#utilice-una-prueba-t-de-student-para-muestras-independientes-scipy-stats-ttest-ind-porque" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="se-trata-de-comparar-dos-grupos-distintos-ejemplo-xbox-one-vs-pc-o-accion-vs-deportes">
-<h3>Se trata de comparar dos grupos distintos (ejemplo: Xbox One vs PC, o Acción vs Deportes).<a class="headerlink" href="#se-trata-de-comparar-dos-grupos-distintos-ejemplo-xbox-one-vs-pc-o-accion-vs-deportes" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="la-variable-de-interes-user-score-es-numerica-y-continua-adecuada-para-este-test">
-<h3>La variable de interés (user_score) es numérica y continua, adecuada para este test.<a class="headerlink" href="#la-variable-de-interes-user-score-es-numerica-y-continua-adecuada-para-este-test" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="la-prueba-t-evalua-si-las-diferencias-observadas-entre-medias-son-estadisticamente-significativas-o-si-pueden-deberse-al-azar">
-<h3>La prueba t evalúa si las diferencias observadas entre medias son estadísticamente significativas o si pueden deberse al azar.<a class="headerlink" href="#la-prueba-t-evalua-si-las-diferencias-observadas-entre-medias-son-estadisticamente-significativas-o-si-pueden-deberse-al-azar" title="Permalink to this heading">#</a></h3>
-</section>
+<ul class="simple">
+<li><p>Utilicé una prueba t de Student para muestras independientes (scipy.stats.ttest_ind) porque:</p></li>
+<li><p>Se trata de comparar dos grupos distintos (ejemplo: Xbox One vs PC, o Acción vs Deportes).</p></li>
+<li><p>La variable de interés (user_score) es numérica y continua, adecuada para este test.</p></li>
+<li><p>La prueba t evalúa si las diferencias observadas entre medias son estadísticamente significativas o si pueden deberse al azar.</p></li>
+</ul>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="escribe-una-conclusion-general">
@@ -1833,28 +1743,14 @@ No rechazamos H0: No hay evidencia de diferencia en las calificaciones.
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-data">2. Preparing Data</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reemplaza-los-nombres-de-las-columnas-ponlos-en-minusculas">Reemplaza los nombres de las columnas (ponlos en minúsculas).</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convierte-los-datos-en-los-tipos-necesarios">Convierte los datos en los tipos necesarios.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explica-por-que-rellenaste-los-valores-ausentes-como-lo-hiciste-o-por-que-decidiste-dejarlos-en-blanco">Explica por qué rellenaste los valores ausentes como lo hiciste o por qué decidiste dejarlos en blanco.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#las-columnas-en-las-que-cambie-el-tipo-de-dato-son">Las columnas en las que cambié el tipo de dato son:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plataforma-como-categoria-lo-cambie-para-mejorar-el-rendimiento-de-ciertas-operaciones-y-para-optimizarlas">plataforma como categoría. Lo cambié para mejorar el rendimiento de ciertas operaciones y para optimizarlas.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ano-de-lanzamiento-lo-cambie-para-mostrar-los-datos-de-forma-mas-clara-ya-que-el-ano-siempre-es-un-dato-entero">año_de_lanzamiento. Lo cambié para mostrar los datos de forma más clara, ya que el año siempre es un dato entero.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#genero-y-calificacion-tambien-cambie-su-tipo-de-dato-a-categoria-por-la-misma-razon-que-en-las-otras-columnas">género y calificación. También cambié su tipo de dato a categoría por la misma razón que en las otras columnas.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critic-score-mantendra-su-tipo-de-dato-porque-tiene-un-valor-por-determinar-que-es-una-cadena">critic_score mantendrá su tipo de dato porque tiene un valor por determinar que es una cadena.</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-crees-que-los-valores-estan-ausentes-brinda-explicaciones-posibles">¿Por qué crees que los valores están ausentes? Brinda explicaciones posibles.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creo-que-los-valores-son-nulos-porque-quizas-el-usuario-o-la-persona-que-digito-o-agrego-los-datos-se-equivoco">Creo que los valores son nulos porque quizás el usuario o la persona que digitó o agregó los datos se equivocó.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otra-razon-es-que-algunos-valores-aun-no-se-completaron-por-el-momento-deberian-completarse">Otra razón es que algunos valores aún no se completaron; por el momento, deberían completarse.</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explica-por-que-rellenaste-los-valores-ausentes-como-lo-hiciste-o-por-que-decidiste-dejarlos-en-blanco">Explica por qué rellenaste los valores ausentes como lo hiciste o por qué decidiste dejarlos en blanco.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-crees-que-los-valores-estan-ausentes-brinda-explicaciones-posibles">¿Por qué crees que los valores están ausentes? Brinda explicaciones posibles.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presta-atencion-a-la-abreviatura-tbd-significa-to-be-determined-a-determinar-especifica-como-piensas-manejar-estos-casos">Presta atención a la abreviatura TBD: significa “to be determined” (a determinar). Especifica cómo piensas manejar estos casos.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calcula-las-ventas-totales-la-suma-de-las-ventas-en-todas-las-regiones-para-cada-juego-y-coloca-estos-valores-en-una-columna-separada">Calcula las ventas totales (la suma de las ventas en todas las regiones) para cada juego y coloca estos valores en una columna separada.</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analiza-los-datos">3. Analiza los datos</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mira-cuantos-juegos-fueron-lanzados-en-diferentes-anos-son-significativos-los-datos-de-cada-periodo">Mira cuántos juegos fueron lanzados en diferentes años. ¿Son significativos los datos de cada período?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-many-cases-yes-there-are-significative-data-since-1993">In many cases yes. There are significative data since 1993.</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mira-cuantos-juegos-fueron-lanzados-en-diferentes-anos-son-significativos-los-datos-de-cada-periodo">Mira cuántos juegos fueron lanzados en diferentes años. ¿Son significativos los datos de cada período?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observa-como-varian-las-ventas-de-una-plataforma-a-otra-elige-las-plataformas-con-las-mayores-ventas-totales-y-construye-una-distribucion-basada-en-los-datos-de-cada-ano-busca-las-plataformas-que-solian-ser-populares-pero-que-ahora-no-tienen-ventas-cuanto-tardan-generalmente-las-nuevas-plataformas-en-aparecer-y-las-antiguas-en-desaparecer">Observa cómo varían las ventas de una plataforma a otra. Elige las plataformas con las mayores ventas totales y construye una distribución basada en los datos de cada año. Busca las plataformas que solían ser populares pero que ahora no tienen ventas. ¿Cuánto tardan generalmente las nuevas plataformas en aparecer y las antiguas en desaparecer?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#total-sales-per-platform">1. Total sales per platform</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedemnos-a-convertir-la-lista-en-un-dataframe-y-a-filtrar-para-ver-las-ventas-mayores-a-100-millones">2. Procedemnos a convertir la lista en un dataframe y a filtrar para ver las ventas mayores a 100 millones.</a></li>
@@ -1863,67 +1759,25 @@ No rechazamos H0: No hay evidencia de diferencia en las calificaciones.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#veremos-cuanto-tarda-una-nueva-consola-en-aparecer">Veremos cuanto tarda una nueva consola en aparecer</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determina-para-que-periodo-debes-tomar-datos-para-hacerlo-mira-tus-respuestas-a-las-preguntas-anteriores-los-datos-deberian-permitirte-construir-un-modelo-para-2017">Determina para qué período debes tomar datos. Para hacerlo mira tus respuestas a las preguntas anteriores. Los datos deberían permitirte construir un modelo para 2017.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#del-ultimo-grafico-que-veo-el-periodo-que-deberia-utilizar-para-construir-un-modelo-es-1994-a-2016-esto-se-debe-a-que-a-partir-de-este-ano-parece-que-comienza-una-nueva-era-de-consolas">Del último gráfico que veo el periodo que debería utilizar para construir un modelo es 1994 a 2016. Esto se debe a que a partir de este año parece que comienza una nueva era de consolas.</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-plataformas-son-lideres-en-ventas-cuales-crecen-y-cuales-se-reducen-elige-varias-plataformas-potencialmente-rentables">¿Qué plataformas son líderes en ventas? ¿Cuáles crecen y cuáles se reducen? Elige varias plataformas potencialmente rentables.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#las-plataformas-que-lideran-las-ventas-son-ps2-x360-ps3-wii-ds-y-ps">Las plataformas que lideran las ventas son PS2, X360, PS3, Wii, DS y PS.</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crea-un-diagrama-de-caja-para-las-ventas-globales-de-todos-los-juegos-desglosados-por-plataforma-son-significativas-las-diferencias-en-las-ventas-que-sucede-con-las-ventas-promedio-en-varias-plataformas-describe-tus-hallazgos">Crea un diagrama de caja para las ventas globales de todos los juegos, desglosados por plataforma. ¿Son significativas las diferencias en las ventas? ¿Qué sucede con las ventas promedio en varias plataformas? Describe tus hallazgos.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-hay-diferencias-abismales-en-la-distribucion-tipica-de-ventas-entre-plataformas-aunque-puede-haber-diferencias-pequenas-a-simple-vista-las-distribuciones-son-muy-parecidas-todas-las-cajas-50-central-de-los-datos-estan-ubicadas-en-un-rango-similar">No hay diferencias abismales en la distribución típica de ventas entre plataformas, aunque puede haber diferencias pequeñas. A simple vista, las distribuciones son muy parecidas: todas las cajas (50% central de los datos) están ubicadas en un rango similar.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#las-diferencias-mas-notorias-estan-en-los-outliers-que-elevan-el-promedio-en-algunas-consolas-ej-wii-ps2">Las diferencias más notorias están en los outliers, que elevan el promedio en algunas consolas (ej. Wii, PS2).</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-cuanto-al-promedio-no-refleja-bien-la-tendencia-central-porque-esta-sesgado-por-pocos-juegos-con-ventas-enormes-la-mediana-es-mas-representativa">En cuanto al promedio no refleja bien la tendencia central, porque está sesgado por pocos juegos con ventas enormes; la mediana es más representativa.</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mira-como-las-resenas-de-usuarios-y-profesionales-afectan-las-ventas-de-una-plataforma-popular-tu-eleccion-crea-un-grafico-de-dispersion-y-calcula-la-correlacion-entre-las-resenas-y-las-ventas-saca-conclusiones">Mira cómo las reseñas de usuarios y profesionales afectan las ventas de una plataforma popular (tu elección). Crea un gráfico de dispersión y calcula la correlación entre las reseñas y las ventas. Saca conclusiones.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualmente-si-hay-relacion-sobre-todo-en-la-cola-alta-de-ventas-los-superventas-suelen-tener-buenas-resenas">Visualmente sí hay relación, sobre todo en la “cola alta” de ventas (los superventas suelen tener buenas reseñas).</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pero-estadisticamente-la-correlacion-es-debil-porque-la-mayoria-de-juegos-no-siguen-esa-regla-tan-claramente">Pero estadísticamente la correlación es débil, porque la mayoría de juegos no siguen esa regla tan claramente.</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teniendo-en-cuenta-tus-conclusiones-compara-las-ventas-de-los-mismos-juegos-en-otras-plataformas">Teniendo en cuenta tus conclusiones compara las ventas de los mismos juegos en otras plataformas.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-partir-de-aca-puedo-tomar-cualquier-titulo-que-se-encuentre-en-cualquier-plataforma-para-poder-llevar-acabo-el-analisis-en-este-caso-tomare-el-juego-2010-fifa-world-cup-south-africa-y-el-de-007">A partir de acá, puedo tomar cualquier título que se encuentre en cualquier plataforma para poder llevar acabo el análisis. En este caso tomaré el juego 2010 FIFA World Cup South Africa y el de 007.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ahora-es-posible-aplicar-la-correlacion-entre-el-rating-y-las-ventas">Ahora es posible aplicar la correlación entre el rating y las ventas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#al-ver-los-resultados-se-puede-ver-que-en-ambos-juegos-la-correlacion-entre-las-criticas-y-las-ventas-es-distinta-por-un-lado-el-juego-deportivo-tuvo-buena-correlacion-pero-el-otro-juego-no-posiblemente-este-relacionado-a-la-consola-o-el-genero-de-los-juegos-pero-es-necesario-hacer-mas-analisis">Al ver los resultados se puede ver que en ambos juegos la correlación entre las críticas y las ventas es distinta. Por un lado el juego deportivo tuvo buena correlación, pero el otro juego no. Posiblemente esté relacionado a la consola o el género de los juegos, pero es necesario hacer más análisis.</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#echa-un-vistazo-a-la-distribucion-general-de-los-juegos-por-genero-que-se-puede-decir-de-los-generos-mas-rentables-puedes-generalizar-acerca-de-los-generos-con-ventas-altas-y-bajas">Echa un vistazo a la distribución general de los juegos por género. ¿Qué se puede decir de los géneros más rentables? ¿Puedes generalizar acerca de los géneros con ventas altas y bajas?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#de-acuerdo-a-las-graficas-podemos-notar-que-action-es-por-lejos-el-genero-con-mas-juegos-lanzados-mas-de-3-000-titulos">De acuerdo a las gráficas podemos notar que Action es, por lejos, el género con más juegos lanzados (más de 3,000 títulos).</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asi-mismo-generos-como-puzzle-strategy-y-adventure-tienen-muy-pocos-juegos-publicados-en-comparacion">Así mismo, géneros como Puzzle, Strategy y Adventure tienen muy pocos juegos publicados en comparación.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#action-tambien-lidera-en-ventas-globales-lo-cual-coincide-con-su-gran-cantidad-de-titulos">Action también lidera en ventas globales, lo cual coincide con su gran cantidad de títulos.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sports-y-shooter-destacan-no-tienen-tantos-juegos-como-action-pero-si-concentran-ventas-muy-altas-lo-que-indica-que-son-generos-con-mucha-demanda-y-titulos-muy-exitosos">Sports y Shooter destacan: no tienen tantos juegos como Action, pero sí concentran ventas muy altas, lo que indica que son géneros con mucha demanda y títulos muy exitosos.</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determina-para-que-periodo-debes-tomar-datos-para-hacerlo-mira-tus-respuestas-a-las-preguntas-anteriores-los-datos-deberian-permitirte-construir-un-modelo-para-2017">Determina para qué período debes tomar datos. Para hacerlo mira tus respuestas a las preguntas anteriores. Los datos deberían permitirte construir un modelo para 2017.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-plataformas-son-lideres-en-ventas-cuales-crecen-y-cuales-se-reducen-elige-varias-plataformas-potencialmente-rentables">¿Qué plataformas son líderes en ventas? ¿Cuáles crecen y cuáles se reducen? Elige varias plataformas potencialmente rentables.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crea-un-diagrama-de-caja-para-las-ventas-globales-de-todos-los-juegos-desglosados-por-plataforma-son-significativas-las-diferencias-en-las-ventas-que-sucede-con-las-ventas-promedio-en-varias-plataformas-describe-tus-hallazgos">Crea un diagrama de caja para las ventas globales de todos los juegos, desglosados por plataforma. ¿Son significativas las diferencias en las ventas? ¿Qué sucede con las ventas promedio en varias plataformas? Describe tus hallazgos.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mira-como-las-resenas-de-usuarios-y-profesionales-afectan-las-ventas-de-una-plataforma-popular-tu-eleccion-crea-un-grafico-de-dispersion-y-calcula-la-correlacion-entre-las-resenas-y-las-ventas-saca-conclusiones">Mira cómo las reseñas de usuarios y profesionales afectan las ventas de una plataforma popular (tu elección). Crea un gráfico de dispersión y calcula la correlación entre las reseñas y las ventas. Saca conclusiones.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teniendo-en-cuenta-tus-conclusiones-compara-las-ventas-de-los-mismos-juegos-en-otras-plataformas">Teniendo en cuenta tus conclusiones compara las ventas de los mismos juegos en otras plataformas.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#echa-un-vistazo-a-la-distribucion-general-de-los-juegos-por-genero-que-se-puede-decir-de-los-generos-mas-rentables-puedes-generalizar-acerca-de-los-generos-con-ventas-altas-y-bajas">Echa un vistazo a la distribución general de los juegos por género. ¿Qué se puede decir de los géneros más rentables? ¿Puedes generalizar acerca de los géneros con ventas altas y bajas?</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#crea-un-perfil-de-usuario-para-cada-region">Crea un perfil de usuario para cada región</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-cinco-plataformas-principales-describe-las-variaciones-en-sus-cuotas-de-mercado-de-una-region-a-otra">Las cinco plataformas principales. Describe las variaciones en sus cuotas de mercado de una región a otra.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-base-a-lo-mostrado-en-las-tablas-es-facil-distinguir-que-la-mayor-cantidad-de-ventas-se-ha-producido-en-na-y-esto-tiene-mucho-sentido-debido-a-que-en-dicho-pais-existe-un-mayor-nivel-de-consumismo-y-mayor-pib-que-en-europa-por-otro-lado-en-na-tambien-se-nota-una-mayor-compra-de-videojuegos-para-la-consola-x360-lo-cual-tambien-tiene-sentido-debido-a-que-esta-marca-pertenece-a-la-empresa-microsoft-por-el-lado-de-europa-se-ven-mayores-ventas-que-en-japon-y-a-la-par-aca-tambien-se-puede-apreciar-una-mayor-demanda-de-los-juegos-de-la-consola-de-somy-finalmente-en-jp-se-ve-que-la-mayoria-de-juegos-son-para-consolas-niponas">En base a lo mostrado en las tablas, es facil distinguir que la mayor cantidad de ventas se ha producido en NA, y esto tiene mucho sentido debido a que en dicho pais existe un mayor nivel de consumismo y mayor pib que en Europa. Por otro lado en NA tambien se nota una mayor compra de videojuegos para la consola X360 lo cual tambien tiene sentido debido a que esta marca pertenece a la empresa Microsoft. Por el lado de Europa se ven mayores ventas que en  Japon y a la par aca tambien se puede apreciar una mayor demanda de los juegos de la consola de Somy. Finalmente en JP se ve que la mayoria de juegos son para consolas Niponas.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#los-cinco-generos-principales-explica-la-diferencia">Los cinco géneros principales. Explica la diferencia.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-cuanto-a-los-analisis-resulta-interesante-ver-que-los-gustos-de-los-generos-en-na-y-eu-son-bastante-parecidos-salvo-un-cambio-en-el-cuarto-lugar-de-platform-en-na-por-racing-en-eu-luego-son-muy-similares-por-otra-parte-en-jp-se-ve-cierta-diferencia-con-respecto-a-los-demas-lugares-en-jp-el-genero-mas-vendido-es-de-tipo-role-playing-mientras-que-accion-tambien-se-cuentra-listado-como-en-eu-y-na-de-manera-concreta-parece-que-a-nivel-global-action-y-sports-son-los-preferidos-y-hay-una-tendencia-marcada-en-jp-por-los-de-rol">En cuanto a los analisis, resulta interesante ver que los gustos de los generos en NA y EU son bastante parecidos, salvo un cambio en el cuarto lugar de Platform en NA por Racing en EU luego son muy similares. Por otra parte, en JP se ve cierta diferencia con respecto a los demas lugares. En JP el genero mas vendido es de tipo Role-Playing mientras que accion tambien se cuentra listado como en EU y NA. De manera concreta parece que a nivel global Action y Sports son los preferidos y hay una tendencia marcada en JP por los de Rol.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#si-las-clasificaciones-de-esrb-afectan-a-las-ventas-en-regiones-individuales">Si las clasificaciones de ESRB afectan a las ventas en regiones individuales.</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aca-podemos-observar-que-la-clasificacion-mas-comprada-es-la-e-y-la-rp-resulta-intrigante-que-haya-muchas-compras-de-juegos-con-clasificacion-pendiente-pero-asumo-que-es-por-las-preventas-de-muchos-juegos-asi-mismo-se-ve-que-los-juegos-con-clasificaciones-distintas-a-e-y-rp-suelen-ser-muy-similares-en-todas-las-regiones">Aca podemos observar que la clasificacion mas comprada es la E y la RP. Resulta intrigante que haya muchas compras de juegos con clasificacion pendiente, pero asumo que es por las preventas de muchos juegos. Asi mismo se ve que los juegos con clasificaciones distintas a E y RP suelen ser muy similares en todas las regiones.</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#si-las-clasificaciones-de-esrb-afectan-a-las-ventas-en-regiones-individuales">Si las clasificaciones de ESRB afectan a las ventas en regiones individuales.</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-las-siguientes-hipotesis">5. Prueba las siguientes hipótesis:</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-calificaciones-promedio-de-los-usuarios-para-las-plataformas-xbox-one-y-pc-son-las-mismas">Las calificaciones promedio de los usuarios para las plataformas Xbox One y PC son las mismas.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-calificaciones-promedio-de-los-usuarios-para-los-generos-de-accion-y-deportes-son-diferentes">Las calificaciones promedio de los usuarios para los géneros de Acción y Deportes son diferentes.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explica-como-formulaste-las-hipotesis-nula-y-alternativa">Explica: Cómo formulaste las hipótesis nula y alternativa.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#para-realizar-las-formulaciones-me-base-en-las-premisas-dadas-en-el-enunciado-ene-el-caso-de-la-primera-se-dice-que-las-calificaciones-para-dos-plataformas-son-las-mismas-tomando-esta-como-la-nula-y-la-alternativa-seria-que-si-hay-diferencias-para-la-segunda-hipotesis-se-nos-dice-que-las-calificaciones-de-dos-generos-en-especifico-son-distintas-para-tomar-la-alternativa-simplemente-negue-la-primera-es-decir-verificar-si-no-son-diferentes">Para realizar las formulaciones me base en las premisas dadas en el enunciado. Ene el caso de la primera se dice que las calificaciones para dos plataformas son las mismas. Tomando esta como la nula, y la alternativa seria que si hay diferencias. Para la segunda hipotesis, se nos dice que las calificaciones de dos generos en especifico son distintas. Para tomar la alternativa simplemente negue la primera, es decir verificar si no son diferentes.</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explica-que-criterio-utilizaste-para-probar-las-hipotesis-y-por-que">Explica: Qué criterio utilizaste para probar las hipótesis y por qué.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilice-una-prueba-t-de-student-para-muestras-independientes-scipy-stats-ttest-ind-porque">Utilicé una prueba t de Student para muestras independientes (scipy.stats.ttest_ind) porque:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#se-trata-de-comparar-dos-grupos-distintos-ejemplo-xbox-one-vs-pc-o-accion-vs-deportes">Se trata de comparar dos grupos distintos (ejemplo: Xbox One vs PC, o Acción vs Deportes).</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-variable-de-interes-user-score-es-numerica-y-continua-adecuada-para-este-test">La variable de interés (user_score) es numérica y continua, adecuada para este test.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-prueba-t-evalua-si-las-diferencias-observadas-entre-medias-son-estadisticamente-significativas-o-si-pueden-deberse-al-azar">La prueba t evalúa si las diferencias observadas entre medias son estadísticamente significativas o si pueden deberse al azar.</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explica-como-formulaste-las-hipotesis-nula-y-alternativa">Explica: Cómo formulaste las hipótesis nula y alternativa.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explica-que-criterio-utilizaste-para-probar-las-hipotesis-y-por-que">Explica: Qué criterio utilizaste para probar las hipótesis y por qué.</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#escribe-una-conclusion-general">6. Escribe una conclusión general</a></li>

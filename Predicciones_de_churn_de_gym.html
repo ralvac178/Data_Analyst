@@ -62,8 +62,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Predicciones';</script>
-    <link rel="canonical" href="/Data_Analyst/Predicciones.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Predicciones_de_churn_de_gym';</script>
+    <link rel="canonical" href="/Data_Analyst/Predicciones_de_churn_de_gym.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Investigación del comportamiento usuarios" href="Investigacion.html" />
@@ -187,14 +187,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="Data_Wrangling%20-%202.html">Data Wrangling (¡Llena ese carrito!)</a></li>
-
-
-
-
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="Data_Wrangling.html">Manipulación de Datos (Déjame escuchar música)</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Analisis_de_Ventas_de_Videojuegos.html">Análisis de Ventas de Videojuegos</a></li>
@@ -275,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPredicciones.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPredicciones_de_churn_de_gym.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -305,7 +297,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/Predicciones.ipynb" target="_blank"
+      <li><a href="_sources/Predicciones_de_churn_de_gym.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -429,6 +421,11 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="predicciones-de-cancelaciones-de-membresias-de-gimnasio">
 <h1>Predicciones de cancelaciones de membresias de Gimnasio<a class="headerlink" href="#predicciones-de-cancelaciones-de-membresias-de-gimnasio" title="Permalink to this heading">#</a></h1>
+<p>La cadena de gimnasios Model Fitness está desarrollando una estrategia de interacción con clientes basada en datos analíticos.</p>
+<p>Uno de los problemas más comunes que enfrentan los gimnasios y otros servicios es la pérdida de clientes. ¿Cómo descubres si un/a cliente ya no está contigo? Puedes calcular la pérdida en función de las personas que se deshacen de sus cuentas o no renuevan sus contratos. Sin embargo, a veces no es obvio que un/a cliente se haya ido: puede que se vaya de puntillas.</p>
+<p>Los indicadores de pérdida varían de un campo a otro. Si un usuario o una usuaria compra en una tienda en línea con poca frecuencia, pero con regularidad, no se puede decir que ha huido. Pero si durante dos semanas no ha abierto un canal que se actualiza a diario, es motivo de preocupación: es posible que tu seguidor o seguidor/a se haya aburrido y te haya abandonado.</p>
+<p>En el caso de un gimnasio, tiene sentido decir que un/a cliente se ha ido si no viene durante un mes. Por supuesto, es posible que estén en Cancún y retomen sus visitas cuando regresen, pero ese no es un caso típico. Por lo general, si un/a cliente se une, viene varias veces y luego desaparece, es poco probable que regrese.</p>
+<p>Con el fin de combatir la cancelación, Model Fitness ha digitalizado varios de sus perfiles de clientes. Tu tarea consiste en analizarlos y elaborar una estrategia de retención de clientes.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="parte-1-descarga-de-datos">
 <h1>Parte 1 Descarga de Datos<a class="headerlink" href="#parte-1-descarga-de-datos" title="Permalink to this heading">#</a></h1>
@@ -908,10 +905,7 @@ memory usage: 437.6 KB
 </div></div></div>
 </div>
 <p>La comparación de medias entre clientes que cancelan y los que permanecen muestra diferencias claras en las variables de comportamiento. Los clientes que abandonan el gimnasio presentan una menor frecuencia de visitas, especialmente en el mes actual, menor antigüedad, menos meses restantes de contrato y menor gasto en servicios adicionales. Asimismo, la participación en actividades grupales y la inscripción mediante promociones sociales se asocian con una mayor retención. Las variables demográficas como el género y la edad muestran un impacto limitado en la cancelación.</p>
-<div class="alert alert-block alert-success">
-<b>Comentario del revisor (1ra Iteracion)</b> <a class=“tocSkip”></a>
-<p>Correcto, analizaste muy bien de manera inicial los datos con lo que trabajarás. Siempre este paso es importante para entender calidad y distribución de las variables</p>
-</div><div class="cell docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
@@ -949,10 +943,7 @@ memory usage: 437.6 KB
 </div>
 </div>
 <p>Los histogramas muestran diferencias significativas entre las distribuciones de los clientes que cancelan y los que permanecen. En particular, la cancelación se concentra en clientes con una baja antigüedad y una frecuencia de visitas reducida en el mes actual. Estas diferencias visuales confirman que la actividad reciente y la etapa temprana del ciclo de vida del cliente son factores clave asociados a la pérdida.</p>
-<div class="alert alert-block alert-success">
-<b>Comentario del revisor (1ra Iteracion)</b> <a class=“tocSkip”></a>
-<p>Muy bien hecho! Estas gráficas son muy claras para mostrar las diferencias entre cada variable de tu dataset</p>
-</div><div class="cell docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span>
@@ -1161,10 +1152,7 @@ memory usage: 437.6 KB
 </div></div></div>
 </div>
 <p>Se entrenaron dos modelos de clasificación: regresión logística y Random Forest. Ambos modelos mostraron un rendimiento similar en términos de recall, identificando aproximadamente el 78% de los clientes que cancelan. Sin embargo, la regresión logística obtuvo una mayor exactitud y precisión, por lo que se selecciona como el modelo más adecuado para este problema, además de ofrecer una mayor interpretabilidad de los resultados.</p>
-<div class="alert alert-block alert-success">
-<b>Comentario del revisor (1ra Iteracion)</b> <a class=“tocSkip”></a>
-<p>Muy buen trabajo! Obtuviste resultados muy buenos en el entrenamiento de tus modelos y realizaste el análisis adecuado a partir de los mismos</p>
-</div></section>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="paso-4-crear-clusteres-de-usuarios-as">
 <h1>Paso 4. Crear clústeres de usuarios/as<a class="headerlink" href="#paso-4-crear-clusteres-de-usuarios-as" title="Permalink to this heading">#</a></h1>
@@ -1415,10 +1403,7 @@ Name: Churn, dtype: float64
 </div>
 </div>
 </div>
-<div class="alert alert-block alert-success">
-<b>Comentario del revisor (1ra Iteracion)</b> <a class=“tocSkip”></a>
-<p>Bien hecho! Se nota claramente la segmentación entre los diferentes grupos ya que tienen un churn rate diferente</p>
-</div><p>La tasa de cancelación varía significativamente entre clústeres. El clúster 3 presenta una tasa de churn extremadamente alta (57%), caracterizada por bajo nivel de engagement. En contraste, los clústeres 1 y 2 muestran tasas de cancelación bajas, especialmente el clúster 2 (2%), cuyos usuarios presentan mayor frecuencia de asistencia, mayor lifetime y mayor gasto adicional. Esto confirma que el engagement es el principal factor asociado a la retención.</p>
+<p>La tasa de cancelación varía significativamente entre clústeres. El clúster 3 presenta una tasa de churn extremadamente alta (57%), caracterizada por bajo nivel de engagement. En contraste, los clústeres 1 y 2 muestran tasas de cancelación bajas, especialmente el clúster 2 (2%), cuyos usuarios presentan mayor frecuencia de asistencia, mayor lifetime y mayor gasto adicional. Esto confirma que el engagement es el principal factor asociado a la retención.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="paso-5-saca-conclusiones-y-haz-recomendaciones-basicas-sobre-el-trabajo-con-clientes">
 <h1>Paso 5. Saca conclusiones y haz recomendaciones básicas sobre el trabajo con clientes<a class="headerlink" href="#paso-5-saca-conclusiones-y-haz-recomendaciones-basicas-sobre-el-trabajo-con-clientes" title="Permalink to this heading">#</a></h1>
@@ -1442,12 +1427,7 @@ Diseñar estrategias que fomenten una mayor asistencia y uso del servicio, como 
 <li><p>Utilizar modelos predictivos como herramienta operativa
 Integrar los modelos de predicción de churn en los procesos del negocio para detectar usuarios con alto riesgo de cancelación y activar acciones preventivas de manera proactiva.</p></li>
 </ol>
-<div class="alert alert-block alert-success">
-<b>Comentario general (1ra Iteracion)</b> <a class=“tocSkip”></a>
-<p>Muy buen trabajo, manejaste muy bien los datos previo al entrenamiento de tus modelos y analizaste muy bien los resultados.</p>
-<p>Planteaste muy buenas conclusiones en base a los datos de tu análisis, un buen análisis siempre debe venir acompañado de recomendaciones que ayuden a la toma de decisiones que en este caso haz planteado sugerencias muy buenas en cuanto a los diferentes tipos de usuarios obtenidos.</p>
-<p>Saludos!</p>
-</div></section>
+</section>
 
     <script type="text/x-thebe-config">
     {
